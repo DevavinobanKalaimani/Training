@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
     
     <div class = container>
     <ul class = "items">
-    <li (click) = onSelect(team) *ngFor = "let team of teams">
+    <li class = list (click) = onSelect(team) *ngFor = "let team of teams">
     <span class = "badge"> {{team.name}} </span> 
     </li>
     </ul></div>
@@ -31,8 +31,7 @@ export class TeamListComponent implements OnInit {
 
   onSelect(team: any){
     this.router.navigate(['/team', team.id]);
-    // this.router.navigate(['/team', team.role]);
-    // this.router.navigate(['/team', team.company]);
+    
   }
 
 }
