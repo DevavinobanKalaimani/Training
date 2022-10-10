@@ -5,8 +5,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
   selector: 'app-team-id',
   template: `
     <h2 style = "text-align:center">You Selected {{teamId}}</h2>
-    <a (click) = "goPrevious()"> Previous </a>
-    <a (click) = "goNext()"> Next </a>
+    <p><button (click) = "goPrevious()"> Previous </button>
+    <button (click) = "goNext()"> Next </button></p>
     `,
   styleUrls: ['./team-id.component.css']
 })
