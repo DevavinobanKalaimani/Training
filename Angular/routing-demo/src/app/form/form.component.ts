@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollService } from '../enroll.service';
 import { User } from '../user';
 
 @Component({
@@ -9,10 +10,31 @@ import { User } from '../user';
 export class FormComponent implements OnInit {
 
   topics = ['Angular', 'React', 'NodeJS'];
+  topicHasError = true;
+  submitted = false;
 
-  userModel = new User('Deva', 'deva@gmail.com', 8899087607, '', 'Morning', true);
+  userModel = new User('', 'deva@gmail.com', 8899087600, 'default', 'Morning', true);
 
-  constructor() { }
+    validateSelect(value: any){
+      if(value === 'default'){
+        this.topicHasError = true;
+      }else{
+        this.topicHasError = false;
+      }
+
+    }
+
+      onSubmit(){
+        this.submitted = true;
+        this._enrollService.enroll(this.userModel)
+        .subscribe(
+          data => console.log('Success', data),
+          error => console.log('Error!', error))
+        
+        alert('Your Enrollment has been submitted')
+        
+      }
+  constructor(private _enrollService: EnrollService) { }
 
   ngOnInit(): void {
   }

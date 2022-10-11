@@ -1,31 +1,47 @@
 <div class = 'container-fluid'>
     <h1 style = 'text-align: center;'> Enrollment Form </h1>
-    <form #userForm = 'ngForm'>
-
-        {{userForm.value | json}}
-        <hr />
-        {{userModel | json}}
+    <form #userForm = 'ngForm' *ngIf="!submitted" (ngSubmit) = "onSubmit()" novalidate>
 
         <div class = 'form-group'>
             <label> Name </label>
-            <input type = 'text' class = 'form-control' name = 'username' [(ngModel)] = 'userModel.name'>
+            <input type = 'text' required #name = 'ngModel'
+                    [class.is-invalid] = "name.invalid && name.touched" class = 'form-control' 
+                     name = 'username' [(ngModel)] = 'userModel.name'>
+                <small style="color: brown"[class.d-none] = "name.valid || name.untouched"> Name is missing</small>
         </div>
 
         <div class = 'form-group'>
             <label> E-mail </label>
-            <input type = 'email' class = 'form-control' name = 'email' [(ngModel)] = 'userModel.email'>
+            <input type = 'email' #email= "ngModel" required 
+            class = 'form-control' name = 'email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
+            [class.is-invalid]="email.invalid  && email.touched"[(ngModel)] = 'userModel.email'>
+            
+        <div *ngIf="email.errors && (email.touched || email.invalid)">
+            <small style="color: brown" *ngIf="email.errors?.required"> Mail address is required </small>
+            <small style="color: brown" *ngIf="email.errors?.pattern">Please provide a valid email address </small>
+        </div>
         </div>
 
         <div class = 'form-group'>
             <label> Mobile.no </label>
-            <input type = 'tel' class = 'form-control' name = 'mobile' [(ngModel)] = 'userModel.mobile'>
+            <input type = 'tel' #phone='ngModel' pattern="^\d{10}$" required
+                    [class.is-invalid]="phone.invalid  && phone.touched" class = 'form-control' 
+                      name = 'mobile' [(ngModel)] = 'userModel.mobile'>
+
+        <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+            <small style="color: brown" *ngIf="phone.errors?.required"> Phone number is required</small>
+            <small style="color: brown" *ngIf="phone.errors?.pattern"> Phone number must be 10 digits</small>
         </div>
+    </div>
+       
 
         <div class = 'form-group'>
-            <select class = "custom-select" name = 'topic' [(ngModel)] = 'userModel.topic'>
-                <option value = ''>Select</option>
+            <select (blur)="validateSelect(select.value)" (change)="validateSelect(select.value)" class = "custom-select" #select="ngModel"
+            [class.is-invalid]="topicHasError && select.touched" name = 'topic' [(ngModel)] = 'userModel.topic'>
+                <option value = 'default'>Select</option>
                 <option *ngFor = 'let topic of topics'> {{topic}}</option>
             </select>
+            <small style="color: brown" [class.d-none]="!topicHasError || select.untouched">Please select a topic</small>
         </div>
 
         <div class = 'mb-3'>
@@ -45,6 +61,6 @@
             <label class = "form-check-label"> Send me an Offers</label>
         </div>
 
-        <button type = 'submit'> Submit </button>
+        <button class = "Btn" [disabled]="userForm.form.invalid || topicHasError" type = 'submit'> Submit </button>
     </form>
     </div>
