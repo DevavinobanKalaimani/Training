@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+  background-color: rgb(73, 78, 95);
+}
+
+.container {
+    margin: auto;
+    width: 30%;
+    border-radius: 5px;
+    padding: 20px;  
+    border-radius: 20px;
+    margin-top: 4%;
+    background-image: url('https://wallpapercave.com/wp/XBKkgan.jpg');
+    padding-right: 600px;
+    padding-left: 100px;
+    padding-bottom: 30px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  h2, label, small{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+.form-control{
+   color: white;
+    background-color: rgb(73, 78, 95);
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif;  
+  }
+
+  .btn{   
+    color: rgb(253, 251, 251);
+    font-size: 18px;
+    padding: 10px 40px;
+    position: relative;
+    left: 30px;
+    margin-top: 5%;
+    border:none;
+    border-radius: 50px;
+    background-color: rgb(32, 97, 172);
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .btn:hover{
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position:relative;
+    z-index: 1;
+}
+
+.Btn{   
+  color: rgb(253, 251, 251);
+  font-size: 18px;
+  padding: 10px 40px;
+  position: relative;
+  left:50px;
+  margin-top: 5%;
+  border:none;
+  border-radius: 50px;
+  background-color: rgb(73, 78, 95);
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.Btn:hover{
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position:relative;
+  z-index: 1;
+}
+
+.d-none{
+  display: none;
+}
+.is-invalid{
+  border-color: rgb(245, 7, 7);;
+  box-shadow:  0 0px 7px 0 rgb(243, 6, 6);;
+}
