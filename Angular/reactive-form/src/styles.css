@@ -6,11 +6,9 @@ body{
 
 .container {
     margin: auto;
-    width: 30%;
-    border-radius: 5px;
+    width: 25%;
     padding: 20px;  
-    border-radius: 20px;
-    margin-top: 4%;
+    margin-top: 5%;
     background-image: url('https://wallpapercave.com/wp/XBKkgan.jpg');
     padding-right: 600px;
     padding-left: 100px;
@@ -25,14 +23,14 @@ body{
   }
 
 .form-control{
-   color: white;
+    color: white;
     background-color: rgb(73, 78, 95);
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 1px;
     margin: 8px 0;
     display: inline-block;
     border: none;
-    border-radius: 10px;
+    border-radius: 40px;
     box-sizing: border-box; 
     font-family: 'Poppins', sans-serif;  
   }
@@ -42,7 +40,7 @@ body{
     font-size: 18px;
     padding: 10px 40px;
     position: relative;
-    left: 30px;
+    left: 5px;
     margin-top: 5%;
     border:none;
     border-radius: 50px;
@@ -63,7 +61,7 @@ body{
   font-size: 18px;
   padding: 10px 40px;
   position: relative;
-  left:50px;
+  left:20px;
   margin-top: 5%;
   border:none;
   border-radius: 50px;
@@ -86,3 +84,6 @@ body{
   border-color: rgb(245, 7, 7);;
   box-shadow:  0 0px 7px 0 rgb(243, 6, 6);;
 }
+
+
+

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder,Validators} from '@angular/forms';
+import { PasswordValidator } from './shared/password.validator';
 
 
 @Component({
@@ -9,7 +10,6 @@ import { FormBuilder,Validators} from '@angular/forms';
 })
 export class AppComponent {
  
-  
 
   get username(){
     return this.registrationForm.get('name');
@@ -29,6 +29,7 @@ export class AppComponent {
   
   onSubmit(){
     console.log(this.registrationForm.value);
+    alert('Your registration has been successfully completed')
     
   }
 
@@ -39,12 +40,12 @@ export class AppComponent {
     name : ['', [Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]],
     email: ['', [Validators.required,Validators.email]],
     mobile: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
-    age: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-    password: [''],
-    confirmPassword: ['']
-  });
+    age: ['', [Validators.required, Validators.min(18), Validators.max(60)]],
+    password: ['', [Validators.required]],
+    confirmPassword: ['', [Validators.required]]
+  }, {validator: PasswordValidator});
 
-  // registrationForm = new FormGroup({
+  // // registrationForm = new FormGroup({
 
   //   name:            new FormControl(''),
   //   email:           new FormControl(''),
@@ -58,15 +59,23 @@ export class AppComponent {
   
  loadApiData(){
   this.registrationForm.patchValue({
-    name: '',
+    name: 'Deva',
     email: 'deva@gmail.com',
     mobile: '0123456789',
-    age: '0',
-    password: 'test',
-    confirmPassword: 'test'
+    age: '21',
+    password: '',
+    confirmPassword: ''
   })
  }
- } 
+reset(){
+  // this.registrationForm.reset();
+  window.location.reload();
+    
+  }
+}
+
+
+  
 
 
 

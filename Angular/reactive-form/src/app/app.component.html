@@ -1,8 +1,10 @@
 <div class = 'container'>
-  <h2 style = 'text-align: center; font-size: 30px'>Register here</h2>
+  
+  <h2 style = 'text-align: center; font-size: 30px'>Register <span style="color:rgb(37, 136, 248)">Here</span></h2>
   
 
-  <form [formGroup] = 'registrationForm' (ngSubmit)="onSubmit()">
+  <form [formGroup] = 'registrationForm' (ngSubmit)="onSubmit()" > 
+    
     <div class = 'form-group'>
       <label> Name </label>
       <input   [class.is-invalid]="username.invalid && username.touched" 
@@ -29,7 +31,7 @@
     
 
     <div class = 'form-group'>
-      <label> Mobile.no </label>
+      <label> Mobile </label>
       <input [class.is-invalid]="mobile.invalid &&  mobile.touched" formControlName="mobile" type = 'tel' class = 'form-control'>
       <div *ngIf="mobile.invalid && mobile.touched">
         <small *ngIf="mobile.errors?.['required']" style="color:red;">number is required</small>
@@ -44,9 +46,8 @@
       <input [class.is-invalid]="age.invalid &&  age.touched" formControlName="age" type = 'number' class = 'form-control'>
       <div *ngIf="age.invalid && age.touched">
         <small *ngIf="age.errors?.['required']" style="color:red;">age is required</small>
-        <small *ngIf="age.errors?.['pattern']" style="color:red;">invalid</small>
-        <small *ngIf="age.errors?.['minLength']" style="color:red;">invalid</small>
-        <small *ngIf="age.errors?.['maxLength']" style="color:red;">invalid</small>
+        <small *ngIf="age.errors?.['min']" style="color:red;">age must be in 18-60</small>
+        <small *ngIf="age.errors?.['max']" style="color:red;">age must be in 18-60</small>
       </div>
     </div>
   
@@ -58,10 +59,14 @@
 
     <div class = 'form-group'>
       <label> Confirm Password </label>
-      <input formControlName="confirmPassword" type = 'password' class = 'form-control'>
+      <input [class.is-invalid]="registrationForm.errors?.['misMatch']" formControlName="confirmPassword" type = 'password' class = 'form-control'>
+         <small *ngIf="registrationForm.errors?.['misMatch']" style="color:red;">password doesn't match</small>
     </div> 
 
-    <button class = 'btn' type = 'submit'> Register </button>
-    <button (click)="loadApiData()" class = 'Btn' type = 'button'> Default </button>
+    <button (click)="reset()" class = 'btn' type = 'submit'> Register </button>
+    <button (click)="loadApiData()" class = 'Btn' type = 'button' > Default </button>
   </form>
 </div>
+
+
+<router-outlet></router-outlet>
