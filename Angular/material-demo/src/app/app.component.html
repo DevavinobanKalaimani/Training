@@ -1,1 +1,86 @@
-<button mat-raised-button>Deva</button>
+<mat-toolbar class="toolbar">
+    <button mat-icon-button  class="icon">
+      <mat-icon >menu</mat-icon>
+    </button>
+    <span>Demo</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="icon" >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="icon">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-chip-list class="mat-chi">
+    <mat-chip >
+      <img matChipAvatar src="https://wallpapercave.com/dwp1x/Xi3z1EN.jpg" />
+      img1
+    </mat-chip >
+    <mat-chip>
+      <img matChipAvatar src="https://wallpapercave.com/dwp1x/5xkqDWD.jpg" />
+     img2
+    </mat-chip>
+    <mat-chip >
+      <img matChipAvatar src="https://wallpapercave.com/dwp1x/BQ6IevO.jpg" />
+      img3
+    </mat-chip>
+  </mat-chip-list>
+
+
+  <mat-form-field class="search-form">
+    <input matInput placeholder="Search Picture" type="text">
+  </mat-form-field>
+  <button class="btn" type="submit" mat-raised-button>Search</button>
+  
+  <mat-accordion >
+    <mat-expansion-panel hideToggle class="expansion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Expand to know more
+        </mat-panel-title>
+        <mat-panel-description>
+          Summary of the content
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Unity and Interconnectedness!</p>
+    </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="div-card" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10" fxLayout="center">
+      <mat-card fxFlex="80%" class="card-img" *ngFor="let picture of pictures">
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column" >
+              <span fxFlex="80%">{{picture.title}}</span>
+              <mat-icon fxFlex="10%">delete</mat-icon>
+          </mat-card-title>
+          <img mat-card-image [src]="picture.img" />
+          <mat-card-content >
+            <span fxFlex="80%">{{picture.content}}</span>
+          </mat-card-content>
+          <mat-card-actions>
+            <div>
+              <button class="btn" mat-raised-button matBadge="223" [matBadgeHidden]="hidden" >LIKE</button>
+              <button class="btn" mat-raised-button matBadge="96" [matBadgeHidden]="hidden" >SHARE</button>
+            </div>
+          </mat-card-actions>
+      </mat-card>
+    </div>
+
+  <div class="div-card" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10" fxLayout="center">
+    <mat-card fxFlex="80%" class="card-img" *ngFor="let image of images">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column" >
+            <span fxFlex="80%">{{image.title}}</span>
+            <mat-icon fxFlex="10%">delete</mat-icon>
+        </mat-card-title>
+        <img mat-card-image [src]="image.img" />
+        <mat-card-content >
+          <span fxFlex="80%">{{image.content}}</span>
+        </mat-card-content>
+        <mat-card-actions>
+          <div>
+          <button class="btn" mat-raised-button matBadge="123" [matBadgeHidden]="hidden" >LIKE</button>
+          <button class="btn" mat-raised-button matBadge="87" [matBadgeHidden]="hidden" >SHARE</button>
+        </div>
+        </mat-card-actions>
+    </mat-card>
+  </div>
