@@ -1,0 +1,19 @@
+
+<div class="child">
+  <div class="child">
+    <h1>{{name}} component</h1>
+    <h2>{{messageFromChildren}}</h2>
+    
+    <div>
+      <button class="btn" (click)="sendDataToChild();">To Child</button><br>
+      <button class="btn" (click)="sendDataToSibling();">To Sibling</button>
+    </div>
+  </div>
+
+  <div>
+    <app-child (childEventForParent)="messageFromChildren=$event" (childEventForChild)="messageFromChild1=$event" [parentData]="nameToChild1" [childData]="msgFromChild2">
+    </app-child>
+    <app-sibling (childEventforParent)="messageFromChildren=$event" (childEventforChild)="msgFromChild2=$event" [parentData]="nameToChild2" [childData]="messageFromChild1">
+    </app-sibling>
+  </div>
+</div>

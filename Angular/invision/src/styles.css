@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+body{
+  height: 1138px;
+  width: 1300px;
+  background: linear-gradient(52.03deg, #7A7FC8 0%, #BD385B 100%)}
+
+nav{
+   height: 100px;
+   width: 121%;
+   opacity: 0.98;
+   background-color: #FFFFFF;
+   box-shadow: 0 1px 12px 0 rgba(0,0,0,0.14);
+   float: left;
+}
+
+
+img{
+    height: 54px;
+    width: 280px;
+    margin-left: 130px;
+}
+.form-container{
+    height: 385px;
+  width: 535px;
+  box-shadow: 0 0 11px 0 rgba(0,0,0,0.2)
+}

@@ -1,0 +1,29 @@
+You can add global styles to this file, and also import other style files
+
+.parent{
+   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.child{
+    overflow: hidden;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+    margin-top: 2%;
+    margin-left: 25%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+  .btn{
+   margin-left: 10px;
+   background-color: #4CAF50; 
+   border: none;
+   color: white;
+   padding: 20px 22px;
+   margin-bottom:10px;
+   text-align: center;
+   display: inline-block;
+   font-size: 16px;
+ 
+  }
