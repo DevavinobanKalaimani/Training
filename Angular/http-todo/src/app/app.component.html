@@ -1,0 +1,24 @@
+<div id="navBar">
+  <h2> ToDo App</h2>
+
+<div class = 'container'>
+  <button id="btn" *ngIf="!showAdd && !todo" (click)="add()">Add</button>
+  <button id="btn" *ngIf="showAdd || todo" (click)="back()">Back</button>
+  <button id="btn"  *ngIf="!todos" (click)="getData()">ToDo'S</button>
+      {{message}}
+</div>
+
+<div class="todo-container" *ngIf="!showAdd && !todo; else todoTemplate">
+  <div *ngFor="let todo of todos">
+    <div (click)="openTodo(todo)">{{todo.title}}</div>
+  </div>
+</div>
+
+<ng-template #todoTemplate>
+  <div class="temp-container">
+    <input type="text" [(ngModel)]="todo.title" />
+    <button id="Btn"  *ngIf="todo.id" (click)="delete()">Delete</button>
+    <button id="Btn"  (click)="save()">Save</button>
+  </div>
+</ng-template>
+</div>

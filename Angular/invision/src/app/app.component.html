@@ -1,11 +1,24 @@
-<nav id="navBar">
-  <img src="assets/download.png">
-</nav>
+<div class="whole-Container">
+  <nav id="navBar">
+   <img src="assets/download.png">
+  </nav>
 
 <div class="container">
-  <div class="form-container">
-    <h3>login</h3>
-    <input type="text" placeholder="username" />
-    <input type="password" placeholder="password" />
-  </div>
+    <h3>Login</h3>
+    <div class="form-container">
+    <input type="text" placeholder="Enter Username" />
+    </div>
+
+    <div class="form-container">
+    <input type="password" placeholder="Enter Password" />
+    </div>
+   <div class="form-container">
+    <button class="btn" type = "submit">Login</button><br />
+    </div>
+    <div class="forms-container">
+    <a href="#" routerLink = '/form' routerLinkActive = 'active'>Forgot Password?</a>
+    </div>
 </div>
+</div>
+
+<router-outlet></router-outlet>
