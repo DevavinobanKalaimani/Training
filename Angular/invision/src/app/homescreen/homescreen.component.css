@@ -1,0 +1,162 @@
+p, .profile, .btn, .Btn{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container{
+  height: 1025px;
+  width: 1440px;
+  background-color: #F7F7F7;
+}
+
+.navBar{
+  height: 100px;
+  width: 1440px;
+  opacity: 0.98;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 12px 0 rgba(0,0,0,0.14);
+}
+
+.robo{
+  height: 54px;
+  width: 280px;
+  margin-left: 130px;
+  margin-top: 18px;
+}
+.pro{
+  margin-top: -3%;
+}
+
+.cap{
+  margin-bottom: 12px;
+  margin-left:1245px;
+  height: 44px;
+  width: 44px;
+  border-radius:50%;
+  border: 3px solid #D92756;
+}
+
+.profile{
+    margin-top: -4%;
+    margin-left: 1175px;
+    font-size: 23px;
+}
+
+.questionnaire{
+    height: 476px;
+    width: 280px;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+    margin-left: 130px;
+    box-shadow: 0 4px 40px 0 rgba(217,39,86,0.08);
+}
+
+.p-top{
+    font-size: 26px;
+    height: 56px;
+    width: 161px;
+    margin-left: 20px;
+    padding-top: 18px;
+    margin-top: 6%;
+}
+.btn{
+    margin-left: 20px;
+    width: 240px;
+    height: 48px;
+    background-color: #D92756;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 11px 0 rgba(238, 131, 131, 0.911);
+}
+.buttons{
+    margin-top: 50px;
+}
+.Btn{
+    margin: 8px;
+    margin-left: 20px;
+    width: 240px;
+    height: 48px;
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 20px;
+    border-radius: 24px;
+    text-align:left;
+    
+}
+.buttons :hover{
+  background-color: #FDF4F6;
+}
+
+.main{
+  height: 952px;
+  width: 880px;
+  border-radius: 20px;
+  background-color: white;
+  margin-left: 430px;
+  margin-top: -33%;
+}
+.form{
+  height: 915px;
+  width: 580px;
+  background-color: white;
+  margin-left: 450px;
+  margin-top:-369px;
+  border-radius: 20px;
+}
+.actions{
+  height: 351px;
+  width: 230px;
+  background-color: white;
+  margin-left: 1060px;
+  margin-top: -925px;
+  border-radius: 20px;
+
+}
+
+.formfield{
+  height: 84px;
+  width: 580px;
+  border-radius: 4px;
+  background-color: white;
+}
+.action {
+  height: 350px;
+  width: 2px;
+  border-radius: 1px;
+  background-color: #D92756;
+  margin-left:1060px;
+  margin-top:-350px;
+}
+.formfield1{
+  padding-top: 20px;
+  height: 102px;
+  width: 580px;
+  border-radius: 4px;
+  background-color: white;
+
+}
+
+.formfield2{
+  width: 278px;
+  height: 84px;
+  padding-top: 30px;
+}
+.check{
+  padding-top: 30px;
+  width: 580px;
+}
+
+.BTN{
+    margin: 8px;
+    margin-left: 20px;
+    width: 200px;
+    height: 48px;
+    background-color: #FDF4F6;
+    border: none;
+    color: #D92756;
+    font-size: 20px;
+    border-radius: 24px;
+    text-align: left;
+}

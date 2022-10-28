@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder,Validators} from '@angular/forms';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { PasswordValidator } from './shared/password.validator';
-
+import { SessionStorage } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,9 @@ import { PasswordValidator } from './shared/password.validator';
 })
 export class AppComponent {
  
-
+  user: any={};
+  users: any=[];
+  
   get username(){
     return this.registrationForm.get('name');
   }
@@ -26,35 +29,59 @@ export class AppComponent {
   get age(){
     return this.registrationForm.get('age');
   }
+
   
   onSubmit(){
     console.log(this.registrationForm.value);
-    alert('Your registration has been successfully completed')
-    
+    this.user = Object.assign(this.user, this.registrationForm.value);
+    this.addUser(this.user);
+    this.setSessionStorage(this.user);
+    this.registrationForm.reset();
+  }
+
+  addUser(user: any){
+
+    if(localStorage.getItem('Users')){
+      this.users = JSON.parse(localStorage.getItem('Users')as any);
+      this.users = [...this.users, user];
+    }else{
+      this.users = [user];
+    }
+    localStorage.setItem('Users', JSON.stringify(this.users));
+  }
+
+  removeUser(){
+    localStorage.clear();
+  }
+
+  setSessionStorage(user: any){
+   
+    if(sessionStorage.getItem('Users')){
+      this.users = JSON.parse(localStorage.getItem('Users')as any);
+      this.users = [...this.users, this.user];
+    }else{
+      this.users = [this.user];
+    }
+    sessionStorage.setItem('Users', JSON.stringify(this.users));
+  }
+  delSessionStorage(){
+    sessionStorage.clear();
   }
 
 
-  constructor(private fb: FormBuilder){}
+
+
+  constructor(private fb: FormBuilder, private localst: LocalStorageService, private sessionst: SessionStorageService){}
 
   registrationForm = this.fb.group({
     name : ['', [Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]],
-    email: ['', [Validators.required,Validators.email]],
-    mobile: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
+    // email: ['', [Validators.required,Validators.email]],
+    // mobile: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
     age: ['', [Validators.required, Validators.min(18), Validators.max(60)]],
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]]
   }, {validator: PasswordValidator});
 
-  // // registrationForm = new FormGroup({
-
-  //   name:            new FormControl(''),
-  //   email:           new FormControl(''),
-  //   mobile:          new FormControl(''),
-  //   age:             new FormControl(''),
-  //   password:        new FormControl(''),
-  //   confirmPassword: new FormControl('')
-
-  // })
   title: any;
   
  loadApiData(){
@@ -67,11 +94,9 @@ export class AppComponent {
     confirmPassword: ''
   })
  }
-reset(){
-  // this.registrationForm.reset();
-  window.location.reload();
-    
-  }
+
+
+
 }
 
 
