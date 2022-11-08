@@ -1,0 +1,52 @@
+<div class="weather-container">
+
+    <div class="weather-header">
+        <div class="weather-logo">
+            <img src="assets/logo_web.png" />
+        </div>
+
+        <div class="weather-search">
+            <input type="text" placeholder="Search City" ><i class="fa fa-search"></i>
+            
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a class="tag1" routerLink="/home" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'">HOME</a>
+        <a class="tag2" routerLink="/favourite" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'">FAVOURITE</a>
+        <a class="tag3" routerLink="/recentsearch" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'">RECENT SEARCH</a>
+
+        <div class="div-date">
+            <p> {{today | date: 'EEE, d MMM y &nbsp; h:mm:ss a'}}</p>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- <div class="not-found" [class.found]="found">
+        <img src="assets/icon_nothing.png">
+        <p>No Favourites added</p>
+    </div> -->
+
+    <div class="options">
+        <p class="options-p"> 6 City added as favourite</p>
+        <a class="options-a">Remove All</a>
+    </div>
+
+    <div class="grid-table">
+        <div class="grid-table-1">
+            Udupi, Karnataka
+            <div class="icon">
+                <img src="assets/icon_mostly_sunny.png">
+                <h2>31</h2> <h3>&#176;C</h3>
+                <p>Mostly Sunny</p>
+            </div>
+        </div>
+        <div class="grid-table-2"></div>
+        <div class="grid-table-3"></div>
+        <div class="grid-table-4"></div>
+        <div class="grid-table-5"></div>
+        <div class="grid-table-6"></div>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h1>Encryption & Decryption</h1>
+
+<div class="mb-3">
+
+  <label>Data to be Encrypt</label>
+  <input type="text" [(ngModel)]="message" class="form-control" />
+
+  <label>Key</label>
+  <input type="password" [(ngModel)]="password" class="form-control" />
+
+  <button class="btn btn-primary mb-3" type="button" (click)="encrypt()">Encrypt</button>
+  <h2>Cipher Text: {{encryptedMessage}}</h2>
+</div>
+
+<div class="mb-3">
+
+  <label>Enter encrypted data</label>
+  <input type="text" [(ngModel)]="encryptedMessage" class=form-control/>
+
+  <label>Key</label>
+  <input type="password"  class="form-control" />
+
+
+  <button class="btn btn-primary mb-3" type="button" (click)="decrypt()">Decrypt</button>
+  <h2>Plain Text: {{decryptedMessage}}</h2>
+</div>
+</div>

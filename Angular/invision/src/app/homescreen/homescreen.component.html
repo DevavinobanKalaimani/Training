@@ -1,93 +1,162 @@
-<div class = "container">
-    <nav class="navBar">
-        <img class="robo" src="assets/download.png" />  
-        <div class="pro"> 
-            <img class="cap" src="assets/images.jpeg" />
-            <p class="profile">Steve</p>    
-            </div>       
-    </nav>
+<div class="container">
+  <nav class="navBar">
+    <img class="robo" src="assets/download.png" />
+    <div class="pro">
+      <img class="cap" src="assets/images.jpeg" />
+      <p class="profile">Steve</p>
+    </div>
+    
+  </nav>
 
-    <div class="questionnaire">
-        <div class="top">
-            <p class="p-top">Your </p>
-            <p style="margin-top:-17%;" class="p-top">Questionnaires</p>
-            <button class="btn">New Questionnaire</button>
+  <div class="questionnaire">
+    <div class="top">
+      <p class="p-top">Your </p>
+      <p style="margin-top:-17%;" class="p-top">Questionnaires</p>
+      <button class="btn">New Questionnaire</button>
+    </div>
+
+    <div class="buttons">
+      <button class="Btn">Secure coding Guidelines</button>
+      <button class="Btn">ISMS Questionnaire</button>
+      <button class="Btn">PA Questionnaire</button>
+      <button class="Btn">Process Questionnaire</button>
+    </div>
+
+  </div>
+
+  <div class="main">
+
+  </div>
+  <div class="actions">
+    <div class="button">
+      <button class="BTN"> <i class="fa fa-save" aria-hidden="true"></i> &nbsp; Save </button>
+      <button class="BTN"> <i class="fa fa-eye" aria-hidden="true"></i> &nbsp; Preview</button>
+      <button class="BTN"> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Publish</button>
+      <button class="BTN"> <i class="fa fa-bell" aria-hidden="true"></i> &nbsp; Remind</button>
+      <button class="BTN"> <i class="fa fa-sticky-note-o" aria-hidden="true"></i>&nbsp; &nbsp;Generate Report</button>
+    </div>
+
+
+    <div class="add">
+      <div class="opt-container" *ngIf="variable" [class.options]="variable">
+        <div class="topp">
+          <div class="optbuton">
+            <button class="opt" routerLink='/update' routerLinkActive='active'>Change Password</button>
+          </div>
+          <div class="optbuton">
+            <button class="opt" (click)="superAdmin()">Add/Remove Super Admins</button>
+          </div>
+          <div class="optbuton">
+            <button class="opt" (click)="admin()">Add/Remove Admins</button>
+          </div>
         </div>
-
-        <div class="buttons">
-            <button class="Btn">Secure coding Guidelines</button>
-            <button class="Btn">ISMS Questionnaire</button>
-            <button class="Btn">PA Questionnaire</button>
-            <button class="Btn">Process Questionnaire</button>
-        </div>
-
+      </div>
+      <div class="plus">
+        <button mat-fab (click)="onClick()">
+          <div *ngIf="symbol; then tick; else cross"></div>
+          <ng-template #tick>
+            <mat-icon>add</mat-icon>
+          </ng-template>
+          <ng-template #cross>
+            <mat-icon>close</mat-icon>
+          </ng-template>
+        </button>
+      </div>
     </div>
 
-    <div class="main">
-       
-    </div>
-    <div class="actions">
-        <div class="button">
-            <button class="BTN">Save</button>
-            <button class="BTN">Preview</button>
-            <button class="BTN">Publish</button>
-            <button class="BTN">Remind</button>
-            <button class="BTN">Generate Report</button>
-        </div>    
+  </div>
+  <div class="action">
 
-    </div>
-    <div class="action">
-            
-    </div>
-    <div class="form">
-    <div class="form1">
-        <p style="font-size: 22px">Questionnaire</p>
+  </div>
+  <div class="form">
 
-        <div class="formfield">
-        <mat-form-field class="formfield" appearance="outline">
-            <mat-label>Enter Title</mat-label>
-            <input matInput placeholder="Secure coding Guidelines">
-            <mat-hint>Please enter appropriate title</mat-hint>
-          </mat-form-field>
-        </div>
+    <p style="font-size: 22px">Questionnaire</p>
 
-        <div class="formfield">
-            <mat-form-field class="formfield1" appearance="outline">
-                <mat-label>Description</mat-label>
-                <input matInput placeholder="">
-              </mat-form-field>
-        </div>
-
-        <div class="formfield1">
-            <mat-form-field class="formfield2" appearance="outline">
-                <mat-label>Button Title</mat-label>
-                <input matInput placeholder="">
-              </mat-form-field>
-
-              <mat-form-field style="margin-left:4%;" class="formfield2" appearance="outline">
-                <mat-label>Button Text</mat-label>
-                <input matInput placeholder="">
-              </mat-form-field>
-        </div>
-
-        <div class="formfield">
-            <mat-form-field class="check" appearance="outline">
-                <mat-label>Check box text</mat-label>
-                <input matInput placeholder="">
-                
-              </mat-form-field>
-        </div>
-     
-    </div>
+    <div class="formfield">
+      <mat-form-field class="formfield" appearance="outline">
+        <mat-label>Enter Title</mat-label>
+        <input matInput placeholder="Secure coding Guidelines">
+        <mat-hint>Please enter appropriate title</mat-hint>
+      </mat-form-field>
     </div>
 
-    <div class="form2" >
-        <p style="font-size: 22px; padding-top: 37px;">Additional Details</p>
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Select start date</mat-label>
-            <input matInput [matDatepicker]="datepicker">
-            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-            <mat-datepicker #datepicker></mat-datepicker>
-        </mat-form-field> -->
+    <div class="formfield">
+      <mat-form-field class="formfield1" appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
     </div>
+
+    <div class="formfield1">
+      <mat-form-field class="formfield2" appearance="outline">
+        <mat-label>Button Title</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+
+      <mat-form-field style="margin-left:4%;" class="formfield2" appearance="outline">
+        <mat-label>Button Text</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div class="formfield">
+      <mat-form-field class="check" appearance="outline">
+        <mat-label>Check box text</mat-label>
+        <input matInput placeholder="">
+
+      </mat-form-field>
+    </div>
+
+
+    <p style="font-size: 22px; padding-top: 37px;">Additional Details</p>
+
+    <div class="date">
+      <mat-form-field class="date" appearance="outline">
+        <mat-label>Select start date <i class="fa fa-calendar"
+            style="color:#D92756; margin-left:50px; font-size:20px;"></i></mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+
+      <mat-form-field class="date" appearance="outline">
+        <mat-label>Select end date <i class="fa fa-calendar"
+            style="color:#D92756; margin-left:60px; font-size:20px;"></i></mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+
+      <mat-form-field class="date" appearance="outline">
+        <mat-label>Auto Reminder</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div class="formfield1">
+      <mat-form-field class="formfield2" appearance="outline">
+        <mat-label>Select Content ppt file <i class="fa fa-upload" aria-hidden="true"
+            style="color:#D92756; margin-left:80px; font-size:20px;"></i></mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+
+      <mat-form-field style="margin-left:4%;" class="formfield2" appearance="outline">
+        <mat-label>Select participant xl sheet <i class="fa fa-upload" aria-hidden="true"
+            style="color:#D92756; margin-left:60px; font-size:20px;"></i></mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </div>
+
+
+    <div class="formfield1">
+      <mat-form-field class="formfield1" appearance="outline">
+        <mat-label>Mail Body</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </div>
+
+
+
+  </div>
+
+  <footer class="foot">
+    <p>Robosoft. Copyright &copy; 2020. All rights reserved</p>
+  </footer>
+
 </div>

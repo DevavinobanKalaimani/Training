@@ -1,0 +1,316 @@
+/* Header */
+.weather-container{
+    height:688px;
+    width: 1200px;
+    background-image: url('src/assets/background.png');
+}
+.weather-header{
+    display: flex;
+    position: relative;
+    top: 45px;
+}
+.weather-logo{
+    margin-left: 121px;
+    height: 30px;
+    width: 142px;
+}
+.fa-search{
+    font-size: 18px;
+    margin-top: 8px;
+    margin-left: 800px;  
+    color: #fffefe; 
+}
+
+input[type=text]{
+    position: absolute;
+    padding-left: 1%;
+    margin-top: -6px;
+    margin-left: 380px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #fcf9f9;
+    box-sizing: border-box;
+    height: 45px;
+    width: 458px;
+    border: 0px solid #FFFFFF;
+    border-radius: 3px;
+    background-color: rgba(218, 218, 218, 0.2);
+    
+}
+::placeholder{
+    color: white;
+}
+input[type=text]:focus{
+    outline: none;
+}
+
+/* NavBar */
+.navbar{
+    display: flex;
+    margin-top: 100px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+.navbar a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.tag1{
+    
+    margin-left: 140px; 
+}
+
+
+.tag2, .tag3{
+    margin-left: 43px; 
+}
+.tag1:focus, .tag2:focus, .tag3:focus{
+    border-bottom: #FFD639 0.205em solid;  
+}
+
+.div-date{
+    margin-left: 450px;
+    margin-top: -1.3%;
+}
+.line-1{
+    box-sizing: border-box;
+    height: 1px;
+    width: 970px;
+    border: 1px solid #FFFFFF;
+    opacity: 0.3;
+    margin-left: 121px;
+    margin-top: -2px;
+}
+
+/* body */
+.container{
+    position: absolute;
+    top: 185px;
+    left: 145px;
+}
+.container-text{
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+.fav{
+    display: flex;
+}
+.fav p{
+    color: white;
+    font-family: Roboto;
+    margin-left: 8px;
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.fa-heart-o{  
+    color: white;
+    margin-left: 2px;
+    font-size: 18px;
+}
+.icon{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 115px;
+}
+.cel-fah{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 44px;
+    margin-top: -4%;
+}
+.cel-fah-1{
+    display: flex;
+    margin-top: 7.8%;
+    margin-left: 12px;
+}
+.celsius{
+    font-family: Roboto;
+    font-size: 16px;
+    color: white;
+    padding-right:10%;
+    margin-bottom: 220%;
+    border: 2px solid white;
+}
+.fahreheit{
+    font-family: Roboto;
+    font-size: 16px;
+    color: red;
+    padding-right:10%;
+    margin-bottom: 220%;
+    background-color: white;
+    border: 2px solid white;
+}
+.climate{
+    margin-top: 130px;
+    margin-left: -10.5%;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 400;
+}
+/*footer*/
+.line-2{
+    position: relative;
+    box-sizing: border-box;
+    height: 1px;
+    width: 970px;
+    border: 1px solid white;
+    opacity: 0.3;
+    margin-left: 121px;
+    margin-top: 40px;
+}
+
+.footer{
+    display: flex;
+    position: absolute;
+    top: 591px;
+}
+.min-max{
+    position: relative;
+    margin-left: 200px;
+}
+.h4-minmax{
+    margin-left: 32px;
+    margin-top: -36px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    
+}
+.degree-minmax{
+    margin-left: 30px;
+    margin-top: -15px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+/**/
+.precipitation{
+    position: relative;
+    margin-left: 50px;
+}
+.h4-pre{
+    margin-left: 40px;
+    margin-top: -32px;
+    color: #FFFFFF;
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    
+}
+.degree-pre{
+    margin-left: 40px;
+    margin-top: -16px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+
+/**/
+.humidity{
+    position: relative;
+    left: 50px;
+}
+.h4-humidity{
+    margin-left: 35px;
+    margin-top: -32px;
+    color: #FFFFFF;
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    
+}
+.degree-humidity{
+    margin-left: 35px;
+    margin-top: -16px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+/**/
+.wind{
+    position: relative;
+    left: 105px;
+}
+.h4-wind{
+    margin-left: 44px;
+    margin-top: -26px;
+    color: #FFFFFF;
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+.degree-wind{
+    margin-left: 42px;
+    margin-top: -17px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+/**/
+.visibility{
+    position: relative;
+    left: 150px;
+}
+.h4-visibility{
+    margin-left: 47px;
+    margin-top: -24px;
+    color: #FFFFFF;
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+.degree-visibility{
+    margin-left: 47px;
+    margin-top: -17px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+
+/*Animation*/
+/* .container-text, .icon, .fa-heart-o, .min-max, .precipitation, .humidity, .wind, .visibility{
+    animation-duration: 1.5s;
+    animation-name: slidein;
+    animation-iteration-count:initial;
+
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  } */

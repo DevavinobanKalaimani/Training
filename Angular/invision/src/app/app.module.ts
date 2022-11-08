@@ -6,14 +6,21 @@ import { AppComponent } from './app.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { SuperadminComponent } from './superadmin/superadmin.component';
+import { AdminComponent } from './admin/admin.component';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponent,
-    HomescreenComponent
+    HomescreenComponent,
+    UpdatepasswordComponent,
+    SuperadminComponent,
+    AdminComponent,   
   ],
   imports: [
     BrowserModule,
@@ -22,7 +29,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path:'', redirectTo: '/login', pathMatch:'full'}
     ]),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

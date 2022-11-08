@@ -75,8 +75,8 @@ export class AppComponent {
 
   registrationForm = this.fb.group({
     name : ['', [Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]],
-    // email: ['', [Validators.required,Validators.email]],
-    // mobile: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
+    email: ['', [Validators.required,Validators.email]],
+    mobile: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
     age: ['', [Validators.required, Validators.min(18), Validators.max(60)]],
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]]

@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Deva",
+      "password": "666"
+    },
+    {
+      "id": 1,
+      "name": "sathya",
+      "password": "888"
+    }
+  ],
+  "login": [
+    {}
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

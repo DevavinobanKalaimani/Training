@@ -24,8 +24,8 @@ p, .profile, .btn, .Btn{
 }
 .pro{
   margin-top: -3%;
-}
 
+}
 .cap{
   margin-bottom: 12px;
   margin-left:1245px;
@@ -36,7 +36,7 @@ p, .profile, .btn, .Btn{
 }
 
 .profile{
-    margin-top: -4%;
+    margin-top: -3.2%;
     margin-left: 1175px;
     font-size: 23px;
 }
@@ -159,4 +159,54 @@ p, .profile, .btn, .Btn{
     font-size: 20px;
     border-radius: 24px;
     text-align: left;
+    
 }
+.date{
+  width: 180px;
+  height: 56px;
+  display: flex;
+  gap: 30px;
+  border-radius: 4px;
+}
+
+.foot{
+ font-size: 20px;
+ color: gray;
+ text-align: center;
+ background-color: #FDF4F6; ;
+}
+
+.add{
+  font-size: 40px;
+  background-color: #D92756;
+  margin-left: 800px;
+  margin-top:50px;
+}
+.topp {
+  Width:195px;
+ Height:136px;
+ position: absolute;
+}
+
+.add{
+  position:relative;
+  margin-left: 10%;
+  margin-top: 395px;
+}
+
+.opt{
+  color:#D92756;;
+  font-size: 14px;
+  background-color: #FDF4F6;
+  border:none;
+  border-radius:50px;
+  margin-top:15.4px;
+  height: 45px;
+  width: 195px;
+}
+
+.plus{
+  margin-left:187px;
+  position:absolute;
+}
+

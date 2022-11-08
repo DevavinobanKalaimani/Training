@@ -1,0 +1,17 @@
+.container{
+    padding: 2% 2% 2% 2%;
+    width:30%;
+    margin-top: 13%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: scroll;
+    
+}
+.btn{
+    margin-top: 2%;
+}
+h1{
+    text-align: center;
+}
+.form-control{
+    width: 50%;
+}

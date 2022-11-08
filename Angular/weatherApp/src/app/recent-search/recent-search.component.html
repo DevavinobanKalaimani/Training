@@ -1,0 +1,33 @@
+<div class="weather-container">
+
+    <div class="weather-header">
+        <div class="weather-logo">
+            <img src="assets/logo_web.png" />
+        </div>
+
+        <div class="weather-search">
+            <input type="text" placeholder="Search City" ><i class="fa fa-search"></i>
+            
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a class="tag1" routerLink="/home" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'">HOME</a>
+        <a class="tag2" routerLink="/favourite" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'">FAVOURITE</a>
+        <a class="tag3" routerLink="/recentsearch" onmouseover="this.style.color = 'yellow'" onmouseout="this.style.color = 'white'">RECENT SEARCH</a>
+
+        <div class="div-date">
+            <p> {{today | date:'EEE, d MMM y &nbsp; h:mm:ss a'}}</p>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="not-found" >
+        <img src="assets/icon_nothing.png">
+        <p>No Recent Search</p>
+    </div>
+
+    
+
+</div>

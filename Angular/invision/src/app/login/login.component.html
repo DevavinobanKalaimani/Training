@@ -1,22 +1,44 @@
 <div class="whole-Container">
-    <nav id="navBar">
-     <img src="assets/download.png">
-    </nav>
-  
+  <nav id="navBar">
+    <img src="assets/download.png">
+  </nav>
+
+
+
   <div class="container">
-      <h3>Login</h3>
+
+    <h3>Login</h3>
+
+    <form [formGroup]="loginForm"  >
+
       <div class="form-container">
-      <input type="text" placeholder="Enter Username" />
+        <mat-form-field  class="formfield1" appearance="outline">
+          <mat-label>Enter username</mat-label>
+          <input matInput formControlName="name" type="text">
+        </mat-form-field>
       </div>
-  
+      <div *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched">
+        <small *ngIf="loginForm.get('name')?.errors?.['required']" style="color:red;">Name is required</small>
+        <small *ngIf="loginForm.get('name')?.errors?.['pattern']" style="color:red;">Name must be incharacters</small>
+      </div>
+
       <div class="form-container">
-      <input type="password" placeholder="Enter Password" />
+        <mat-form-field  class="formfield1" appearance="outline">
+          <mat-label>Enter Password</mat-label>
+          <input matInput formControlName="password" type="password">
+        </mat-form-field>
       </div>
-     <div class="form-container">
-      <button routerLink = '/home' routerLinkActive = 'active' class="btn" type = "submit">Login</button><br />
+      <small style="color:red" [class.d-none]="loginForm.get('password')?.valid || 
+      loginForm.get('password')?.untouched">Password is required</small>
+
+      <div class="form-container">
+        <button  (click)="login()"  class="btn" type="submit">Login</button>
       </div>
-      <div class="forms-container">
-      <a href="#" routerLink = '/checkemail' routerLinkActive = 'active'>Forgot Password?</a>
+
+      <div class="forgot">
+        <a href="#" routerLink='/checkemail' >Forgot Password?</a>
       </div>
+
+    </form>
   </div>
-  </div>
+</div>
