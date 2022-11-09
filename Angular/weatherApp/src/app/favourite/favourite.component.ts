@@ -1,5 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-favourite',
@@ -9,8 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class FavouriteComponent implements OnInit {
 
   public found = false;
+  
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +25,10 @@ export class FavouriteComponent implements OnInit {
     let ChangedFormat = this.pipe.transform(this.today);
     this.changedDate = ChangedFormat;
     console.log(this.changedDate);
+}
+
+popup(){
+  this.dialog.open(DialogBoxComponent, {height:'210px', width: '458px'})
 }
 
 

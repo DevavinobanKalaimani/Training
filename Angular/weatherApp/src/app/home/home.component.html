@@ -5,14 +5,35 @@
             <img src="assets/logo_web.png" />
         </div>
 
+        
+        
+        
+            <div class="navBar">
+              <div class="nav-container">
+                  <input class="checkbox" type="checkbox" name="" id="" />
+                  <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                  </div>  
+                
+                <div class="menu-items">
+                  <li><a routerLink="/home" >Home</a></li>
+                  <li><a routerLink="/favourite">Favourite</a></li>
+                  <li><a routerLink="/recentsearch">Recent Search</a></li>
+                </div>
+              </div>
+            </div>
+          
+        
+
         <div class="weather-search">
             <input type="text" placeholder="Search City"><i class="fa fa-search"></i>
-
         </div>
     </div>
 
     <div class="navbar">
-        <a class="tag1" routerLink="/home" onmouseover="this.style.color = 'yellow'"
+        <a class="tag1" routerLink="/home"  onmouseover="this.style.color = 'yellow'"
             onmouseout="this.style.color = 'white'">HOME</a>
         <a class="tag2" routerLink="/favourite" onmouseover="this.style.color = 'yellow'"
             onmouseout="this.style.color = 'white'">FAVOURITE</a>
@@ -20,7 +41,9 @@
             onmouseout="this.style.color = 'white'">RECENT SEARCH</a>
 
         <div class="div-date">
-            <p> {{today | date: 'EEE, d MMM y &nbsp; h:mm:ss a'}}</p>
+            <div class="date">
+                <p> {{today | date: 'EEE, d MMM y &nbsp; h:mm:ss a'}}</p>
+            </div>
         </div>
     </div>
 
@@ -30,8 +53,8 @@
 
         <h2 class="container-text"> Udupi, Karnataka </h2>
         <div class="fav">
-        <i class="fa fa-heart-o"></i>
-        <p>Add to Favourite</p>
+            <i class="fa fa-heart-o"></i>
+            <p>Add to Favourite</p>
         </div>
     </div>
 
@@ -55,7 +78,7 @@
         <div class="min-max">
             <img src="assets/icon_temperature_info.png">
             <h4 class="h4-minmax">Min-Max</h4>
-            <p class="degree-minmax">{{WeatherData.temp_min}}&#176; - {{WeatherData.temp_max}}&#176;</p>
+            <p class="degree-minmax">{{WeatherData.temp_min}}&#176;- {{WeatherData.temp_max}}&#176;</p>
         </div>
 
         <div class="precipitation">

@@ -1,0 +1,55 @@
+.dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+    font-family: Roboto;
+    font-size: 16px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 36px;
+}
+.btn{
+    border: 1px solid white;
+    margin-left: 5px;
+    font-family: Roboto;
+    color: Black;
+    width:50px;
+    height: 20px;
+    background-color: white;
+}
+.btn:hover{
+    height: 35px;
+    width: 106px;
+    border-radius: 2px;
+    background-color: #F76B1C;
+    color: white;
+    border: none;
+}
+
+/*Responsive*/
+
+.btn{
+    border: 1px solid white;
+    margin-left: 5px;
+    font-family: Roboto;
+    color: rgb(122, 6, 218);
+    width: 106px;
+    height: 35px;
+    font-size: 16px;
+    background-color: white;
+    font-weight: 500
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 36px;
+    padding-left: 40%;
+}
+.dialog p{
+    opacity: 0.5;
+}

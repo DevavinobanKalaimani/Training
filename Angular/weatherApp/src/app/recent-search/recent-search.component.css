@@ -25,7 +25,7 @@ input[type=text]{
     position: absolute;
     padding-left: 1%;
     margin-top: -6px;
-    margin-left: 380px;
+    margin-left: 370px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #fcf9f9;
@@ -55,6 +55,9 @@ input[type=text]:focus{
 .navbar a{
     text-decoration: none;
     color: #FFFFFF;
+}
+.for-responsive{
+    display: none;
 }
 .tag1{
     margin-left: 140px; 
@@ -91,7 +94,7 @@ input[type=text]:focus{
     margin-top: 150px;
 }
 .not-found p{
-    margin-left: 22px;
+    margin-left: 8px;
     color: white;
     font-family: Roboto;
     font-size: 18px;
@@ -99,3 +102,217 @@ input[type=text]:focus{
 }
 
 /*table*/
+.options{
+    display:flex;
+    position: relative;
+    color: white;
+    font-family: Roboto;
+    font-size: 14px;
+}
+.options-p{
+    margin-left:130px;
+}
+.options-a{
+    margin-top:12px;
+    margin-left: 719px;
+    cursor: pointer;
+}
+
+.grid-table{
+    position: relative;
+    left: 120px;
+    grid-row-gap:2px;
+    display: grid;
+    grid-template-columns:repeat(1,970px);
+    grid-template-rows: repeat(7,72px);
+    color: white;
+    height: 440px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    overflow-y: scroll;
+}
+.grid-table::-webkit-scrollbar {
+    display: none;
+}
+/**/
+.grid-table-1{
+    background-color: rgba(218, 218, 218, 0.2);
+    display: flex;
+    align-items: center;
+}
+.grid-table-1 p{
+    
+    margin-left: 15px;
+}
+.icon{
+    display: flex;
+    margin-left: 270px
+}
+.grid-table-1 img{
+    height: 38px;
+    width: 36px;
+    margin-top: 26px;
+}
+.grid-table-1 h2{
+    font-size: 32px;
+    margin-left: 28px;
+    font-weight: 450;
+}
+.grid-table-1 h3{
+    font-size: 16px;
+    margin-left: 4px;
+    margin-top:40px;
+    font-weight: 400;
+}
+.icon p{
+    font-size: 18px;
+    padding-top: 20px;
+    margin-left: 20px;
+    font-weight: 400;
+}
+.grid-table-1 i{
+    font-size: 18px;
+    margin-top: 4px;
+    margin-left: 250px;
+    cursor: pointer;
+}
+/**/
+.grid-table-2{
+    background-color: rgba(218, 218, 218, 0.2);
+}
+/**/
+.grid-table-3{
+    background-color: rgba(218, 218, 218, 0.2);
+}
+/**/
+.grid-table-4{
+    background-color: rgba(218, 218, 218, 0.2);
+}
+/**/
+.grid-table-5{
+    background-color: rgba(218, 218, 218, 0.2);
+}
+/**/
+.grid-table-6{
+    background-color: rgba(218, 218, 218, 0.2);
+}
+.grid-table-7{
+    background-color: rgba(218, 218, 218, 0.2);
+}
+
+/*Responsive*/
+
+@media only screen and (max-width: 500px){
+    .weather-container{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .weather-header{
+        display: none;
+    }
+    input[type=text]{
+        display: none;
+    }
+    .weather-search{
+        display: none;
+    }
+    .fa-search{
+        display: none;
+    }
+    .bi-search{
+        color: black;
+        margin-left: 150px;
+        width: 20px;
+        height: 20px;
+    }
+    .navbar, .line{
+        display: none;
+    }
+    .options{
+        display: flex;
+        margin-left: -28%;
+        
+    }
+    .options a{
+        margin-bottom: 3px;
+        margin-left: 27%;
+    }
+    .grid-table{
+        margin-top: 4%;
+        margin-left: -100px;
+        height: 480px;
+        width: 360px;
+        grid-row-gap:2px;
+        display: grid;
+        grid-template-columns:repeat(1,360px);
+        grid-template-rows: repeat(7,72px);
+        overflow-x: hidden;
+        color: white;
+        font-family: Roboto;
+    }
+    .grid-table-1{
+        display: flex;
+    }
+    .grid-table-1 p{
+        margin-top: -2%;
+        font-size: 15px;
+    }
+
+    .icon{
+        height: 23px;
+        width: 165px;
+        position: absolute;
+        top: 12px;
+        left: -16%;
+        display: flex;
+    }
+    .icon img{
+        height: 18px;
+        width: 18px;
+    }
+    .icon h2{
+        font-size: 18px;
+        padding-top: 9px;
+        margin-left: 6px;
+    }
+    .icon h3{
+        font-size: 10px;
+        margin-top: 32px;
+    }
+    .icon p{
+        display: flex;
+        font-size: 14px;
+        margin-top: 8px;
+        margin-left: 14px;
+    }
+    .fa-heart-o{
+        position: absolute;
+        left: 70px;
+    }
+   
+    .for-responsive{
+        background-color: white;
+        height: 76px;
+        width: 400px;
+        display: block;
+        color: black;
+        display: flex;
+        align-items: center;
+    }
+    .fa-arrow-left{
+        margin-left: 20px;
+        font-size: 20px;
+        width: 20px;
+    }
+    .for-responsive h3{
+        font-size: 20px;
+        font-family: Roboto;
+        font-weight: 500;
+        margin-left: 30px;
+    }
+    .icon{
+        display: flex;
+        margin-left: 70px
+    }
+}

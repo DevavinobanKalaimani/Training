@@ -4,10 +4,16 @@
     width: 1200px;
     background-image: url('src/assets/background.png');
 }
+.menu-container{
+    display: none;
+}
 .weather-header{
     display: flex;
     position: relative;
     top: 45px;
+}
+.weather-header i{
+    color: white;
 }
 .weather-logo{
     margin-left: 121px;
@@ -20,12 +26,14 @@
     margin-left: 800px;  
     color: #fffefe; 
 }
-
+.menu-items, .checkbox{
+    display: none;
+}
 input[type=text]{
     position: absolute;
     padding-left: 1%;
     margin-top: -6px;
-    margin-left: 380px;
+    margin-left: 370px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #fcf9f9;
@@ -66,7 +74,8 @@ input[type=text]:focus{
     margin-left: 43px; 
 }
 .tag1:focus, .tag2:focus, .tag3:focus{
-    border-bottom: #FFD639 0.205em solid;  
+    border-bottom: #FFD639 0.205em solid;
+    
 }
 
 .div-date{
@@ -103,8 +112,8 @@ input[type=text]:focus{
     color: white;
     font-family: Roboto;
     margin-left: 8px;
-    margin-top: 2px;
-    font-size: 12px;
+    margin-top: 1px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
@@ -112,6 +121,7 @@ input[type=text]:focus{
     color: white;
     margin-left: 2px;
     font-size: 18px;
+    cursor: pointer;
 }
 .icon{
     display: flex;
@@ -140,6 +150,7 @@ input[type=text]:focus{
     padding-right:10%;
     margin-bottom: 220%;
     border: 2px solid white;
+    cursor: pointer;
 }
 .fahreheit{
     font-family: Roboto;
@@ -149,6 +160,7 @@ input[type=text]:focus{
     margin-bottom: 220%;
     background-color: white;
     border: 2px solid white;
+    cursor: pointer;
 }
 .climate{
     margin-top: 130px;
@@ -177,6 +189,7 @@ input[type=text]:focus{
     top: 591px;
 }
 .min-max{
+    display: grid;
     position: relative;
     margin-left: 200px;
 }
@@ -314,3 +327,352 @@ input[type=text]:focus{
       width: 100%;
     }
   } */
+
+  /*Responsive*/
+  @media only screen and (max-width: 500px){
+
+    .weather-container{
+        width: 100%;
+        overflow-x:hidden;
+    }
+    .weather-header i{
+        display: block;
+        font-size: 24px;
+        margin-left: 20px;
+        margin-top: -1px;
+    }
+    .weather-logo{
+        position: absolute;
+        left: -20px;
+        top: 2px;
+    }
+    .weather-logo img{
+        height: 26px;
+        width: 116px;
+        margin-left: -10px
+    }
+    input[type=text]{
+        display: none;
+    }
+    .weather-search i{
+        position: absolute;
+        margin-left: 130px;
+        margin-top: -1px;
+        font-size: 26px;
+    }
+    .div-date {
+        height: 30px;
+        width: 250px;
+        position: absolute;
+        display: flex;
+        left: -345px; 
+        opacity: 0.6;
+    }
+    .div-date p{
+        display: flex;
+        padding-left: 14px;
+        margin-top: -12px;
+    }
+    .container{
+        margin-left: -30px;
+        margin-top: -15px;
+    }
+    .container-text{
+        font-size: 18px;
+        margin-top: 5px;
+        margin-left: -2px;
+    }
+    .fav p{
+        font-size: 12px;
+        margin-top: 2px;
+        margin-left: 2px;
+    }
+    .fav {
+        margin-left: 5px;
+    }
+    .icon{
+        margin-top: 180px;
+    }
+    .cel-fah {
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .h2-celfah{
+        position: relative;
+        left: 70px;
+        margin-top: 170px;
+        margin-left: -70px;
+    }
+    .cel-fah-1{
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+    .celsius, .fahreheit{
+        margin-top: 180px;
+        padding: 3px;
+    }
+    .climate{
+        position: absolute;
+        margin-top: 60%;
+        margin-left: 2px;
+    }
+    .navbar{
+        width: 100px;
+    }
+    .navbar a{
+        display: none;
+    }
+    
+    .line-1, .line-2{
+        display: none;
+    }
+    .footer{
+        background-color: rgba(218, 218, 218, 0.2);
+        height: 120px;
+        position: absolute;
+        width:400px;
+        border: 1px solid white;
+        overflow: scroll;
+    }
+    .min-max{
+       position: absolute;
+        height: 41px;
+        width: 104px;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .h4-minmax{
+        margin-left: 32px;
+        margin-top: -36px;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        
+    }
+    .degree-minmax{
+        margin-left: 30px;
+        margin-top: -15px;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+    
+    }
+    .precipitation{
+        height: 41px;
+        width: 104px;
+        margin-left: 145px;
+        margin-top: 26px;
+    }
+    .h4-pre{
+        margin-left: 38px;
+        margin-top: -32%;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        
+    }
+    .degree-pre{
+        margin-left: 38px;
+        margin-top: -15px;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+    
+    }
+    .humidity{
+        height: 41px;
+        width: 104px;
+        margin-left:-3.5%;
+        margin-top: 26px;
+    }
+    .h4-humidity{
+        margin-left: 30px;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+    .degree-humidity{
+        margin-left: 30px;
+        margin-top: -15px;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .wind{
+        position: relative;
+        height: 41px;
+        width: 104px;
+        margin-left:-6%;
+        margin-top: 26px;
+    }
+    .wind img{
+        margin-left: -12px;
+    }
+    .h4-wind{
+        font-size: 14px;
+        margin-left: 26px;
+    }
+    .degree-wind{
+        font-size: 18px;
+        margin-left: 26px;
+    }
+    .visibility{
+        height: 41px;
+        width: 104px;
+        margin-left:-1%;
+        margin-top: 26px;
+    }
+    .visibility img{
+        margin-left: -10px;
+    }
+    .h4-visibility{
+        font-size: 14px;
+        margin-left: 28px;
+    }
+    .degree-visibility{
+        font-size: 18px;
+        margin-left: 28px;
+    }
+  
+
+  /*sidebar*/
+
+  .container {
+    max-width: 1050px;
+    width: 90%;
+    margin: auto;
+  }
+    
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+  
+    max-width: 1050px;
+    width: 90%;
+    margin: auto;
+  }
+  .menu-items {
+    display: flex;
+  }
+  
+   .nav-container li {
+    list-style: none;
+  }
+  
+  .menu-items a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: Roboto;
+  }
+  
+  .navBar .nav-container a:hover{
+      font-weight: bolder;
+  }
+  
+  .nav-container {
+    display: block;
+    position: relative;
+    height: 60px;
+  }
+  
+  .nav-container .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    left: 15px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .nav-container .hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 30px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -15px;
+  }
+  
+  .nav-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background:white;
+  }
+  
+  .nav-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .nav-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .nav-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .navBar .menu-items {
+    background-color: white;
+    height: 640px;
+    width: 240px;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    margin-left: -20px;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+  }
+  
+  .navBar .menu-items li {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+    
+  .nav-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+  }
+  
+  .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+  }
+  
+  .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+  
+  .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+  }
+  
+
+
+  
+} 

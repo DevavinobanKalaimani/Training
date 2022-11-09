@@ -25,7 +25,7 @@ input[type=text]{
     position: absolute;
     padding-left: 1%;
     margin-top: -6px;
-    margin-left: 380px;
+    margin-left: 370px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #fcf9f9;
@@ -80,4 +80,21 @@ input[type=text]:focus{
     opacity: 0.3;
     margin-left: 121px;
     margin-top: -2px;
+}
+
+/*Responsive*/
+@media only screen and (max-width: 500px){
+    .weather-container{
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    .weather-logo{
+        margin-top: 280px;
+        margin-left: 99px;
+        width: 170px;
+    }
+    .weather-search, .navbar, .div-date, .line{
+        display: none;
+    }
 }
