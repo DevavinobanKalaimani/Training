@@ -236,11 +236,11 @@ input[type=text]:focus{
     }
     .options a{
         margin-bottom: 3px;
-        margin-left: 27%;
+        margin-left: 28%;
     }
     .grid-table{
         margin-top: 4%;
-        margin-left: -100px;
+        margin-left: -97px;
         height: 480px;
         width: 360px;
         grid-row-gap:2px;
@@ -294,7 +294,7 @@ input[type=text]:focus{
     .for-responsive{
         background-color: white;
         height: 76px;
-        width: 400px;
+        width: 410px;
         display: block;
         color: black;
         display: flex;

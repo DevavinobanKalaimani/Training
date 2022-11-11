@@ -1,5 +1,6 @@
 /* Header */
 .weather-container{
+    display: none;
     height:688px;
     width: 1200px;
     background-image: url('src/assets/background.png');
@@ -91,7 +92,7 @@ input[type=text]:focus{
     }
     .weather-logo{
         margin-top: 280px;
-        margin-left: 99px;
+        margin-left: 120px;
         width: 170px;
     }
     .weather-search, .navbar, .div-date, .line{

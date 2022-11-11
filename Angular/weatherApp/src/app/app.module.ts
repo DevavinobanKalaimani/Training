@@ -9,6 +9,9 @@ import { RecentSearchComponent } from './recent-search/recent-search.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { MaterialModule } from './material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecentDialogComponent } from './recent-dialog/recent-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MainComponent,
     FavouriteComponent,
     RecentSearchComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    RecentDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

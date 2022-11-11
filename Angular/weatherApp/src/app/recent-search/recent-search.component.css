@@ -94,7 +94,7 @@ input[type=text]:focus{
     margin-top: 150px;
 }
 .not-found p{
-    margin-left: 8px;
+    margin-left: 22px;
     color: white;
     font-family: Roboto;
     font-size: 18px;
@@ -236,11 +236,12 @@ input[type=text]:focus{
     }
     .options a{
         margin-bottom: 3px;
-        margin-left: 27%;
+        margin-left: 28%;
+        cursor: pointer;
     }
     .grid-table{
         margin-top: 4%;
-        margin-left: -100px;
+        margin-left: -98px;
         height: 480px;
         width: 360px;
         grid-row-gap:2px;
@@ -294,7 +295,7 @@ input[type=text]:focus{
     .for-responsive{
         background-color: white;
         height: 76px;
-        width: 400px;
+        width: 410px;
         display: block;
         color: black;
         display: flex;
@@ -314,5 +315,20 @@ input[type=text]:focus{
     .icon{
         display: flex;
         margin-left: 70px
+    }
+
+    /*not-found*/
+    .not-found{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin-top: 210px;
+    }
+    .not-found p{
+        margin-left: 22px;
+        color: white;
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 500;
     }
 }

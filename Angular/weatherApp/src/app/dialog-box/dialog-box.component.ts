@@ -12,4 +12,9 @@ export class DialogBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClick(){
+
+    window.location.reload();
+  }
+ 
 }

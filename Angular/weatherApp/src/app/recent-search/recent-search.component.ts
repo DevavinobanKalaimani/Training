@@ -1,5 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RecentDialogComponent } from '../recent-dialog/recent-dialog.component';
 
 @Component({
   selector: 'app-recent-search',
@@ -8,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecentSearchComponent implements OnInit {
 
-  constructor() { }
+  recentCity: any;
+  fav:any = true;
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.recentCity=localStorage.getItem('Searched For');
+    this.recentCity=JSON.parse(this.recentCity);
+    console.log(this.recentCity);
+    if(localStorage.getItem('Searched For')){
+      this.fav = true;
+    }else{
+      this.fav = false;
+    }
   }
 
   today = new Date();
@@ -21,4 +33,10 @@ export class RecentSearchComponent implements OnInit {
     this.changedDate = ChangedFormat;
     console.log(this.changedDate);
 }
+
+popup(){
+  this.dialog.open(RecentDialogComponent, {height:'210px', width: '458px'})
+//    localStorage.removeItem('searched For');
+//     window.location.reload();
+ }
 }

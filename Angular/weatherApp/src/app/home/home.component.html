@@ -5,35 +5,51 @@
             <img src="assets/logo_web.png" />
         </div>
 
-        
-        
-        
-            <div class="navBar">
-              <div class="nav-container">
-                  <input class="checkbox" type="checkbox" name="" id="" />
-                  <div class="hamburger-lines">
+
+
+
+        <div class="navBar">
+            <div class="nav-container">
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
                     <span class="line line1"></span>
                     <span class="line line2"></span>
                     <span class="line line3"></span>
-                  </div>  
-                
-                <div class="menu-items">
-                  <li><a routerLink="/home" >Home</a></li>
-                  <li><a routerLink="/favourite">Favourite</a></li>
-                  <li><a routerLink="/recentsearch">Recent Search</a></li>
                 </div>
-              </div>
+
+                <div class="menu-items">
+                    <li><a routerLink="/home">Home</a></li>
+                    <li><a routerLink="/favourite">Favourite</a></li>
+                    <li><a routerLink="/recentsearch">Recent Search</a></li>
+                </div>
             </div>
-          
-        
+        </div>
+
+
+        <div class="searching">
+            <input class="checkbox" type="checkbox" name="" id="check" />
+            <div class="search-container">
+                <i class="fa fa-search" id="sr"></i>
+                <i class="fa fa-arrow-left" routerLink="/home"></i>
+                <input type="text" placeholder="Search for City">
+
+            </div>
+
+
+        </div>
 
         <div class="weather-search">
-            <input type="text" placeholder="Search City"><i class="fa fa-search"></i>
+            <form [formGroup]="search">
+                <input formControlName="city" class="city" type="text" placeholder="Search City" #city>
+            </form>
+
+            <button class="btn" mat-fab (click)="onClick(city.value)"></button>
+            <i class="fa fa-search" ></i>
         </div>
     </div>
 
     <div class="navbar">
-        <a class="tag1" routerLink="/home"  onmouseover="this.style.color = 'yellow'"
+        <a class="tag1" routerLink="/home" onmouseover="this.style.color = 'yellow'"
             onmouseout="this.style.color = 'white'">HOME</a>
         <a class="tag2" routerLink="/favourite" onmouseover="this.style.color = 'yellow'"
             onmouseout="this.style.color = 'white'">FAVOURITE</a>
@@ -51,24 +67,37 @@
 
     <div class="container">
 
-        <h2 class="container-text"> Udupi, Karnataka </h2>
-        <div class="fav">
-            <i class="fa fa-heart-o"></i>
-            <p>Add to Favourite</p>
-        </div>
+        <h2 class="container-text"> {{details.name}}, {{details['sys'].country}} </h2>
+        
+        <div *ngIf="fav; then add; else added"></div>
+        <ng-template #add>
+            <div class="false">
+                <i class="fa fa-heart-o" id="false" (click)="toggle()"></i>
+                <label class="white">Add to favourite</label>
+            </div>
+        </ng-template>
+        <ng-template #added>
+            <i class="fa fa-heart" id="true" (click)="toggle()"></i>
+            <label class="yellow">Added to favourite</label>
+        </ng-template>
     </div>
 
     <div class="icon">
-        <img src="assets/icon_mostly_sunny.png">
+        <img src="http://openweathermap.org/img/wn/{{details['weather'][0].icon}}.png">
     </div>
 
     <div class="cel-fah">
-        <h2 class="h2-celfah" style="font-weight:420">{{WeatherData.temp_celcius}}</h2>
+        <h2 class="h2-celfah" style="font-size:80px;font-weight:420">{{(details['main'].temp - 273.15).toFixed(0)}}</h2>
         <div class="cel-fah-1">
-            <div class="celsius">&#176;C</div>
-            <div class="fahreheit">&#176;F</div>
+            <div class="celsius" > 
+                <button class="cel-btn" (click)="degCel()">&#176;C</button>
+            </div>
+            <div class="fahreheit">
+                <button class="fah-btn" style="font-color: white;" (click)="degFar()">&#176;F</button>
+            </div>
         </div>
-        <h2 class="climate">Mostly Sunny</h2>
+        <h2 class="climate"> {{details['weather'][0].description}}</h2>
+
     </div>
 
     <div class="line-2"></div>
@@ -78,31 +107,32 @@
         <div class="min-max">
             <img src="assets/icon_temperature_info.png">
             <h4 class="h4-minmax">Min-Max</h4>
-            <p class="degree-minmax">{{WeatherData.temp_min}}&#176;- {{WeatherData.temp_max}}&#176;</p>
+            <p class="degree-minmax">{{(details['main'].temp_min - 273.15).toFixed(0)}}&#176;-
+                {{(details['main'].temp_max - 273.15).toFixed(0)}}&#176;</p>
         </div>
 
         <div class="precipitation">
             <img src="assets/icon_precipitation_info.png">
-            <h4 class="h4-pre">Precipitation</h4>
-            <p class="degree-pre">0%</p>
+            <h4 class="h4-pre">Pressure</h4>
+            <p class="degree-pre">{{details['main'].pressure}} hpa</p>
         </div>
 
         <div class="humidity">
             <img src="assets/icon_humidity_info.png">
             <h4 class="h4-humidity">Humidity</h4>
-            <p class="degree-humidity">{{WeatherData.main.humidity}}%</p>
+            <p class="degree-humidity">{{details['main'].humidity}}%</p>
         </div>
 
         <div class="wind">
             <img src="assets/icon_wind_info.png">
             <h4 class="h4-wind">Wind</h4>
-            <p class="degree-wind">4 mph</p>
+            <p class="degree-wind">{{details['wind'].speed}} mph</p>
         </div>
 
         <div class="visibility">
             <img src="assets/icon_visibility_info.png">
             <h4 class="h4-visibility">Visibility</h4>
-            <p class="degree-visibility">12 mph</p>
+            <p class="degree-visibility">{{details.visibility}} mph</p>
         </div>
     </div>
 
