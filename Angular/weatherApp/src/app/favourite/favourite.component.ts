@@ -11,11 +11,22 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 export class FavouriteComponent implements OnInit {
 
   public found = false;
-  
-
+  favCity: any;
+  fav: any;
+  favourites: any;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.favourites = localStorage.getItem('FavCity');
+    this.favourites = JSON.parse(this.favourites)
+    // this.favCity=localStorage.getItem('Searched For');
+    // this.favCity=JSON.parse(this.favCity);
+    // console.log(this.favCity);
+    if(localStorage.getItem('Searched For')){
+      this.fav = true;
+    }else{
+      this.fav = false;
+    }
   }
 
   today = new Date();

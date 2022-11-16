@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="logo">
+        <img src="assets/logo_web.png" alt="">
+    </div>
+    <div class="date" style="letter-spacing: 2px;">
+        {{currentDate | date : 'EEE, d MMM y  h:mm a' | uppercase }}
+    </div>
+    <div class="place">
+        <h2>  {{this.det['name']}}, {{this.det['sys'].country}} </h2>
+        <div class="fav" (click)="fav()">
+
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite_border"  *ngIf="notfilled" [style.color]="favv() ? 'white': 'yellow'"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite" *ngIf="filled" [style.color]="favv() ? 'white': 'yellow'">
+            </mat-icon>
+            <p  [style.color]="favv() ? 'white': 'yellow'" *ngIf="notfilled">Add to favorite</p>
+            <p  [style.color]="favv() ? 'white': 'yellow'" *ngIf="filled">Added to favorite</p>
+        </div>
+    </div>
+    <div class="weather">
+        <div class="weaicon">
+            <img [src]="icon" alt="">
+           
+        </div>
+        <div class="degree">
+            <h2>{{ temp }}</h2>
+            <div class="deg">
+                <div class="p" (click)="cel()" [class]="bagc"><p>&#176;C </p> </div>
+                <div class="f" (click)="far()" [class]="bagf"><p> &#176;F </p> </div>
+            </div>
+        </div>
+        <div class="disc">
+            <p> {{this.det['weather'][0].main}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="details">
+        
+        <div class="one">
+            <div class="deticon" >
+                <img src="assets/Images/inspect/weather/Web/01_Home/background/Group 6 Copy/icon_temperature_info.png" alt="" >
+                
+            </div>
+            <div class="detadisc">
+                <div class="name">Min-Max</div>
+                <div class="p"> {{(this.det['main'].temp_min - 273.15).toFixed(0)}}&#176;- {{temp_max}}&#176; </div>
+            </div>
+        </div>
+        <div class="one">
+            <div class="deticon">
+                <img src="assets/Images/inspect/weather/Web/01_Home/background/Group 6/icon_precipitation_info.png" alt="">
+            </div>
+            <div class="detadisc">
+                <div class="name">Pressure</div>
+                <div class="p">{{prs}} hpa</div>
+            </div>
+        </div>
+        <div class="one">
+            
+                <div class="deticon">
+                    <img src="assets/Images/inspect/weather/Web/01_Home/background/Group 8/icon_humidity_info.png" alt="">
+                </div>
+                <div class="detadisc">
+                    <div class="name">Humidity</div>
+                    <div class="p">{{this.det['main'].humidity}}%</div>
+                </div>
+            
+        </div>
+        <div class="one">
+           
+                <div class="deticon">
+                  <img src="assets/Images/inspect/weather/Web/01_Home/background/Group 9/icon_wind_info.png" alt="">
+                </div>
+                <div class="detadisc">
+                    <div class="name">Wind</div>
+                    <div class="p">{{this.det['wind'].speed}} mph</div>
+                </div>
+           
+        </div>
+        <div class="one">
+           
+                <div class="deticon">
+                   <img src="assets/Images/inspect/weather/Web/01_Home/background/Group 10/icon_visibility_info.png" alt="">
+                </div>
+                <div class="detadisc">
+                    <div class="name">Visibility</div>
+                    <div class="p">{{this.det.visibility}} mph</div>
+                </div>
+           
+        </div>
+
+    </div>
+</div>

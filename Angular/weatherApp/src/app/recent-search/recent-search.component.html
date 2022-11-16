@@ -43,17 +43,18 @@
             <a class="options-a" (click)="popup()">Clear All</a>
         </div>
 
-        <div class="grid-table" *ngFor="let details of recentCity | async">
-            <div class="grid-table-1">
-                <p> {{details.name}}, {{details['sys'].country}} </p>
+        <div class="grid-table" >
+            <div class="grid-table-1" *ngFor="let details of recentCity">
+                <p>{{details.name}}, {{details['sys'].country}}</p>
                 <div class="icon">
                     <img src="http://openweathermap.org/img/wn/{{details['weather'][0].icon}}.png">
                     <h2>{{(details['main'].temp - 273.15).toFixed(0)}}</h2>
                     <h3>&#176;C</h3>
-                    <p> {{details['weather'][0].description}}</p>
+                    <p> {{details['weather'][0].description | titlecase }}</p>
                 </div>
                 <i class="fa fa-heart-o"></i>
             </div>
+
 
         </div>
     </ng-template>

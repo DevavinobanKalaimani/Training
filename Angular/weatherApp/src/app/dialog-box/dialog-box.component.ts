@@ -13,7 +13,11 @@ export class DialogBoxComponent implements OnInit {
   }
 
   onClick(){
-
+    localStorage.removeItem('FavCity');
+    window.location.reload();
+  }
+  goBack(){
+   
     window.location.reload();
   }
  

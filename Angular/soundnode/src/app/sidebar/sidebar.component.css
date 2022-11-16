@@ -1,0 +1,68 @@
+.sidebar{
+    height: 100%;
+    width: 20%;
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    flex-wrap: wrap;
+}
+.profile img{
+    height: 6%;
+    width: 16%;
+    border-radius: 50px;
+    margin-top: 15%;
+    margin-left: 10%;
+}
+.name{
+    margin-left: 34%;
+    margin-top: -23%;
+}
+.name .p1{
+    font-size: 20px;
+    font-weight: 600;
+}
+.name .p2{
+    font-size: 13px;
+    font-style: italic;
+    /* margin-left: 1%; */
+    margin-top: -5%;
+    opacity: 0.5
+}
+.follow{
+    display: flex;
+    font-size: 15px;
+    justify-content: space-around;
+    opacity: 0.6;
+}
+
+.following .p1{
+    margin-left: 30%;
+}
+.following .p2{
+    font-weight: 600;
+}
+
+.follower{
+
+}
+.follower .p1{
+    margin-left: 30%;
+}
+.follower .p2{
+    font-weight: 600;
+}
+.main{
+    position: absolute;
+    opacity: 0.5;
+    padding-left: 2.8%;
+    background-color: rgb(24, 23, 23);
+    width: 15%;
+    font-weight: 600;
+}
+
+.list{
+    display: grid;
+    opacity: 0.5;
+}
+.list a{
+    margin-top: 5%;
+}

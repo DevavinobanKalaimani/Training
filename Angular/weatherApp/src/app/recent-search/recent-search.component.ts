@@ -15,10 +15,10 @@ export class RecentSearchComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.recentCity=localStorage.getItem('Searched For');
+    this.recentCity=localStorage.getItem('currentCity');
     this.recentCity=JSON.parse(this.recentCity);
     console.log(this.recentCity);
-    if(localStorage.getItem('Searched For')){
+    if(localStorage.getItem('currentCity')){
       this.fav = true;
     }else{
       this.fav = false;
@@ -39,4 +39,5 @@ popup(){
 //    localStorage.removeItem('searched For');
 //     window.location.reload();
  }
+ 
 }

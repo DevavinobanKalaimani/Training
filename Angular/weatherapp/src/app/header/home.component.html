@@ -1,0 +1,101 @@
+<div class="main">
+    <mat-icon matSuffix (click)="hemicon()" class="hamicon" *ngIf="trr">menu</mat-icon>
+    <mat-icon matSuffix class="hamicons" *ngIf="trr" (click)="onning()">search</mat-icon>
+    <div class="header" *ngIf="homee">
+
+        <div class="top">
+            <mat-icon matSuffix (click)="hemicon()" class="hamicon">menu</mat-icon>
+            <div class="logo">
+                <img src="assets/logo_web.png" alt="">
+            </div>
+
+            <div class="search" [formGroup]="search" (ngSubmit)="Submit($event)">
+
+                <input type="text" id="inn" placeholder="Search City" class="input" mat-input #filterName formControlName="name" (keyup.enter)="onEnter($event)">
+                <mat-icon matSuffix (click)="find()">search</mat-icon>
+
+
+            </div>
+            <mat-icon matSuffix (click)="find()" class="hamicons">search</mat-icon>
+
+        </div>
+
+        <div class="nav">
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <p class="first" routerLink="/main" [routerLinkActive]="active" (click)="home()">HOME</p>
+                    </li>
+                    <li>
+                        <p routerLink="/fav" (click)="displayy()" [routerLinkActive]="active">FAVOURITE</p>
+                    </li>
+                    <li>
+                        <p routerLink="/recent" [routerLinkActive]="active" (click)="recc()">RECENT SEARCH</p>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="tabss" *ngIf="ham" (click)="back()">
+                <ul>
+                    <li>
+                        <p class="first" routerLink="/main" [routerLinkActive]="active" (click)="home()">HOME</p>
+                    </li>
+                    <li>
+                        <p routerLink="/fav" (click)="displayy()" [routerLinkActive]="active">FAVOURITE</p>
+                    </li>
+                    <li>
+                        <p routerLink="/recent" [routerLinkActive]="active" (click)="rec()">RECENT SEARCH</p>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="date">
+                {{currentDate | date : 'EEE, d MMM y h:mm a' }}
+            </div>
+
+        </div>
+        <hr>
+
+    </div>
+    <div class="tabss" *ngIf="ham" (click)="back()">
+        <ul>
+            <li>
+                <p class="first" routerLink="/main" [routerLinkActive]="active" (click)="home()">HOME</p>
+            </li>
+            <li>
+                <p routerLink="/fav" (click)="displayy()" [routerLinkActive]="active">FAVOURITE</p>
+            </li>
+            <li>
+                <p routerLink="/recent" [routerLinkActive]="active" (click)="rec()">RECENT SEARCH</p>
+            </li>
+
+        </ul>
+    </div>
+    <div class="searchbar" *ngIf="on">
+        <div class="under">
+        <div class="backicon">
+            <mat-icon matSuffix  routerLink="/main" (click)="main()">arrow_back</mat-icon>
+        </div>
+        <div class="searchinput" [formGroup]="search">
+            <input type="text" placeholder="search" class="input" id="in" mat-input #filterName formControlName="name">
+        </div>
+        <div class="searchicon">
+            <mat-icon matSuffix (click)="find()">search</mat-icon>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- <div class="header2" >
+        <div class="head">
+            <mat-icon matSuffix  routerLink="/main">arrow_back</mat-icon>
+            <p class="fav">FAVOURITIES</p>
+            
+        </div>
+        <div class="icon">
+            <mat-icon matSuffix >search</mat-icon>
+        </div>
+    </div> -->
+
+    <router-outlet></router-outlet>
+</div>

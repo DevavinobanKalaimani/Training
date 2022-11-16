@@ -1,0 +1,50 @@
+<div class="header2" >
+    <div class="head">
+        <mat-icon matSuffix  routerLink="/main" (click)="back()">arrow_back</mat-icon>
+        <p class="fav">Recent Search</p>
+        
+    </div>
+    <div class="icon">
+        <!-- <mat-icon matSuffix >search</mat-icon> -->
+    </div>
+</div>
+<div class="container">
+    <div class="notfound" *ngIf="found">
+        <img src="assets/icon_nothing.png" alt="gfdfgg">
+        <p>No Search Found</p>
+    </div>
+    <div class="details" *ngIf="table">
+        <p class="p">You recently searched for</p>
+        <a class="a" (click)="clear()">Clear all</a>
+
+    </div>
+    <div class="table" *ngIf="table">
+        <table class="table_container">
+            <tr  (click)="td()" *ngFor="let search of searchs">
+                <td>
+
+                    <p class="place"> {{search.data.name}}, {{search.data['sys'].country}} </p>
+                    <div class="inside_td">
+                        <img src="http://openweathermap.org/img/wn/{{search.data.weather[0].icon}}.png" alt="">
+                        <div class="text_td">
+                            <p class="p">{{search.data['main'].temp-273.15 | number:'2.0-0'}}&deg;c</p>
+                            <p class="index">{{search.data.weather[0].main}}</p>
+                        </div>
+
+                    </div>
+                    {{check(search.data.name)}}
+                    <mat-icon aria-hidden="false" fontIcon="favorite_border" *ngIf="notfilled">
+
+                    </mat-icon>
+                    <mat-icon aria-hidden="false" fontIcon="favorite" class="colorr" *ngIf="filled" >
+                        
+                    </mat-icon>
+                </td>
+
+
+            </tr>
+
+
+        </table>
+    </div>
+</div>

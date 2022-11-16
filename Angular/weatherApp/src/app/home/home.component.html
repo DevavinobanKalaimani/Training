@@ -71,13 +71,13 @@
         
         <div *ngIf="fav; then add; else added"></div>
         <ng-template #add>
-            <div class="false">
-                <i class="fa fa-heart-o" id="false" (click)="toggle()"></i>
+            <div class="false" #City>
+                <i class="fa fa-heart-o" id="false" (click)="toggle()" ></i>
                 <label class="white">Add to favourite</label>
             </div>
         </ng-template>
         <ng-template #added>
-            <i class="fa fa-heart" id="true" (click)="toggle()"></i>
+            <i class="fa fa-heart" id="true" (click)="toggle1()"></i>
             <label class="yellow">Added to favourite</label>
         </ng-template>
     </div>
@@ -87,16 +87,17 @@
     </div>
 
     <div class="cel-fah">
-        <h2 class="h2-celfah" style="font-size:80px;font-weight:420">{{(details['main'].temp - 273.15).toFixed(0)}}</h2>
+        <h2 *ngIf="celsius" class="h2-celfah" style="font-size:80px;font-weight:420">{{(details['main'].temp - 273.15).toFixed(0)}}</h2>
+        <h2 *ngIf="farhan" class="h2-celfah" style="font-size:80px;font-weight:420">{{(details['main'].temp - 273.15)*1.8+32 | number}}</h2>
         <div class="cel-fah-1">
-            <div class="celsius" > 
+            <div class="celsius"> 
                 <button class="cel-btn" (click)="degCel()">&#176;C</button>
             </div>
             <div class="fahreheit">
-                <button class="fah-btn" style="font-color: white;" (click)="degFar()">&#176;F</button>
+                <button class="fah-btn"  (click)="degFar()">&#176;F</button>
             </div>
         </div>
-        <h2 class="climate"> {{details['weather'][0].description}}</h2>
+        <h2 class="climate"> {{details['weather'][0].description | titlecase}}</h2>
 
     </div>
 
@@ -107,8 +108,10 @@
         <div class="min-max">
             <img src="assets/icon_temperature_info.png">
             <h4 class="h4-minmax">Min-Max</h4>
-            <p class="degree-minmax">{{(details['main'].temp_min - 273.15).toFixed(0)}}&#176;-
-                {{(details['main'].temp_max - 273.15).toFixed(0)}}&#176;</p>
+            <p class="degree-minmax">
+                {{(details['main'].temp_min - 273.15).toFixed(0)}}&#176;-
+                {{(details['main'].temp_max - 273.15).toFixed(0)}}&#176;
+            </p>
         </div>
 
         <div class="precipitation">

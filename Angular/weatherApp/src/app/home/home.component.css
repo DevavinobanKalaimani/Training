@@ -1,14 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
 /* Header */
 .weather-container{
     height:688px;
-    width: 1200px;
+    width: 1200px;;
     background-image: url('src/assets/background.png');
+    background-repeat: no-repeat;
     overflow-x: hidden;
 }
 .menu-container{
     display: none;
 }
 .weather-header{
+    width: 100%;
     display: flex;
     position: relative;
     top: 45px;
@@ -27,6 +30,7 @@
     margin-left: 790px;  
     color: #f7f3f3; 
 }
+
 .menu-items, .checkbox{
     display: none;
 }
@@ -64,7 +68,9 @@ input[type=text]:focus{
 }
 /* NavBar */
 .navbar{
+    max-width: 100%;
     display: flex;
+    position: relative;
     margin-top: 100px;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -75,7 +81,6 @@ input[type=text]:focus{
     color: #FFFFFF;
 }
 .tag1{
-    
     margin-left: 140px; 
 }
 
@@ -89,6 +94,8 @@ input[type=text]:focus{
 }
 
 .div-date{
+    display: flex;
+    width: auto;
     margin-left: 450px;
     margin-top: -1.3%;
 }

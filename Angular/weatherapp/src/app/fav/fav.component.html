@@ -1,0 +1,46 @@
+<div class="header2" >
+    <div class="head">
+        <mat-icon matSuffix  routerLink="/main" (click)="back()">arrow_back</mat-icon>
+        <p class="fav">Favourites</p>
+        
+    </div>
+    <div class="icon">
+        <!-- <mat-icon matSuffix >search</mat-icon> -->
+    </div>
+</div>
+
+<div class="container">
+
+    
+    <div class="notfound" *ngIf="found">
+        <img src="assets/icon_nothing.png" alt="">
+        <p>No Favoruites Added</p>
+    </div>
+
+    <div class="details" *ngIf="table">
+        <p class="p">{{favroites.length}} City added as favourite</p>
+        <a  class="a" (click)="opendialog()" >Remove all</a>
+
+    </div>
+    <div class="table" *ngIf="table">
+        <table class="table_container">
+            <tr  (click)="td()" *ngFor="let fav of favroites">
+                <td >
+                    <p class="place">{{fav['name']}}, {{fav['sys'].country}}</p>
+                    <div class="inside_td">
+                        <img src="http://openweathermap.org/img/wn/{{fav['weather'][0].icon}}.png" alt="">
+                        <div class="text_td">
+                            <p class="p">{{fav['main'].temp -273.15 | number:'2.0-0'}}&deg;c</p>
+                            <p class="index">{{fav['weather'][0].main}}</p>
+                        </div>
+                    </div>
+                    <mat-icon aria-hidden="false" fontIcon="favorite" (click)="removethis(fav)">
+                    </mat-icon>
+                </td>
+               
+            </tr>
+         
+            
+        </table>
+    </div>
+</div>

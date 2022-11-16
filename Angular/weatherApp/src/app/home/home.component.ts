@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   WeatherData: any;
   inputname: any;
   details:any;
+  favCities: any=[];
   cities:any=[];
   city:any={}
   celsius:boolean=true;
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   list: any;
   requests: any;
 
+  search1:any;
   constructor(public http: HttpClient, private fb: FormBuilder) { 
   }
   
@@ -56,29 +58,56 @@ export class HomeComponent implements OnInit {
   })
   onClick(city: any){    
    
-    let name= this.search.get('name')?.value;
+    
     this.http.get(`${API_URL}/weather?q=${city}&appid=${API_KEY}`).subscribe(data =>{
       console.log(data);
+
+      this.detail = data;
+      console.log(this.detail);
+      
+      this.addCityLocal(this.detail);
       window.location.reload();   
+
       localStorage.setItem('Searched For',JSON.stringify(data));
-      sessionStorage.setItem('Searched For', JSON.stringify(data))
+      sessionStorage.setItem('Searched For', JSON.stringify(data));
        
     })
   }
   toggle(){
+    console.log(this.detail);
+     this.search1 = localStorage.getItem('Searched For');
+    this.search1 = JSON.parse(this.search1); 
     this.fav = !this.fav;
+    this.addFav(this.search1);
+    console.log(this.detail);
+
+    
+    
+  }
+  toggle1(){
+    this.fav = !this.fav;
+  }
+
+  addFav(City: any){     
+    let cities = [];
+    if(localStorage.getItem('FavCity')){
+      this.favCities = JSON.parse(localStorage.getItem('FavCity') as any);
+      cities = this.favCities;      
+      cities = [City,...cities];
+    }else{
+      cities = [City];
+    }
+    localStorage.setItem('FavCity',JSON.stringify(cities));
   }
 
   degFar(){
     this.farhan = true;
     this.celsius = false;
-    // this.temp = this.tempF
-
+    
    }
   degCel(){
     this.farhan = false;
     this.celsius = true;
-    // this.temp = this.tempC
   } 
  
    addCityLocal(city: any){
@@ -89,7 +118,6 @@ export class HomeComponent implements OnInit {
     }else{
       this.cities = [city];
     }
-    localStorage.setItem('Searched For',JSON.stringify(this.details));
-    sessionStorage.setItem('Searched For', JSON.stringify(this.details))
+    localStorage.setItem('currentCity',JSON.stringify(this.cities));
   }
 }

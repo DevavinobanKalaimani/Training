@@ -124,7 +124,7 @@ input[type=text]:focus{
     grid-row-gap:2px;
     display: grid;
     grid-template-columns:repeat(1,970px);
-    grid-template-rows: repeat(7,72px);
+    grid-template-rows: repeat(47,72px);
     color: white;
     height: 440px;
     font-family: Roboto;
@@ -140,6 +140,8 @@ input[type=text]:focus{
     background-color: rgba(218, 218, 218, 0.2);
     display: flex;
     align-items: center;
+    position: relative;
+    margin-top: 2px;
 }
 .grid-table-1 p{
     
@@ -147,7 +149,9 @@ input[type=text]:focus{
 }
 .icon{
     display: flex;
-    margin-left: 270px
+    margin-left: 270px;
+    justify-content: end;
+    
 }
 .grid-table-1 img{
     height: 38px;
@@ -176,29 +180,6 @@ input[type=text]:focus{
     margin-top: 4px;
     margin-left: 250px;
     cursor: pointer;
-}
-/**/
-.grid-table-2{
-    background-color: rgba(218, 218, 218, 0.2);
-}
-/**/
-.grid-table-3{
-    background-color: rgba(218, 218, 218, 0.2);
-}
-/**/
-.grid-table-4{
-    background-color: rgba(218, 218, 218, 0.2);
-}
-/**/
-.grid-table-5{
-    background-color: rgba(218, 218, 218, 0.2);
-}
-/**/
-.grid-table-6{
-    background-color: rgba(218, 218, 218, 0.2);
-}
-.grid-table-7{
-    background-color: rgba(218, 218, 218, 0.2);
 }
 
 /*Responsive*/
@@ -247,13 +228,14 @@ input[type=text]:focus{
         grid-row-gap:2px;
         display: grid;
         grid-template-columns:repeat(1,360px);
-        grid-template-rows: repeat(7,72px);
+        grid-template-rows: repeat(27,72px);
         overflow-x: hidden;
         color: white;
         font-family: Roboto;
     }
     .grid-table-1{
         display: flex;
+
     }
     .grid-table-1 p{
         margin-top: -2%;
