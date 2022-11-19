@@ -1,0 +1,40 @@
+
+
+<div class="list" *ngIf="unshow">
+    
+    <ul *ngFor="let vehicle of vehicles.results" >
+        <li (click)="change(vehicles.results.indexOf(vehicle))" >
+            {{vehicle.name}}
+        </li>
+    </ul>
+
+<div class="buttons">
+    <button class="btn" (click)="previous()" >PREVIOUS</button>
+    <button class="btn" (click)="nextPage()">NEXT</button>
+</div> 
+</div>
+
+<div class="container" *ngIf="show" >
+<div class="image">
+    <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+</div>
+
+<div class="content">
+   <h1>{{details.name | uppercase}}</h1>
+
+   <p><span>Model :</span>&nbsp;{{details.model | titlecase}}</p>
+   <p><span>Passengers :</span>&nbsp;{{details.passengers}}</p>
+   <p><span>Cargo Capacity :</span>&nbsp;{{details.cargo_capacity}}</p>
+   <p><span>Consumables :</span>&nbsp;{{details.consumables}}</p>
+   <p><span>Cost :</span>&nbsp;{{details.cost_in_credits}} Credits</p>
+   <p><span>Crew :</span>&nbsp;{{details.crew}}</p>
+   <p><span>Length :</span>&nbsp;{{details.length}}</p>
+   <p><span>Manufacturer :</span>&nbsp;{{details.manufacturer}}</p>
+   <p><span>Max-Speed :</span>&nbsp;{{details.max_atmosphering_speed}}</p>
+   <p><span>Class :</span>&nbsp;{{details.vehicle_class | titlecase}}</p>
+  
+   
+
+
+</div>
+</div>

@@ -1,0 +1,36 @@
+.navbar{
+    width: 60%;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    margin: auto;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #2E6E9A;
+    margin-top: -0.5rem;
+    
+}
+.navbar::-webkit-scrollbar{
+    display: none;
+}
+.group{
+    padding: 1rem;
+    cursor: pointer;
+}
+.group:hover{
+    -webkit-transform: scale(1.05);
+    background-color:  rgba(20, 147, 231, 0.377);  
+}
+.active{
+    background-color:  rgba(20, 147, 231, 0.377); 
+}
+
+@media screen and (max-width: 700px) {
+    .navbar{
+        width: 100%;
+        /* margin: 0% 2%; */
+        overflow-x: auto;
+        justify-content: left;
+        margin-top: -0.5rem;
+    }
+}

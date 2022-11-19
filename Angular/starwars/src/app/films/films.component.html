@@ -1,0 +1,32 @@
+
+
+<div class="list" *ngIf="unshow">
+    
+    <ul *ngFor="let film of films.results" >
+        <li (click)="change(films.results.indexOf(film))" >
+            {{film.title}}
+        </li>
+    </ul>
+
+<div class="buttons">
+    <button class="btn" (click)="previous()" >PREVIOUS</button>
+    <button class="btn" (click)="nextPage()">NEXT</button>
+</div> 
+</div>
+
+<div class="container" *ngIf="show" >
+<div class="image">
+    <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+</div>
+
+<div class="content">
+   <h1>{{details.title | uppercase}}</h1>
+
+   <p><span>Director :</span>&nbsp;{{details.director | titlecase}}</p>
+   <p><span>Episode :</span>&nbsp;{{details.episode_id}}</p>
+   <p><span>Crawl :</span>&nbsp;{{details.opening_crawl}}</p>
+   <p><span>Producer :</span>&nbsp;{{details.producer | titlecase}}</p>
+   <p><span>Released on :</span>&nbsp;{{details.release_date}}</p>
+
+</div>
+</div>

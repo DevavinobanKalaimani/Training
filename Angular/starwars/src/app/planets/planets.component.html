@@ -1,0 +1,36 @@
+
+
+<div class="list" *ngIf="unshow">
+    
+    <ul *ngFor="let planet of planets.results" >
+        <li (click)="change(planets.results.indexOf(planet))" >
+            {{planet.name}}
+        </li>
+    </ul>
+
+<div class="buttons">
+    <button class="btn" (click)="previous()" >PREVIOUS</button>
+    <button class="btn" (click)="nextPage()">NEXT</button>
+</div> 
+</div>
+
+<div class="container" *ngIf="show" >
+<div class="image">
+    <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+</div>
+
+<div class="content">
+   <h1>{{details.name | uppercase}}</h1>
+
+   <p><span>Gravity :</span>&nbsp;{{details.gravity}}</p>
+   <p><span>Climate :</span>&nbsp;{{details.climate | titlecase}}</p>
+   <p><span>Terrain :</span>&nbsp;{{details.terrain | titlecase}}</p>
+   <p><span>Surface Water :</span>&nbsp;{{details.surface_water}}</p>
+   <p><span>Rotation Period :</span>&nbsp;{{details.rotation_period}}</p>
+   <p><span>Population :</span>&nbsp;{{details.population}}</p>
+   <p><span>Orbital Period :</span>&nbsp;{{details.orbital_period}}</p>
+   <p><span>Diameter :</span>&nbsp;{{details.diameter}}</p>
+
+
+</div>
+</div>

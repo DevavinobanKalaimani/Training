@@ -1,0 +1,35 @@
+
+
+<div class="list" *ngIf="unshow">
+    
+        <ul *ngFor="let people of peoples.results" >
+            <li (click)="change(peoples.results.indexOf(people))" >
+                {{people.name}}
+            </li>
+        </ul>
+    
+    <div class="buttons">
+        <button class="btn" (click)="previous()" >PREVIOUS</button>
+        <button class="btn" (click)="nextPage()">NEXT</button>
+    </div> 
+</div>
+
+<div class="container" *ngIf="show" >
+    <div class="image">
+        <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+    </div>
+    
+    <div class="content">
+       <h1>{{details.name | uppercase}}</h1>
+
+       <p><span>Birth Year :</span>&nbsp;{{details.birth_year}}</p>
+       <p><span>Gender :</span>&nbsp;{{details.gender | titlecase}}</p>
+       <p><span>Height :</span>&nbsp;{{details.height}}</p>
+       <p><span>Mass :</span>&nbsp;{{details.mass}}</p>
+       <p><span>Hair Color :</span>&nbsp;{{details.hair_color | titlecase}}</p>
+       <p><span>Skin Color :</span>&nbsp;{{details.skin_color | titlecase}}</p>  
+       <p><span>Eye Color :</span>&nbsp;{{details.eye_color | titlecase}}</p>
+       
+
+    </div>
+</div>
