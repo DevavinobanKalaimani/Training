@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { StarwarsService } from '../starwars.service';
 
 @Component({
@@ -16,15 +17,27 @@ export class StarshipsComponent implements OnInit {
   disable:any = true;
   details: any;
 
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+
+  loading = true;
+  unloading = false;
+
   constructor(private api: StarwarsService) { }
 
   ngOnInit(): void {
     this.api.fetch("https://swapi.dev/api/starships/").subscribe( data => {
       this.starships = data;
       console.log(this.starships); 
+
+      this.unloading = true;
+      this.loading = false;
     })
   }
-
+  goBack(){
+    this.show = false;
+    this.unshow = true;
+  }
   change(x: any){
     this.show = true;
     this.unshow = false;
@@ -35,15 +48,27 @@ export class StarshipsComponent implements OnInit {
 
 
 previous(){
+  this.loading=true;
+  this.unloading=false;
+
     this.api.fetch(this.starships?.previous).subscribe(data => {
       this.starships = data;
+
+      this.loading=false;
+      this.unloading = true; 
       this.disable = false;
     })
 }
  
 nextPage(){
+  this.loading=true;
+  this.unloading=false;
+
     this.api.fetch(this.starships?.next).subscribe(data => {
       this.starships = data;
+
+      this.loading=false;
+      this.unloading = true; 
     })
 }
 }

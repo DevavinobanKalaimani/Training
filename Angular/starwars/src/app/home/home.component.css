@@ -21,7 +21,7 @@
 }
 .content img:hover{
       -webkit-transform: scale(1.05);
-      opacity: 0.4;
+     
 }
 .content p{
     margin-left: 15%;

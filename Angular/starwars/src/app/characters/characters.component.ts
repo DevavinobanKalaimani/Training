@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ProgressSpinnerMode} from '@angular/material';
 import {StarwarsService} from '../starwars.service';
 
 @Component({
@@ -13,23 +13,34 @@ export class CharactersComponent implements OnInit {
   unshow: any = true;
 
   peoples :any=[];
-  
-  disable:any = true;
   details: any;
+  
+  prevdisable:any = true;
+  nextdisable:any = false;
+  
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+
+  loading = true;
+  unloading = false;
+
   constructor(private api: StarwarsService) {  }
 
   ngOnInit(): void {
     this.api.fetch("https://swapi.dev/api/people/").subscribe( data => {
       this.peoples = data;
       console.log(this.peoples); 
+
+      this.unloading = true;
+      this.loading = false;
     })
   }
 
 
-  // goBack(){
-  //   this.show = false;
-  //   this.unshow = true;
-  // }
+  goBack(){
+    this.show = false;
+    this.unshow = true;
+  }
 
   change(x: any){
     this.show = true;
@@ -41,15 +52,38 @@ export class CharactersComponent implements OnInit {
 
 
 previous(){
+  this.loading=true;
+  this.unloading=false;
+
     this.api.fetch(this.peoples?.previous).subscribe(data => {
       this.peoples = data;
-      this.disable = false;
+
+      this.loading=false;
+      this.unloading = true; 
+
+      this.nextdisable = false;
+
+      if(this.peoples.previous == null){
+        this.prevdisable = true;
+      }
     })
 }
  
 nextPage(){
+  this.loading=true;
+  this.unloading=false;
+
     this.api.fetch(this.peoples?.next).subscribe(data => {
       this.peoples = data;
+
+      this.loading=false;
+      this.unloading = true; 
+
+      this.prevdisable = false;
+
+      if(this.peoples.next == null){
+        this.nextdisable = true;
+      }
     })
 }
  

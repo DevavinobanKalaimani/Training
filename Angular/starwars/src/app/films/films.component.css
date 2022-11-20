@@ -1,9 +1,9 @@
 .container{
     background-color: rgba(20, 147, 231, 0.10);
     margin-top: 10px;
-    margin-left: 20%;
+    margin-left: 24%;
     height: 26rem;
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     position: absolute;
@@ -14,23 +14,32 @@
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     width: 100%;
-    margin-top: 10px;
-    /* font-size: 18px; */
+    margin-top: 60px;
     margin-left: -1.5%;
 }
 li{
-   
     width: 300px;
     list-style-type: none;
-    margin:-12px;
-    padding: 12px;
+    margin:-17px;
+    padding: 10px;
     text-align: center;
 }
 li:hover{
     -webkit-transform: scale(1.10);
     background-color:  rgba(20, 147, 231, 0.377);
+}
+.disabled{
+    background-color: rgba(240, 243, 245, 0.336) ;
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.spinner::ng-deep circle {
+    stroke: white;
 }
 .buttons{
     display: flex;
@@ -71,7 +80,7 @@ p{
 }
 .content{
     height:70%;
-    width: 45%;
+    width: 35%;
     margin-top: 8%;
     overflow-y: scroll;
 
@@ -92,7 +101,7 @@ p{
 
   @media only screen and (max-width: 1340px){
     .container{
-        width: 70%;
+        width: 60%;
         position: absolute;
         margin-left: 0rem;
         margin-left: 14rem;
@@ -101,36 +110,15 @@ p{
 
   @media only screen and (max-width: 1240px){
     .container{
-        width: 70%;
+        width: 66%;
         position: absolute;
         margin-left: 0rem;
-        margin-left: 14rem;
+        margin-left: 11rem;
     }
   }
-  @media only screen and (max-width: 1149px){
+  @media only screen and (max-width: 1010px){
     .container{
-        width: 90%;
-        position: absolute;
-        margin-left: 0rem;
-        margin-left: 2rem;
-    }
-    .image img{
-        
-        margin-left: -10%;
-       
-        margin-top: 15%;
-    }
-    .content{
-        position: absolute;
-        margin-top: 10%;
-        margin-left: 27rem;
-        width: 40%;
-        height: 63%;
-    }
-  }
-  @media only screen and (max-width: 1127px){
-    .container{
-        width: 100%;
+        width: 80%;
         position: absolute;
         margin-left: 0rem;
         margin-left: 7rem;
@@ -270,7 +258,7 @@ p{
     .list{
         width: 100%;
         margin-left: -1rem;
-        margin-top: 2rem;
+        margin-top: 6rem;
     }
    
     .image img{

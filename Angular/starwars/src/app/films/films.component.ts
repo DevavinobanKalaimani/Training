@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { StarwarsService } from '../starwars.service';
 
 @Component({
@@ -12,9 +13,16 @@ export class FilmsComponent implements OnInit {
   unshow: any = true;
 
   films :any=[];
-  
-  disable:any = true;
   details: any;
+
+  prevdisable:any = true;
+  nextdisable:any = false;
+
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+
+  loading = true;
+  unloading = false;
 
   constructor(private api: StarwarsService) { }
 
@@ -22,9 +30,17 @@ export class FilmsComponent implements OnInit {
     this.api.fetch("https://swapi.dev/api/films/").subscribe( data => {
       this.films = data;
       console.log(this.films); 
+
+      this.unloading = true;
+      this.loading = false;
     })
   }
 
+
+  goBack(){
+    this.show = false;
+    this.unshow = true;
+  }
 
   change(x: any){
     this.show = true;
@@ -36,15 +52,39 @@ export class FilmsComponent implements OnInit {
 
 
 previous(){
+  this.unloading = false;
+  this.loading = true;
+
     this.api.fetch(this.films?.previous).subscribe(data => {
       this.films = data;
-      this.disable = false;
+
+      this.loading=false;
+      this.unloading = true; 
+
+      this.nextdisable = false;
+
+      if(this.films.previous == null){
+        this.prevdisable = true;
+      }
     })
 }
  
 nextPage(){
-    this.api.fetch(this.films?.next).subscribe(data => {
-      this.films = data;
-    })
-}
+  this.loading=true;
+  this.unloading=false;
+
+  this.api.fetch(this.films?.next).subscribe(data => {
+    this.films = data;
+
+    this.loading=false;
+      this.unloading = true; 
+      
+    this.prevdisable = false;
+
+    if(this.films.next == null){
+      this.nextdisable = true;
+    }
+  })
+} 
+
 }

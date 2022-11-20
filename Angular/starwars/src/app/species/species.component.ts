@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { StarwarsService } from '../starwars.service';
 
 @Component({
@@ -16,12 +17,21 @@ export class SpeciesComponent implements OnInit {
   disable:any = true;
   details: any;
 
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+
+  loading = true;
+  unloading = false;
+
   constructor(private api: StarwarsService) { }
 
   ngOnInit(): void {
     this.api.fetch("https://swapi.dev/api/species/").subscribe( data => {
       this.species = data;
       console.log(this.species); 
+
+      this.unloading = true;
+      this.loading = false;
     })
   }
 
@@ -32,18 +42,34 @@ export class SpeciesComponent implements OnInit {
     this.details = JSON.parse(localStorage.getItem('details') as any)
     
   }
+  goBack(){
+    this.show = false;
+    this.unshow = true;
+  }
 
 
 previous(){
+  this.loading=true;
+  this.unloading=false;
+
     this.api.fetch(this.species?.previous).subscribe(data => {
       this.species = data;
+
+      this.loading=false;
+      this.unloading = true; 
       this.disable = false;
     })
 }
  
 nextPage(){
+  this.loading=true;
+  this.unloading=false;
+
     this.api.fetch(this.species?.next).subscribe(data => {
       this.species = data;
+
+      this.loading=false;
+      this.unloading = true;
     })
 }
 }
