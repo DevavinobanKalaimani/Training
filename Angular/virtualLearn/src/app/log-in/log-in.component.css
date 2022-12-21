@@ -98,39 +98,8 @@
 }
 
 .image>.img1 {
-    height: 24%;
-    width: 5%;
-    position: relative;
-    bottom: 20px;
-    left: 94px;
-    z-index: 10
-}
-
-.image>.img2 {
-    height: 80%;
-    width: 25%;
-    position: relative;
-    right: 49px;
-    bottom: 5px;
-
-}
-
-.image>.img3 {
-    height: 15.5%;
-    width: 15%;
-    position: relative;
-    top: 17px;
-    left: 14px;
-    z-index: 10
-}
-
-.image>.img4 {
-    height: 15.5%;
-    width: 3%;
-    position: relative;
-    top: 17px;
-    left: 14px;
-    z-index: 10
+    height: 75%;
+    width: 30%;
 }
 
 .greeting {

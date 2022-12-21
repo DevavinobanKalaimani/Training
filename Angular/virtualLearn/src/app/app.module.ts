@@ -29,7 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {

@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   popular = false;
   newest = false;
 
+
+
   ongoing: any;
   categories: any;
   allCourses: any;
@@ -24,6 +26,9 @@ export class HomeComponent implements OnInit {
 
   businessCourse: any;
   designCourse: any;
+
+
+
 
   constructor(private service: HomeService) { }
 
@@ -58,14 +63,16 @@ export class HomeComponent implements OnInit {
       this.topCourse = JSON.parse(data);
       console.log(this.topCourse);
 
-      if (this.topCourse[2]){
+      if (this.topCourse[2]) {
         this.businessCourse = this.topCourse[2].popularCourseInEachCategoryList
         console.log(this.businessCourse);
+
       }
 
-      if(this.topCourse[0]){
+      if (this.topCourse[0]) {
         this.designCourse = this.topCourse[0].popularCourseInEachCategoryList
         console.log(this.designCourse);
+
       }
     })
 
@@ -102,4 +109,44 @@ export class HomeComponent implements OnInit {
 
 
   }
+
+
+  togglePlayPause() {
+
+
+    let video: any = document.querySelector('.video');
+    let btn: any = document.getElementById('play-pause');
+
+    // console.log(video);
+
+
+    if (video.paused) {
+      btn.className = 'pause';
+      video.play();
+
+    } else {
+      btn.className = 'play';
+      video.pause();
+
+    }
+  }
+
+  Toggle() {
+
+    let video: any = document.querySelector('.Video');
+    let btn: any = document.getElementById('pause-play');
+
+
+    if (video.paused) {
+      btn.className = 'pause';
+      video.play();
+
+    } else {
+      btn.className = 'play';
+      video.pause();
+
+    }
+  }
+
+
 }

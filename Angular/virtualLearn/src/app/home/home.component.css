@@ -310,3 +310,40 @@
 .design-course {
     margin-top: 40px;
 }
+
+.c-video{
+    /* background-color: #000000; */
+    height: 250px;
+}
+.mat-card-image{
+    height: 250px;
+}
+.Btn button{
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+.Btn{
+    position: relative;
+    bottom: 165px;
+    left: 140px;
+}
+.Btn button:before{
+    
+    content: '\f144';
+    font-family: 'Font Awesome 5 Free';
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    font-size: 40px;
+    color: rgb(250, 246, 246);
+    /* -webkit-font-smoothing: antialiased; */
+}
+.Btn button.play:before{
+    content: '\f144';
+}
+.Btn button.pause:before{
+    content: '\f28b';
+}
+

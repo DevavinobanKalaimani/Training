@@ -67,9 +67,8 @@
 
             <div class="chips">
                 <mat-chip-list aria-label="category selection" *ngFor="let category of categories">
-                    <mat-chip >
-                        <img matChipAvatar src="{{category.categoryPhoto}}"
-                            alt="" />
+                    <mat-chip>
+                        <img matChipAvatar src="{{category.categoryPhoto}}" alt="" />
                         {{category.categoryName}}
                     </mat-chip>
                 </mat-chip-list>
@@ -84,17 +83,19 @@
             </div>
 
             <div class="navigate">
-        
-                <button class="pointer" [ngClass]="{ 'active' : isValue == 1 }"  type="button"  (click)="allClick()">All</button>
-                <button class="pointer" [ngClass]="{ 'active' : isValue == 2 }"  type="button"  (click)="popularClick()">Popular</button>
-                <button class="pointer" [ngClass]="{ 'active' : isValue == 3 }"  type="button"  (click)="newestClick()">Newest</button>
+
+                <button class="pointer" [ngClass]="{ 'active' : isValue == 1 }" type="button"
+                    (click)="allClick()">All</button>
+                <button class="pointer" [ngClass]="{ 'active' : isValue == 2 }" type="button"
+                    (click)="popularClick()">Popular</button>
+                <button class="pointer" [ngClass]="{ 'active' : isValue == 3 }" type="button"
+                    (click)="newestClick()">Newest</button>
 
             </div>
 
             <div class="course-choices top" *ngIf="all">
                 <mat-card class="card" *ngFor="let all of allCourses">
-                    <img mat-card-image src="{{all.coursePhoto}}"
-                        alt="">
+                    <img mat-card-image src="{{all.coursePhoto}}" alt="">
                     <div class="name">
                         {{all.categoryName}}
                     </div>
@@ -105,12 +106,12 @@
                         </p>
                         <p class="p7">{{all.chapterCount}} Chapters</p>
                     </mat-card-content>
-                </mat-card>        
+                </mat-card>
             </div>
 
             <!-- popular -->
             <div class="course-choices top" *ngIf="popular">
-          
+
                 <mat-card class="card">
                     <img mat-card-image src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png"
                         alt="">
@@ -125,13 +126,12 @@
 
             <!-- newest -->
             <div class="course-choices top" *ngIf="newest">
-        
+
                 <mat-card class="card" *ngFor="let new of newCourse">
-                    <img mat-card-image src="{{new.coursePhoto}}"
-                        alt="">
-                        <div class="name">
-                            {{new.categoryName}}
-                        </div>
+                    <img mat-card-image src="{{new.coursePhoto}}" alt="">
+                    <div class="name">
+                        {{new.categoryName}}
+                    </div>
                     <mat-card-content>
                         <p class="p6">
                             {{new.courseName}}
@@ -151,8 +151,18 @@
 
             <div class="course-choices">
                 <mat-card class="card" *ngFor="let business of businessCourse">
-                    <img mat-card-image src="{{business.coursePhoto}}"
-                        alt="">
+                    <!-- <img *ngIf=pic mat-card-image src="{{business.coursePhoto}}"
+                        alt=""> -->
+
+                    <div class="c-video">
+                        <video mat-card-image class="video" poster="{{business.coursePhoto}}" controls>
+                            <source src="{{business.previewVideo}}" type="video/mp4">
+                        </video>
+                        <!-- <div class="Btn">
+                            <button id="play-pause" (click)="togglePlayPause()"></button>
+                        </div> -->
+                    </div>
+
                     <mat-card-content>
                         <p class="p6">
                             {{business.courseName}}
@@ -166,9 +176,9 @@
                             </div>
                         </div>
                     </mat-card-content>
-                </mat-card>        
-              
-            
+                </mat-card>
+
+
             </div>
 
 
@@ -180,11 +190,20 @@
 
                 <div class="course-choices">
                     <mat-card class="card" *ngFor="let design of designCourse">
-                        <img mat-card-image
-                            src="{{design.coursePhoto}}" alt="">
+                        <!-- <img mat-card-image src="{{design.coursePhoto}}" alt=""> -->
+
+                        <div class="c-video">
+                            <video mat-card-image class="Video" poster="{{design.coursePhoto}}" controls>
+                                <source src="{{design.previewVideo}}" type="video/mp4">
+                            </video>
+                            <!-- <div class="Btn">
+                                <button id="pause-play" (click)="Toggle()"></button>
+                            </div> -->
+                        </div>
+
                         <mat-card-content>
                             <p class="p6">
-                               {{design.courseName}}
+                                {{design.courseName}}
                             </p>
                             <div class="para">
                                 <p class="p7">{{design.chapterCount}} Chapters</p>

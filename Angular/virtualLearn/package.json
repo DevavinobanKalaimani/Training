@@ -22,12 +22,14 @@
     "@angular/router": "^14.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "videogular2": "^7.0.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.4",
     "@angular/cli": "~14.2.4",
     "@angular/compiler-cli": "^14.2.0",
+    "@types/core-js": "^2.5.5",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
