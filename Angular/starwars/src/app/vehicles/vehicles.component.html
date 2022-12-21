@@ -1,30 +1,32 @@
+<app-navbar></app-navbar>
+
 <div class="loading" *ngIf="loading">
-    <mat-progress-spinner class="spinner"  [mode]="mode" [value]="value"></mat-progress-spinner>
+    <mat-progress-spinner class="spinner"  [mode]="mode" [value]="value" [diameter]= "50" [strokeWidth]="20"></mat-progress-spinner>
 </div>
 
 <div class="list" *ngIf="unshow && unloading">
     
     <ul *ngFor="let vehicle of vehicles.results" >
         <li (click)="change(vehicles.results.indexOf(vehicle))" >
-            {{vehicle.name}}
+            {{vehicle.name | uppercase}}
         </li>
     </ul>
 
-<div class="buttons">
-    <button class="btn" (click)="previous()" >PREVIOUS</button>
-    <button class="btn" (click)="nextPage()">NEXT</button>
-</div> 
+    <div class="buttons">
+        <button  (click)="previous()" [class.disable]="prevdisable" [disabled]="prevdisable">PREVIOUS</button>
+        <button  (click)="nextPage()" [class.disable]="nextdisable" [disabled]="nextdisable">NEXT</button>
+    </div> 
 </div>
 
 <div class="container" *ngIf="show && unloading" >
 <div class="image">
-    <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+    <img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}" />
 </div>
 
 <div class="content">
    <h1 (click)="goBack()">{{details.name | uppercase}}</h1>
 
-   <p><span>Model :</span>&nbsp;{{details.model | titlecase}}</p>
+   <!-- <p><span>Model :</span>&nbsp;{{details.model | titlecase}}</p>
    <p><span>Passengers :</span>&nbsp;{{details.passengers}}</p>
    <p><span>Cargo Capacity :</span>&nbsp;{{details.cargo_capacity}}</p>
    <p><span>Consumables :</span>&nbsp;{{details.consumables}}</p>
@@ -33,7 +35,54 @@
    <p><span>Length :</span>&nbsp;{{details.length}}</p>
    <p><span>Manufacturer :</span>&nbsp;{{details.manufacturer}}</p>
    <p><span>Max-Speed :</span>&nbsp;{{details.max_atmosphering_speed}}</p>
-   <p><span>Class :</span>&nbsp;{{details.vehicle_class | titlecase}}</p>
+   <p><span>Class :</span>&nbsp;{{details.vehicle_class | titlecase}}</p> -->
+
+   <div class="group">
+    <div style="opacity: 0.5;"> Model:</div>
+    &nbsp;<div>{{details.model | titlecase}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Cargo Capacity :</div>
+    &nbsp;<div>{{details.cargo_capacity}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Cost :</div>
+    &nbsp;<div>{{details.cost_in_credits}} Credits</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Crew :</div>
+    &nbsp;<div>{{details.crew}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Consumables:</div>
+    &nbsp;<div>{{details.consumables}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Length :</div>
+    &nbsp;<div>{{details.length}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Manufacturer:</div>
+    &nbsp;<div>{{details.manufacturer | titlecase}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Max-Speed:</div>
+    &nbsp;<div>{{details.max_atmosphering_speed}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Passengers:</div>
+    &nbsp;<div>{{details.passengers}}</div>
+</div>
+
+   
   
    
 

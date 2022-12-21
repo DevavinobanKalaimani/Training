@@ -1,29 +1,31 @@
+<app-navbar></app-navbar>
+
 <div class="loading" *ngIf="loading">
-    <mat-progress-spinner class="spinner"  [mode]="mode" [value]="value"></mat-progress-spinner>
+    <mat-progress-spinner class="spinner"  [mode]="mode" [value]="value" [diameter]= "50" [strokeWidth]="20"></mat-progress-spinner>
 </div>
 
 <div class="list" *ngIf="unshow && unloading">
     
     <ul *ngFor="let planet of planets.results" >
         <li (click)="change(planets.results.indexOf(planet))" >
-            {{planet.name}}
+            {{planet.name | uppercase}}
         </li>
     </ul>
 
-<div class="buttons">
-    <button class="btn" (click)="previous()" >PREVIOUS</button>
-    <button class="btn" (click)="nextPage()">NEXT</button>
-</div> 
+    <div class="buttons">
+        <button  (click)="previous()" [class.disable]="prevdisable" [disabled]="prevdisable">PREVIOUS</button>
+        <button  (click)="nextPage()" [class.disable]="nextdisable" [disabled]="nextdisable">NEXT</button>
+    </div> 
 </div>
 
 <div class="container" *ngIf="show && unloading" >
 <div class="image">
-    <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+    <img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}" />
 </div>
 
 <div class="content">
    <h1 (click)="goBack()">{{details.name | uppercase}}</h1>
-
+<!-- 
    <p><span>Gravity :</span>&nbsp;{{details.gravity}}</p>
    <p><span>Climate :</span>&nbsp;{{details.climate | titlecase}}</p>
    <p><span>Terrain :</span>&nbsp;{{details.terrain | titlecase}}</p>
@@ -31,7 +33,47 @@
    <p><span>Rotation Period :</span>&nbsp;{{details.rotation_period}}</p>
    <p><span>Population :</span>&nbsp;{{details.population}}</p>
    <p><span>Orbital Period :</span>&nbsp;{{details.orbital_period}}</p>
-   <p><span>Diameter :</span>&nbsp;{{details.diameter}}</p>
+   <p><span>Diameter :</span>&nbsp;{{details.diameter}}</p> -->
+
+   <div class="group">
+    <div style="opacity: 0.5;"> Gravity:</div>
+    &nbsp;<div>{{details.gravity}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Climate :</div>
+    &nbsp;<div>{{details.climate | titlecase}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Terrain:</div>
+    &nbsp;<div>{{details.terrain | titlecase}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Surface Water :</div>
+    &nbsp;<div>{{details.surface_water}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Rotation Period :</div>
+    &nbsp;<div>{{details.rotation_period}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Population :</div>
+    &nbsp;<div>{{details.population}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Orbital Period:</div>
+    &nbsp;<div>{{details.orbital_period}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Diameter :</div>
+    &nbsp;<div>{{details.diameter}}</div>
+</div>
 
 
 </div>

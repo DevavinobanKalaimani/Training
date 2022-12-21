@@ -17,6 +17,9 @@ export class StarshipsComponent implements OnInit {
   disable:any = true;
   details: any;
 
+  prevdisable:any = true;
+  nextdisable:any = false;
+
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
@@ -45,7 +48,9 @@ export class StarshipsComponent implements OnInit {
     this.details = JSON.parse(localStorage.getItem('details') as any)
     
   }
-
+  getRandomNumber(){
+    return (Math.floor(Math.random()*20))
+  }
 
 previous(){
   this.loading=true;
@@ -56,7 +61,11 @@ previous(){
 
       this.loading=false;
       this.unloading = true; 
-      this.disable = false;
+        this.nextdisable = false;
+
+      if(this.starships.previous == null){
+        this.prevdisable = true;
+      }
     })
 }
  
@@ -69,6 +78,11 @@ nextPage(){
 
       this.loading=false;
       this.unloading = true; 
+      this.prevdisable = false;
+
+      if(this.starships.next == null){
+        this.nextdisable = true;
+      }
     })
 }
 }

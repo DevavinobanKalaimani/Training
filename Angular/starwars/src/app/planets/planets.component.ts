@@ -21,6 +21,9 @@ export class PlanetsComponent implements OnInit {
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
+  prevdisable:any = true;
+  nextdisable:any = false;
+
   loading = true;
   unloading = false;
 
@@ -48,7 +51,9 @@ export class PlanetsComponent implements OnInit {
     this.unshow = true;
   }
 
-
+  getRandomNumber(){
+    return (Math.floor(Math.random()*20))
+  }
 previous(){
   this.loading=true;
   this.unloading=false;
@@ -59,7 +64,11 @@ previous(){
       this.loading=false;
       this.unloading = true; 
 
-      this.disable = false;
+       this.nextdisable = false;
+
+      if(this.planets.previous == null){
+        this.prevdisable = true;
+      }
     })
 }
  
@@ -72,6 +81,12 @@ nextPage(){
 
       this.loading=false;
       this.unloading = true;
+
+      this.prevdisable = false;
+
+      if(this.planets.next == null){
+        this.nextdisable = true;
+      }
     })
 }
 }

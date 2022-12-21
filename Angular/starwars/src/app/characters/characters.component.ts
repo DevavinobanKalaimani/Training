@@ -23,10 +23,11 @@ export class CharactersComponent implements OnInit {
 
   loading = true;
   unloading = false;
-
+ 
   constructor(private api: StarwarsService) {  }
 
   ngOnInit(): void {
+
     this.api.fetch("https://swapi.dev/api/people/").subscribe( data => {
       this.peoples = data;
       console.log(this.peoples); 
@@ -36,7 +37,9 @@ export class CharactersComponent implements OnInit {
     })
   }
 
-
+  getRandomNumber(){
+    return (Math.floor(Math.random()*20))
+  }
   goBack(){
     this.show = false;
     this.unshow = true;
@@ -86,5 +89,6 @@ nextPage(){
       }
     })
 }
+ 
  
 }

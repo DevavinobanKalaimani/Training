@@ -1,34 +1,63 @@
+<app-navbar></app-navbar>
+
 <div class="loading" *ngIf="loading">
-    <mat-progress-spinner class="spinner"  [mode]="mode" [value]="value"></mat-progress-spinner>
+    <mat-progress-spinner class="spinner"  [mode]="mode" [value]="value" [diameter]= "50" [strokeWidth]="20"></mat-progress-spinner>
 </div>
 
 <div class="list" *ngIf="unshow && unloading">
     
     <ul *ngFor="let film of films.results" >
         <li (click)="change(films.results.indexOf(film))" >
-            {{film.title}}
+            {{film.title | uppercase}}
         </li>
     </ul>
 
     <div class="buttons">
-        <button class="btn" (click)="previous()" [class.disabled]="prevdisable" [disabled]="prevdisable">PREVIOUS</button>
-        <button class="btn" (click)="nextPage()" [class.disabled]="nextdisable" [disabled]="nextdisable">NEXT</button>
+        <button  (click)="previous()" [class.disable]="prevdisable" [disabled]="prevdisable">PREVIOUS</button>
+        <button  (click)="nextPage()" [class.disable]="nextdisable" [disabled]="nextdisable">NEXT</button>
     </div> 
 </div>
 
 <div class="container" *ngIf="show && unloading" >
 <div class="image">
-    <img src="https://w0.peakpx.com/wallpaper/968/888/HD-wallpaper-yoda-movie-fiction-force-jedi-big-ears-star-wars-film-science-fiction-geen-man-cute-green-alien.jpg" />
+    <img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}" />
 </div>
 
 <div class="content">
    <h1 (click)="goBack()">{{details.title | uppercase}}</h1>
 
-   <p><span>Director :</span>&nbsp;{{details.director | titlecase}}</p>
+   <!-- <p><span>Director :</span>&nbsp;{{details.director | titlecase}}</p>
    <p><span>Episode :</span>&nbsp;{{details.episode_id}}</p>
    <p><span>Crawl :</span>&nbsp;{{details.opening_crawl}}</p>
    <p><span>Producer :</span>&nbsp;{{details.producer | titlecase}}</p>
-   <p><span>Released on :</span>&nbsp;{{details.release_date}}</p>
+   <p><span>Released on :</span>&nbsp;{{details.release_date}}</p> -->
+
+
+   <div class="group">
+    <div style="opacity: 0.5;"> Director :</div>
+    &nbsp;<div>{{details.director | titlecase}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Episode :</div>
+    &nbsp;<div>{{details.episode_id}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Crawl:</div>
+    &nbsp;<div>{{details.opening_crawl | titlecase}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Producer:</div>
+    &nbsp;<div>{{details.producer}}</div>
+</div>
+
+<div class="group">
+    <div style="opacity: 0.5;"> Released On :</div>
+    &nbsp;<div>{{details.release_date}}</div>
+</div>
+
 
 </div>
 </div>

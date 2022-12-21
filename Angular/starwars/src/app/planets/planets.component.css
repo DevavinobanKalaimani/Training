@@ -1,6 +1,6 @@
 .container{
     background-color: rgba(20, 147, 231, 0.10);
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 24%;
     height: 26rem;
     width: 50%;
@@ -8,13 +8,18 @@
     flex-wrap: wrap;
     position: absolute;
 }
+.group{
+    display: flex;
+    font-size: 18px;
+    margin-top: 5%;
+}
 .list{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     width: 100%;
     /* margin-top: 10px; */
     margin-left: -1.5%;
@@ -26,6 +31,7 @@ li{
     margin:-17px;
     padding: 10px;
     text-align: center;
+    cursor: pointer;
 }
 li:hover{
     -webkit-transform: scale(1.10);
@@ -36,6 +42,11 @@ li:hover{
     justify-content: center;
     margin-top: 10%;
 }
+.disable{
+    background-color: rgba(20, 147, 231, 0.24) ;
+    color: white;
+    cursor:no-drop;
+}
 .spinner::ng-deep circle {
     stroke: white;
 }
@@ -43,18 +54,20 @@ li:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
+    margin-top: 0.5%;
+    
 }
-.btn{
+button{
     border: none;
-    background-color: rgb(0, 102, 255);
+    background-color: rgba(20, 147, 231, 0.377);
     width: 120px;
     height: 40px;
     color: white;
     font-weight: 600;
     margin-left: 24px;
+    cursor: pointer;
 }
-.btn:hover{
+button:hover{
     -webkit-transform: scale(1.05);
 }
 span{
@@ -179,7 +192,7 @@ p{
     }
     .content{
         position: absolute;
-        margin-top: 50%;
+        margin-top: 45%;
         margin-left: 4rem;
         width: 70%;
         height: 63%;
@@ -234,7 +247,7 @@ p{
     }
     .content{
         position: absolute;
-        margin-top: 60%;
+        margin-top: 50%;
         margin-left: 4rem;
         width: 70%;
         height: 63%;
@@ -256,7 +269,10 @@ p{
     .list{
         width: 100%;
         margin-left: -1rem;
-        margin-top: 3rem;
+        margin-top: 2rem;
+    }
+    .buttons{
+        margin-top: 1rem;
     }
    
     .image img{
@@ -268,8 +284,8 @@ p{
     }
     .content{
         /* position: absolute; */
-        margin-top: 55%;
-        margin-left: 20%;
+        margin-top: 53%;
+        margin-left: 15%;
         width: 80%;
         height: 55%;
     }

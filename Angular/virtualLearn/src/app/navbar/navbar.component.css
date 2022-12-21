@@ -1,0 +1,97 @@
+mat-toolbar {
+    height: 80px;
+    background-color: #092963;
+}
+
+
+
+.content {
+    width: 85%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img1 {
+    height: 35px;
+}
+
+.img2 {
+    height: 15px;
+    position: relative;
+    bottom: 7px;
+    right: 20px;
+}
+
+.img3,
+.img4 {
+    position: relative;
+    bottom: 5px;
+    right: 5px;
+}
+
+.img5 {
+    height: 18px;
+    position: relative;
+    right: 5px;
+    bottom: 4px;
+}
+
+.search {
+    background-color: #123779;
+    width: 35%;
+    height: 45px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+}
+
+input[type=text] {
+    border: none;
+    width: 80%;
+    height: 90%;
+    margin-left: 50px;
+    background-color: transparent;
+    font-size: 18px;
+    color: white;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.633);
+    font-weight: bold;
+}
+
+.fa-search {
+    color: white;
+    position: relative;
+    bottom: 3px;
+    left: 30px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+}
+
+.icon1 {
+    color: white
+}
+
+.fa-gear {
+    color: white;
+}
+
+.options>img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}

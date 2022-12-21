@@ -15,7 +15,7 @@ hr{
     width: 60%;
 }
 .hr2{
-    bottom:130px;
+    bottom:120px;
     position: absolute;
     border:1px solid #2E6E9A;
     width: 100%;
@@ -121,7 +121,7 @@ hr{
 
 @media only screen and (max-width: 500px){
     .starwars img{
-        margin-top: 1%;
+        margin-top: 3%;
         height: 25%;
         width: 25%;
 
@@ -162,7 +162,7 @@ hr{
     font-size: 11px;
    }
    .copyright{
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-left: -18%;
    }
    .hr2{

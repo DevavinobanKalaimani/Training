@@ -17,6 +17,9 @@ export class VehiclesComponent implements OnInit {
   disable:any = true;
   details: any;
    
+  prevdisable:any = true;
+  nextdisable:any = false;
+
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
@@ -34,6 +37,7 @@ export class VehiclesComponent implements OnInit {
       this.loading = false;
     })
   }
+
   goBack(){
     this.show = false;
     this.unshow = true;
@@ -47,7 +51,9 @@ export class VehiclesComponent implements OnInit {
     
   }
 
-
+  getRandomNumber(){
+    return (Math.floor(Math.random()*20))
+  }
 previous(){
   this.loading=true;
   this.unloading=false;
@@ -57,7 +63,12 @@ previous(){
 
       this.loading=false;
       this.unloading = true; 
-      this.disable = false;
+      
+      this.nextdisable = false;
+
+      if(this.vehicles.previous == null){
+        this.prevdisable = true;
+      }
     })
 }
  
@@ -69,6 +80,12 @@ nextPage(){
       this.vehicles = data;
       this.loading=false;
       this.unloading = true; 
+
+      this.prevdisable = false;
+
+      if(this.vehicles.next == null){
+        this.nextdisable = true;
+      }
     })
 }
 

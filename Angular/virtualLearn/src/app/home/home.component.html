@@ -1,0 +1,204 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="container-content">
+
+        <div class="title">
+            <p class="p1">Hello!</p>
+            <p class="p2">Devavinoban</p>
+        </div>
+
+        <div class="collections">
+
+            <div class="order">
+                <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png" alt="">
+                <p class="p0">Product UX Design Course Sale
+                </p>
+            </div>
+            <div class="order">
+                <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png" alt="">
+                <p class="p0">Product UX Design Course Sale
+                </p>
+            </div>
+            <div class="order">
+                <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png" alt="">
+                <p class="p0">Product UX Design Course Sale
+                </p>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="onGoing">
+            <div class="head">
+                <p class="p3">Ongoing courses</p>
+                <p class="p4 pointer">See All</p>
+            </div>
+
+            <div class="ongoing-courses">
+
+                <div class="order" *ngFor="let data of ongoing">
+                    <img src="{{data.coursePhoto}}" alt="">
+                    <div class="bottom">
+                        <div class="bottom-text">
+                            <p>{{data.courseName}}</p>
+                            <p class="p">{{data.completedChapter}}/{{data.totalChapter}} Chapters</p>
+                        </div>
+                        <div class="button">
+                            <button class="pointer">Continue</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            .
+        </div>
+
+
+
+        <div class="category">
+            <div class="head">
+                <p class="p3">Categories</p>
+                <p class="p4 pointer">See All</p>
+            </div>
+
+
+            <div class="chips">
+                <mat-chip-list aria-label="category selection" *ngFor="let category of categories">
+                    <mat-chip >
+                        <img matChipAvatar src="{{category.categoryPhoto}}"
+                            alt="" />
+                        {{category.categoryName}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+
+
+        <div class="choices">
+            <div class="head">
+                <p class="p3">Choice your course </p>
+                <p class="p4 pointer">See All</p>
+            </div>
+
+            <div class="navigate">
+        
+                <button class="pointer" [ngClass]="{ 'active' : isValue == 1 }"  type="button"  (click)="allClick()">All</button>
+                <button class="pointer" [ngClass]="{ 'active' : isValue == 2 }"  type="button"  (click)="popularClick()">Popular</button>
+                <button class="pointer" [ngClass]="{ 'active' : isValue == 3 }"  type="button"  (click)="newestClick()">Newest</button>
+
+            </div>
+
+            <div class="course-choices top" *ngIf="all">
+                <mat-card class="card" *ngFor="let all of allCourses">
+                    <img mat-card-image src="{{all.coursePhoto}}"
+                        alt="">
+                    <div class="name">
+                        {{all.categoryName}}
+                    </div>
+
+                    <mat-card-content>
+                        <p class="p6">
+                            {{all.courseName}}
+                        </p>
+                        <p class="p7">{{all.chapterCount}} Chapters</p>
+                    </mat-card-content>
+                </mat-card>        
+            </div>
+
+            <!-- popular -->
+            <div class="course-choices top" *ngIf="popular">
+          
+                <mat-card class="card">
+                    <img mat-card-image src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png"
+                        alt="">
+                    <mat-card-content>
+                        <p class="p6">
+                            Learn Figma - UI/UX Design Essential Training
+                        </p>
+                        <p class="p7">7 Chapters</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <!-- newest -->
+            <div class="course-choices top" *ngIf="newest">
+        
+                <mat-card class="card" *ngFor="let new of newCourse">
+                    <img mat-card-image src="{{new.coursePhoto}}"
+                        alt="">
+                        <div class="name">
+                            {{new.categoryName}}
+                        </div>
+                    <mat-card-content>
+                        <p class="p6">
+                            {{new.courseName}}
+                        </p>
+                        <p class="p7">{{new.chapterCount}} Chapters</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+        </div>
+
+        <div class="business-course">
+            <div class="head">
+                <p class="p3">Top courses in Business </p>
+                <p class="p4 pointer">See All</p>
+            </div>
+
+            <div class="course-choices">
+                <mat-card class="card" *ngFor="let business of businessCourse">
+                    <img mat-card-image src="{{business.coursePhoto}}"
+                        alt="">
+                    <mat-card-content>
+                        <p class="p6">
+                            {{business.courseName}}
+                        </p>
+                        <div class="para">
+                            <p class="p7">{{business.chapterCount}} Chapters</p>
+
+                            <div class="duration">
+                                <i class="fa fa-clock-o"></i>
+                                <p class="p8"> {{business.courseDuration}}</p>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>        
+              
+            
+            </div>
+
+
+            <div class="design-course">
+                <div class="head">
+                    <p class="p3">Top courses in Design </p>
+                    <p class="p4 pointer">See All</p>
+                </div>
+
+                <div class="course-choices">
+                    <mat-card class="card" *ngFor="let design of designCourse">
+                        <img mat-card-image
+                            src="{{design.coursePhoto}}" alt="">
+                        <mat-card-content>
+                            <p class="p6">
+                               {{design.courseName}}
+                            </p>
+                            <div class="para">
+                                <p class="p7">{{design.chapterCount}} Chapters</p>
+
+                                <div class="duration">
+                                    <i class="fa fa-clock-o"></i>
+                                    <p class="p8"> {{design.courseDuration}}</p>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+            </div>
+
+        </div>
+    </div>

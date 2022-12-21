@@ -16,7 +16,7 @@ export class FilmsComponent implements OnInit {
   details: any;
 
   prevdisable:any = true;
-  nextdisable:any = false;
+  nextdisable:any = true;
 
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
@@ -36,7 +36,9 @@ export class FilmsComponent implements OnInit {
     })
   }
 
-
+  getRandomNumber(){
+    return (Math.floor(Math.random()*20))
+  }
   goBack(){
     this.show = false;
     this.unshow = true;
@@ -79,12 +81,14 @@ nextPage(){
     this.loading=false;
       this.unloading = true; 
       
-    this.prevdisable = false;
+    this.prevdisable = true;
 
-    if(this.films.next == null){
+    
       this.nextdisable = true;
-    }
-  })
+      console.log('null');
+      
+    
+   })
 } 
-
 }
+

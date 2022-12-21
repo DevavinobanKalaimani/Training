@@ -20,6 +20,9 @@ export class SpeciesComponent implements OnInit {
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
+  prevdisable:any = true;
+  nextdisable:any = false;
+  
   loading = true;
   unloading = false;
 
@@ -46,7 +49,9 @@ export class SpeciesComponent implements OnInit {
     this.show = false;
     this.unshow = true;
   }
-
+  getRandomNumber(){
+    return (Math.floor(Math.random()*20))
+  }
 
 previous(){
   this.loading=true;
@@ -57,7 +62,12 @@ previous(){
 
       this.loading=false;
       this.unloading = true; 
-      this.disable = false;
+      
+      this.nextdisable = false;
+
+      if(this.species.previous == null){
+        this.prevdisable = true;
+      }
     })
 }
  
@@ -70,6 +80,12 @@ nextPage(){
 
       this.loading=false;
       this.unloading = true;
+
+      this.prevdisable = false;
+
+      if(this.species.next == null){
+        this.nextdisable = true;
+      }
     })
 }
 }
