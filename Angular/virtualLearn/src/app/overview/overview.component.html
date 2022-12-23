@@ -1,0 +1,196 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="container-content">
+        <div class="header">
+            <p *ngIf="overView" class="p1"><span>MyCourse&nbsp;>&nbsp;</span>Ongoing</p>
+            <p *ngIf="!overView" class="p1"><span>MyCourse&nbsp;>&nbsp;Ongoing&nbsp;>&nbsp;</span>{{details?.courseName}} </p>
+        </div>
+
+        <div class="overview" >
+
+            <div class="container-left" >
+                <div class="video-overview">
+                    <video class="video" controls>
+                        <source src="{{details?.courseOverview.overViewId.previewThisCourse.videoLink}}" type="video/mp4">
+                    </video>
+
+                    <p class="p0">Preview the course</p>
+
+                    <div class="course-video">
+                        <p class="P">{{details?.previewVideoName | titlecase}}</p>
+                        <p class="p">{{details?.courseOverview.overViewId.previewThisCourse.videoDuration}} min</p>
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="video-title">
+                        <p class="p2">{{details?.courseName}}
+                        </p>
+                        <p class="p3">{{details?.chapterCount}} Chapter | {{details?.lessonCount}} lessons</p>
+                    </div>
+
+                    <div class="video-category">
+                       {{details?.categoryName}}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="synopsis">
+                  {{details?.courseOverview.overViewId.previewThisCourse.description}}
+                </div>
+
+                <div class="synopsis-detail">
+                    {{details?.courseOverview.overViewId.description}}
+                </div>
+            </div>
+
+            <div class="container-right">
+                <div class="content-right">
+                    <div class="head">
+                        <button class="button" [ngClass]="{ 'active' : isValue == 1 }" type="button"
+                            (click)="onOverview()">Overview</button>
+                        <button class="Button" [ngClass]="{ 'active' : isValue == 2 }" type="button"
+                            (click)="onChapter()">Chapters</button>
+                    </div>
+                    <div class="OverView" *ngIf="overView" >
+                        <div class="course-includes">
+                            <p class="p4">Course Includes</p>
+
+
+                            <div class="include-list">
+
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (3).png">
+                                    <div class="include-para">
+                                        <p class="p7"> {{details?.courseDuration}} total hours video</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (2).png ">
+                                    <div class="include-para">
+                                        <p class="p7"> Support Files</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (1).png">
+                                    <div class="include-para">
+                                        <p class="p7"> {{details?.testCount}} Module Test</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (4).png">
+                                    <div class="include-para">
+                                        <p class="p7"> Full lifetime access</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image.png">
+                                    <div class="include-para">
+                                        <p class="p7"> Access on mobile, desktop and tv</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (5).png">
+                                    <div class="include-para">
+                                        <p class="p7"> Certificate of Completion</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="learn">
+
+                            <p class="p5">What you'll learn </p>
+
+                            <div class="list">
+
+                                <div class="div" *ngFor="let outcome of details?.courseOverview.overViewId?.whatYouWillLearn">
+                                    <img src="assets/Combined-Shape.png">
+                                    <div class="para">
+                                        <p class="p6"> {{outcome}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="requirement">
+                            <p class="p7">Requirements</p>
+
+                            <div class="div" *ngFor="let points of details?.courseOverview.overViewId?.requirements">
+                                <p class="po">.</p>
+                                <div class="para">
+                                    <p class="p6"> {{points}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="instructor">
+                            <p class="p8">Instructor</p>
+
+                            <div class="profile">
+                                <img src="{{details?.courseOverview.overViewId?.instructor.instructorImage}}">
+                                <div class="profile-detail">
+                                    <p class="p9">{{details?.courseOverview.overViewId?.instructor.name}}</p>
+                                    <p class="p10">{{details?.courseOverview.overViewId?.instructor.designation}}&nbsp;  |  &nbsp;{{details?.courseOverview.overViewId?.instructor.url}}</p>
+                                </div>
+                            </div>
+
+                            <div class="overviews">
+                                <p class="p11">{{details?.courseOverview.overViewId?.instructor.description}}</p>
+                            </div>
+                        </div>
+
+                        <div class="btn pointer">
+                            Join Course
+                        </div>
+
+                    </div>
+
+                    <div class="Chapters" *ngIf="!overView">
+                        <p class="p12">Course Content</p>
+                        <p class="p13">7 Chapter | 46 lessons | 6 Assignment Test | 3.5h
+                            total length</p>
+
+                        <!-- <mat-icon>play_circle_outline</mat-icon> -->
+
+                        <div class="chapter-overview">
+                            <div class="chapter1">
+                                <p class="p14">Chapter1 - Introduction to the course</p>
+                                <mat-icon class="add-remove">add</mat-icon>
+                                <!-- <mat-icon class="add-remove">remove</mat-icon> -->
+
+                            </div>
+                            <div class="chapter1">
+                                <p class="p14">Chapter1 - Introduction to the course</p>
+                                <mat-icon class="add-remove">add</mat-icon>
+                            </div>
+                            <div class="chapter1">
+                                <p class="p14">Chapter1 - Introduction to the course</p>
+                                <mat-icon class="add-remove">remove</mat-icon>
+                            </div>
+                            <div class="chapter1">
+                                <p class="p14">Chapter1 - Introduction to the course</p>
+                                <mat-icon class="add-remove">add</mat-icon>
+                            </div>
+                            <div class="chapter1">
+                                <p class="p14">Chapter1 - Introduction to the course</p>
+                                <mat-icon class="add-remove">add</mat-icon>
+                            </div>
+                            <div class="chapter1">
+                                <p class="p14">Chapter1 - Introduction to the course</p>
+                                <mat-icon class="add-remove">add</mat-icon>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

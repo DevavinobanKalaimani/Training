@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -35,7 +36,7 @@ export class LogInComponent implements OnInit {
     const body = {
       'userName': this.inputForm.value.name,
       'password': this.inputForm.value.password
-    }
+    } 
 
     if(this.inputForm.invalid){
       alert("Please fill all the required form");
@@ -43,27 +44,26 @@ export class LogInComponent implements OnInit {
 
     
     this.service.logIn(body).subscribe({
-      next: (data) => {
-      
-        console.log(data);
-        let token: any = data.headers.get('jwt-token');
-        
-        sessionStorage.setItem('token', token);
-        // alert(data)
-       
-      },
-      error: (e) => {
-        alert(e.error)
-      },
-      complete: () => {
-        alert('Login successfull');
+          
+    next:(data) => {
+      const token = JSON.parse(data);
+      console.log(token);
+      alert(token.message);
 
-        if(sessionStorage.getItem('token')){
-        this.router.navigate(['home'])
-        }else{
-          alert('Invalid Credentials')
-        }
+      if(token.access_token){
+      sessionStorage.setItem('token', token.access_token)
       }
+    },
+    error:(e) =>{
+      alert(e.message)
+    },
+    complete:() => {
+      if(sessionStorage.getItem('token') ){
+     this.router.navigate(['home'])
+
+      }
+    }
+     
     }) 
   }
   }

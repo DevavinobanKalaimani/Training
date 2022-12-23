@@ -5,12 +5,16 @@ import { environment } from '../../../src/environments/environment';
 @Injectable({
     providedIn: 'root'
 })
-export class LogInService {
+export class SearchService {
 
     constructor(private http: HttpClient) { }
 
-    logIn(body: any) {
-        return this.http.post(environment.url + '/signIn', body, { responseType: 'text' })
+    topSearch() {
+        return this.http.get(environment.url + '/topSearches',  { responseType: 'text' })
+    }
+
+    byCategory(body: any){
+        return this.http.post(environment.url + '/searchByCategory', body)
     }
 
 }

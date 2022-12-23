@@ -40,7 +40,7 @@
 
                     <div class="input">
                         <mat-form-field>
-                            <input matInput type="text" placeholder="Username" formControlName="name" />
+                            <input matInput type="text" placeholder="Username" formControlName="name" (keydown)="onEnter($event,password.value)"/>
                         </mat-form-field>
 
                         <div *ngIf="inputForm.get('name')?.touched && inputForm.get('name')?.invalid">

@@ -9,32 +9,44 @@ export class HomeService {
 
     constructor(private http: HttpClient) { }
 
+
+getName(){
+    return this.http.get(environment.url + '/getName', { responseType: 'text'})
+}
+getBanner(){
+    return this.http.get(environment.url + '/getBanner', {responseType: 'text'})
+}
+getCategory(){
+    return this.http.post(environment.url + '/getCategories', { responseType: 'text'})
+}
 getOngoingCourse(){
     
-    return this.http.get(environment.url + '/user/ongoingCourses', { responseType: 'text'})
+    return this.http.get(environment.url + '/ongoingCourses', { responseType: 'text'})
 }
 
-getCategory(){
-    return this.http.get(environment.url + '/user/categoriesWP', { responseType: 'text'})
-}
+// getAll(){
+//     return this.http.get(environment.url + '/choiceYourCourse', { responseType: 'text'})
 
-getAll(){
-    return this.http.get(environment.url + '/user/home/course/all/pagination?pageNumber=1&pageLimit=4', { responseType: 'text'})
+// }
 
-}
+// getPopular(){
+//     return this.http.get(environment.url + '/user/home/course/popular', { responseType: 'text'})
 
-getPopular(){
-    return this.http.get(environment.url + '/user/home/course/popular', { responseType: 'text'})
+// }
+// getNewest(){
+//     return this.http.get(environment.url + '/user/home/course/newest', { responseType: 'text'})
 
-}
-getNewest(){
-    return this.http.get(environment.url + '/user/home/course/newest', { responseType: 'text'})
+// }
 
-}
+// getTopCourse(){
+//     return this.http.get(environment.url + '/user/home/course/category', { responseType: 'text'})
 
-getTopCourse(){
-    return this.http.get(environment.url + '/user/home/course/category', { responseType: 'text'})
+// }
 
-}
+// getHeaderCourse(){
+//     return this.http.get(environment.url + '/user/home/course/pagination?pageNumber=1&pageLimit=3', { responseType: 'text'})
+
+// }
+
 
 }

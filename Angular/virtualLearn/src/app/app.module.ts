@@ -11,6 +11,7 @@ import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AuthserviceInterceptor } from './auth.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OverviewComponent } from './overview/overview.component';
  
 
 
@@ -21,6 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     LogInComponent,
     HomeComponent,
     NavbarComponent,
+    OverviewComponent,
    
   ],
   imports: [

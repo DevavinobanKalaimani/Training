@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://virtuallearn-env.eba-6xmym3vf.ap-south-1.elasticbeanstalk.com'
+  url: 'http://52.172.238.166:3000'
 };
 
 /*

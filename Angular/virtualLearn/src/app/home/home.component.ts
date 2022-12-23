@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from 'src/app/services/home.service'
 
 
@@ -26,60 +27,78 @@ export class HomeComponent implements OnInit {
 
   businessCourse: any;
   designCourse: any;
+  headCourse: any;
+  name: any;
+
+ video: any = document.getElementsByClassName("video")
+  
 
 
-
-
-  constructor(private service: HomeService) { }
+  constructor(private service: HomeService, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.service.getOngoingCourse().subscribe(data => {
-      this.ongoing = JSON.parse(data);
-      // console.log(this.ongoing);
+   
+
+
+    // this.service.getAll().subscribe(data => {
+    //   this.allCourses = JSON.parse(data);
+    //   console.log(this.allCourses);
+    // })
+
+
+    // this.service.getNewest().subscribe(data => {
+    //   this.newCourse = JSON.parse(data);
+    //   console.log(this.newCourse);
+    // })
+
+    // this.service.getTopCourse().subscribe(data => {
+    //   this.topCourse = JSON.parse(data);
+    //   console.log(this.topCourse);
+
+    //   if (this.topCourse[2]) {
+    //     this.businessCourse = this.topCourse[2].popularCourseInEachCategoryList
+    //     console.log(this.businessCourse);
+
+    //   }
+
+    //   if (this.topCourse[0]) {
+    //     this.designCourse = this.topCourse[0].popularCourseInEachCategoryList
+    //     console.log(this.designCourse);
+
+    //   }
+    // })
+
+    // this.service.getHeaderCourse().subscribe(data => {
+    //   this.headCourse = JSON.parse(data);
+    //   console.log(this.headCourse);
+    // })
+
+    this.service.getName().subscribe(data => {
+      this.name = JSON.parse(data);
+      // console.log(this.name);
     })
 
-    this.service.getCategory().subscribe(data => {
-      this.categories = JSON.parse(data);
+    this.service.getBanner().subscribe(data => {
+      this.headCourse = JSON.parse(data);
+      console.log(this.headCourse);  
+    })
+
+      this.service.getCategory().subscribe(data => {
+      this.categories = data;
       // console.log(this.categories);      
     })
 
-    this.service.getAll().subscribe(data => {
-      this.allCourses = JSON.parse(data);
-      // console.log(this.allCourses);
+     this.service.getOngoingCourse().subscribe(data => {
+      this.ongoing = JSON.parse(data);
+      console.log(this.ongoing);
     })
 
-    this.service.getPopular().subscribe(data => {
-      this.popularCourse = JSON.parse(data);
-      console.log(this.popularCourse);
-    })
 
-    this.service.getNewest().subscribe(data => {
-      this.newCourse = JSON.parse(data);
-      // console.log(this.newCourse);
-    })
-
-    this.service.getTopCourse().subscribe(data => {
-      this.topCourse = JSON.parse(data);
-      console.log(this.topCourse);
-
-      if (this.topCourse[2]) {
-        this.businessCourse = this.topCourse[2].popularCourseInEachCategoryList
-        console.log(this.businessCourse);
-
-      }
-
-      if (this.topCourse[0]) {
-        this.designCourse = this.topCourse[0].popularCourseInEachCategoryList
-        console.log(this.designCourse);
-
-      }
-    })
 
   }
 
   toggle(num: any) {
-
     this.isValue = num;
   }
 
@@ -87,7 +106,6 @@ export class HomeComponent implements OnInit {
     this.all = true;
     this.popular = false;
     this.newest = false;
-    // this.isValue = 1;
     this.toggle(1);
 
   }
@@ -95,7 +113,6 @@ export class HomeComponent implements OnInit {
     this.all = false;
     this.popular = true;
     this.newest = false;
-    // this.isValue = 2;
     this.toggle(2);
 
 
@@ -104,36 +121,32 @@ export class HomeComponent implements OnInit {
     this.all = false;
     this.popular = false;
     this.newest = true;
-    // this.isValue = 3;
     this.toggle(3);
-
 
   }
 
 
-  togglePlayPause() {
+  PlayPause(x:any) {
 
-
-    let video: any = document.querySelector('.video');
-    let btn: any = document.getElementById('play-pause');
-
-    // console.log(video);
+    let video: any = document.getElementById(x);
+    let Btn: any = document.getElementById('play-pause');
 
 
     if (video.paused) {
-      btn.className = 'pause';
+      Btn.className = 'pause'
       video.play();
 
     } else {
-      btn.className = 'play';
+      Btn.className = 'play';
       video.pause();
 
     }
   }
 
-  Toggle() {
 
-    let video: any = document.querySelector('.Video');
+  togglePlayPause(i:any) {
+
+    let video: any = document.getElementById(i);
     let btn: any = document.getElementById('pause-play');
 
 
@@ -148,5 +161,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
+ getOverview(courseId: any){
+
+  sessionStorage.setItem('courseId', courseId)
+  this.router.navigate(['overview'])
+  console.log(courseId);
+  
+ }
 
 }

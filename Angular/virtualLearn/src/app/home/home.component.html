@@ -5,27 +5,16 @@
 
         <div class="title">
             <p class="p1">Hello!</p>
-            <p class="p2">Devavinoban</p>
+            <p class="p2">{{name?.fullName | titlecase}}</p>
         </div>
 
         <div class="collections">
 
-            <div class="order">
-                <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png" alt="">
-                <p class="p0">Product UX Design Course Sale
+            <div class="order" *ngFor="let head of headCourse">
+                <img src="{{head.courseImage}}" alt="">
+                <p class="p0"> {{head.category | titlecase}}
                 </p>
             </div>
-            <div class="order">
-                <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png" alt="">
-                <p class="p0">Product UX Design Course Sale
-                </p>
-            </div>
-            <div class="order">
-                <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png" alt="">
-                <p class="p0">Product UX Design Course Sale
-                </p>
-            </div>
-
 
         </div>
 
@@ -39,15 +28,15 @@
 
             <div class="ongoing-courses">
 
-                <div class="order" *ngFor="let data of ongoing">
-                    <img src="{{data.coursePhoto}}" alt="">
+                <div class="order" *ngFor="let data of ongoing"  >
+                    <img src="{{data.url}}" alt="">
                     <div class="bottom">
                         <div class="bottom-text">
-                            <p>{{data.courseName}}</p>
-                            <p class="p">{{data.completedChapter}}/{{data.totalChapter}} Chapters</p>
+                            <p>{{data.title | titlecase}}</p>
+                            <p class="p">{{data.chaptersCompleted}}/{{data.totalChapters}} Chapters</p>
                         </div>
                         <div class="button">
-                            <button class="pointer">Continue</button>
+                            <button class="pointer" (click)="getOverview(data.courseId)">Continue</button>
                         </div>
 
                     </div>
@@ -68,8 +57,8 @@
             <div class="chips">
                 <mat-chip-list aria-label="category selection" *ngFor="let category of categories">
                     <mat-chip>
-                        <img matChipAvatar src="{{category.categoryPhoto}}" alt="" />
-                        {{category.categoryName}}
+                        <img matChipAvatar src="" alt="" />
+                        {{category}}
                     </mat-chip>
                 </mat-chip-list>
             </div>
@@ -102,7 +91,7 @@
 
                     <mat-card-content>
                         <p class="p6">
-                            {{all.courseName}}
+                            {{all.courseName | titlecase}}
                         </p>
                         <p class="p7">{{all.chapterCount}} Chapters</p>
                     </mat-card-content>
@@ -150,22 +139,22 @@
             </div>
 
             <div class="course-choices">
-                <mat-card class="card" *ngFor="let business of businessCourse">
+                <div class="Card" *ngFor="let business of businessCourse">
                     <!-- <img *ngIf=pic mat-card-image src="{{business.coursePhoto}}"
                         alt=""> -->
 
                     <div class="c-video">
-                        <video mat-card-image class="video" poster="{{business.coursePhoto}}" controls>
+                        <video id="{{business?.courseId}}" class="video" poster="{{business.coursePhoto}}" >
                             <source src="{{business.previewVideo}}" type="video/mp4">
                         </video>
-                        <!-- <div class="Btn">
-                            <button id="play-pause" (click)="togglePlayPause()"></button>
-                        </div> -->
+                        <div class="Btn">
+                            <button id="play-pause" (click)="PlayPause(business?.courseId)"></button>
+                        </div>
                     </div>
 
-                    <mat-card-content>
+                    <div class="course">
                         <p class="p6">
-                            {{business.courseName}}
+                            {{business.courseName | titlecase}}
                         </p>
                         <div class="para">
                             <p class="p7">{{business.chapterCount}} Chapters</p>
@@ -175,12 +164,10 @@
                                 <p class="p8"> {{business.courseDuration}}</p>
                             </div>
                         </div>
-                    </mat-card-content>
-                </mat-card>
+                    </div>
 
-
+                </div>
             </div>
-
 
             <div class="design-course">
                 <div class="head">
@@ -189,19 +176,20 @@
                 </div>
 
                 <div class="course-choices">
-                    <mat-card class="card" *ngFor="let design of designCourse">
-                        <!-- <img mat-card-image src="{{design.coursePhoto}}" alt=""> -->
+                    <div class="cards" *ngFor="let design of designCourse">
+                        <!-- <img *ngIf=pic mat-card-image src="{{business.coursePhoto}}"
+                        alt=""> -->
 
-                        <div class="c-video">
-                            <video mat-card-image class="Video" poster="{{design.coursePhoto}}" controls>
+                        <div class="C-video">
+                            <video id="{{design?.courseId}}" class="Video" poster="{{design.coursePhoto}}"  >
                                 <source src="{{design.previewVideo}}" type="video/mp4">
                             </video>
-                            <!-- <div class="Btn">
-                                <button id="pause-play" (click)="Toggle()"></button>
-                            </div> -->
+                            <div class="Btn">
+                            <button id="pause-play" (click)="togglePlayPause(design?.courseId)"></button>
+                        </div>
                         </div>
 
-                        <mat-card-content>
+                        <div class="courses">
                             <p class="p6">
                                 {{design.courseName}}
                             </p>
@@ -213,9 +201,11 @@
                                     <p class="p8"> {{design.courseDuration}}</p>
                                 </div>
                             </div>
-                        </mat-card-content>
-                    </mat-card>
+                        </div>
+
+                    </div>
                 </div>
+
 
             </div>
 
