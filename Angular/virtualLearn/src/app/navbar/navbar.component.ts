@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
 
 
 
-  image = [
+  image: any = [
     'assets/images/Business.png',
     'assets/images/Design.png',
     'assets/images/Health & Fitness.png',
@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
     'assets/images/Testing.png',
     'assets/images/Web Development.png',
   ]
-  
+
 
   constructor(
     private service: HomeService,
@@ -65,11 +65,7 @@ export class NavbarComponent implements OnInit {
       this.searches = JSON.parse(data);
       // console.log(this.searches); 
     })
-
-    for (var i = 0; i < this.categories.size(); i++) {
-      console.log(this.image.contains(this.categories.get(i)));
-      
-    }
+    
 
   }
 

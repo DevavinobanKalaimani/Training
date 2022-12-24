@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
     this.service.getBanner().subscribe(data => {
       this.headCourse = JSON.parse(data);
-      console.log(this.headCourse);  
+      // console.log(this.headCourse);  
     })
 
       this.service.getCategory().subscribe(data => {
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
      this.service.getOngoingCourse().subscribe(data => {
       this.ongoing = JSON.parse(data);
-      console.log(this.ongoing);
+      // console.log(this.ongoing);
     })
  this.allClick();
 
@@ -143,7 +143,7 @@ export class HomeComponent implements OnInit {
   }
   this.service.getCourses(body).subscribe(data => {
     this.allCourses = data;
-    console.log(this.allCourses);
+    // console.log(this.allCourses);
   })
  }
 
