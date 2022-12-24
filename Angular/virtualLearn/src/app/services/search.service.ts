@@ -17,4 +17,8 @@ export class SearchService {
         return this.http.post(environment.url + '/searchByCategory', body)
     }
 
+    searchCourse(body: any){
+        return this.http.post(environment.url + '/searchCourse', body)
+    }
+
 }

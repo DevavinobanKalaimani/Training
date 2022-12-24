@@ -211,7 +211,7 @@
     line-height: 24px;
 
     text-align: center;
- position: relative;
+    position: relative;
     color: #FFFFFF;
 
 }span{
@@ -223,3 +223,98 @@
     position: relative;
     bottom: 10px;
 }
+
+@media only screen and (max-width: 1486px){
+    .container {
+        width: 90%;
+        height: 700px;
+    }
+}    
+
+@media only screen and (max-width: 1110px){
+    .container {
+        width: 95%;
+        height: 700px;
+    }
+} 
+
+@media only screen and (max-width: 880px){
+    .container {
+        width: 95%;
+        height: 700px;
+    }
+    .content-left{
+        display: none;
+    }
+    .content-right{
+        background-color: #FFFFFF;
+        width: 100%;
+    }
+    .image{
+        display: none;
+    }
+    .greeting{
+        position: relative;
+        bottom: 10px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 20px;
+    }
+    .p3{
+        color: black;
+    }
+    .p4{
+        color: grey;
+        width: 80%;
+        text-align: left;
+    }
+    .media{
+        justify-content: flex-start;
+        position:relative;
+        right: 12px;
+    }
+    .media button{
+        width: 50%;
+        border: 1px solid rgba(128, 128, 128, 0.5);
+    }
+    .input {
+        width: 90%;
+        margin: auto;
+        padding-top: 10px;
+        position: relative;
+        right: 120px;
+    }
+    .input>.mat-form-field {
+        width: 250%;
+        color: black;
+        font-size: 16px;
+    }
+    ::ng-deep .mat-focused .mat-form-field-label, ::ng-deep .mat-form-field-label {
+        opacity: 0.5;
+        color: grey !important;
+    }
+    
+    ::ng-deep .mat-form-field-underline, ::ng-deep .mat-focused .mat-form-field-ripple {
+        opacity: 0.5;
+        background-color: grey !important;
+    }
+    .p5 {
+        margin-top: 70px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+    
+        text-align: center;
+        position: relative;
+        color: grey;
+    
+    }span{
+        color:#EE5C4D;
+        cursor: pointer;
+    }
+    .userForm .btn{
+        position: relative;
+    top: 60px;
+    }
+} 

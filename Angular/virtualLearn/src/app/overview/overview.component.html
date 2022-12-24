@@ -4,15 +4,17 @@
     <div class="container-content">
         <div class="header">
             <p *ngIf="overView" class="p1"><span>MyCourse&nbsp;>&nbsp;</span>Ongoing</p>
-            <p *ngIf="!overView" class="p1"><span>MyCourse&nbsp;>&nbsp;Ongoing&nbsp;>&nbsp;</span>{{details?.courseName}} </p>
+            <p *ngIf="!overView" class="p1">
+                <span>MyCourse&nbsp;>&nbsp;Ongoing&nbsp;>&nbsp;</span>{{details?.courseName}} </p>
         </div>
 
-        <div class="overview" >
+        <div class="overview">
 
-            <div class="container-left" >
+            <div class="container-left">
                 <div class="video-overview">
                     <video class="video" controls>
-                        <source src="{{details?.courseOverview.overViewId.previewThisCourse.videoLink}}" type="video/mp4">
+                        <source src="{{details?.courseOverview.overViewId.previewThisCourse.videoLink}}"
+                            type="video/mp4">
                     </video>
 
                     <p class="p0">Preview the course</p>
@@ -31,17 +33,17 @@
                     </div>
 
                     <div class="video-category">
-                       {{details?.categoryName}}
+                        {{details?.categoryName}}
                     </div>
                 </div>
 
                 <hr>
 
-                <div class="synopsis">
-                  {{details?.courseOverview.overViewId.previewThisCourse.description}}
+                <div class="synopsis" *ngIf="overView">
+                    {{details?.courseOverview.overViewId.previewThisCourse.description}}
                 </div>
 
-                <div class="synopsis-detail">
+                <div class="synopsis-detail" *ngIf="overView">
                     {{details?.courseOverview.overViewId.description}}
                 </div>
             </div>
@@ -54,7 +56,7 @@
                         <button class="Button" [ngClass]="{ 'active' : isValue == 2 }" type="button"
                             (click)="onChapter()">Chapters</button>
                     </div>
-                    <div class="OverView" *ngIf="overView" >
+                    <div class="OverView" *ngIf="!overView">
                         <div class="course-includes">
                             <p class="p4">Course Includes</p>
 
@@ -107,7 +109,8 @@
 
                             <div class="list">
 
-                                <div class="div" *ngFor="let outcome of details?.courseOverview.overViewId?.whatYouWillLearn">
+                                <div class="div"
+                                    *ngFor="let outcome of details?.courseOverview.overViewId?.whatYouWillLearn">
                                     <img src="assets/Combined-Shape.png">
                                     <div class="para">
                                         <p class="p6"> {{outcome}}</p>
@@ -136,7 +139,8 @@
                                 <img src="{{details?.courseOverview.overViewId?.instructor.instructorImage}}">
                                 <div class="profile-detail">
                                     <p class="p9">{{details?.courseOverview.overViewId?.instructor.name}}</p>
-                                    <p class="p10">{{details?.courseOverview.overViewId?.instructor.designation}}&nbsp;  |  &nbsp;{{details?.courseOverview.overViewId?.instructor.url}}</p>
+                                    <p class="p10">{{details?.courseOverview.overViewId?.instructor.designation}}&nbsp;
+                                        | &nbsp;{{details?.courseOverview.overViewId?.instructor.url}}</p>
                                 </div>
                             </div>
 
@@ -151,7 +155,7 @@
 
                     </div>
 
-                    <div class="Chapters" *ngIf="!overView">
+                    <div class="Chapters" *ngIf="overView">
                         <p class="p12">Course Content</p>
                         <p class="p13">7 Chapter | 46 lessons | 6 Assignment Test | 3.5h
                             total length</p>
@@ -165,10 +169,30 @@
                                 <!-- <mat-icon class="add-remove">remove</mat-icon> -->
 
                             </div>
-                            <div class="chapter1">
-                                <p class="p14">Chapter1 - Introduction to the course</p>
-                                <mat-icon class="add-remove">add</mat-icon>
+
+                            <div class="group">
+                                <div class="chapter1">
+                                    <p class="p14">Chapter1 - Introduction to the course</p>
+                                    <mat-icon class="add-remove">add</mat-icon>
+                                </div>
+
+                                <!-- have to create 1 whole div for progress -->
+                                <div class="popup">
+                                    <div class="popup-content">
+                                        <p class="number">22</p>
+                                        <div class="lesson-details">
+                                            <p class="lessonP">Importing vfsdfdsafDSSketch Files</p>
+                                            <p class="lesson-duration">01.38 mins</p>
+                                        </div>
+                                        <mat-icon class="pause">play_circle_outline</mat-icon>
+                                        <!-- <mat-icon class="play">play_circle_outline</mat-icon> -->
+                                    </div>
+                                </div>
                             </div>
+
+
+
+
                             <div class="chapter1">
                                 <p class="p14">Chapter1 - Introduction to the course</p>
                                 <mat-icon class="add-remove">remove</mat-icon>

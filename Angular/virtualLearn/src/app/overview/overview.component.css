@@ -244,7 +244,7 @@ hr {
 .include-list .div {
     display: flex;
     width: 100%;
-    
+
     /* align-items: center; */
 }
 
@@ -404,7 +404,7 @@ hr {
 
 .chapter1 {
     display: flex;
-    width: 80%;
+    width: 90%;
     justify-content: space-between;
     margin-top: 25px;
 }
@@ -416,6 +416,66 @@ hr {
     line-height: 30px;
     color: #111111;
 }
-.add-remove{
+
+.add-remove {
     color: red;
+}
+
+.popup-content {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.lesson-details{
+    /* border: 2px solid red; */
+    height: 50px;
+    width: 300px;
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+.number {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    color: #373737;
+    position: relative;
+    top: 10px;
+    left: 40px;
+
+}
+
+.lessonP {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    /* line-height: 20px; */
+    color: #042C5C;
+
+}
+
+.lesson-duration {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    /* line-height: 30px; */
+    color: #7A7A7A;
+    position: relative;
+    bottom: 10px;
+
+}
+.play{
+    font-size: 35px;
+    color: rgba(255, 0, 0, 0.696);
+    position: relative;
+    left: 10px;
+}
+.pause{
+    font-size: 35px;
+    color: #7A7A7A;
+    position: relative;
+    left: 10px;
 }

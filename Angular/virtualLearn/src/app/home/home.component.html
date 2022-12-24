@@ -73,27 +73,29 @@
 
             <div class="navigate">
 
-                <button class="pointer" [ngClass]="{ 'active' : isValue == 1 }" type="button"
-                    (click)="allClick()">All</button>
-                <button class="pointer" [ngClass]="{ 'active' : isValue == 2 }" type="button"
-                    (click)="popularClick()">Popular</button>
-                <button class="pointer" [ngClass]="{ 'active' : isValue == 3 }" type="button"
-                    (click)="newestClick()">Newest</button>
+                <button id="btn1" class="pointer" [ngClass]="{ 'active' : isValue == 1 }" 
+                    (click)="allClick()" value="All">All</button>
+
+                <button id="btn2" class="pointer" [ngClass]="{ 'active' : isValue == 2 }" 
+                    (click)="popularClick()" value="Popular">Popular</button>
+
+                <button id="btn3" class="pointer" [ngClass]="{ 'active' : isValue == 3 }" 
+                    (click)="newestClick()" value="Newest">Newest</button>
 
             </div>
 
             <div class="course-choices top" *ngIf="all">
                 <mat-card class="card" *ngFor="let all of allCourses">
-                    <img mat-card-image src="{{all.coursePhoto}}" alt="">
+                    <img mat-card-image src="{{all.courseImage}}" alt="">
                     <div class="name">
-                        {{all.categoryName}}
+                        {{all.category}}
                     </div>
 
                     <mat-card-content>
                         <p class="p6">
-                            {{all.courseName | titlecase}}
+                            {{all.courseTitle | titlecase}}
                         </p>
-                        <p class="p7">{{all.chapterCount}} Chapters</p>
+                        <p class="p7">{{all.courseContent.totalChapters}} Chapters</p>
                     </mat-card-content>
                 </mat-card>
             </div>
@@ -101,14 +103,17 @@
             <!-- popular -->
             <div class="course-choices top" *ngIf="popular">
 
-                <mat-card class="card">
-                    <img mat-card-image src="https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067__340.png"
+                <mat-card class="card" *ngFor="let popular of allCourses">
+                    <img mat-card-image src="{{popular.courseImage}}"
                         alt="">
+                        <div class="name">
+                            {{popular.category}}
+                        </div>
                     <mat-card-content>
                         <p class="p6">
-                            Learn Figma - UI/UX Design Essential Training
+                            {{popular.courseTitle | titlecase}}
                         </p>
-                        <p class="p7">7 Chapters</p>
+                        <p class="p7">{{popular.courseContent.totalChapters}} Chapters</p>
                     </mat-card-content>
                 </mat-card>
             </div>
@@ -116,16 +121,16 @@
             <!-- newest -->
             <div class="course-choices top" *ngIf="newest">
 
-                <mat-card class="card" *ngFor="let new of newCourse">
-                    <img mat-card-image src="{{new.coursePhoto}}" alt="">
+                <mat-card class="card" *ngFor="let new of allCourses">
+                    <img mat-card-image src="{{new.courseImage}}" alt="">
                     <div class="name">
-                        {{new.categoryName}}
+                        {{new.category}}
                     </div>
                     <mat-card-content>
                         <p class="p6">
-                            {{new.courseName}}
+                            {{new.courseTitle}}
                         </p>
-                        <p class="p7">{{new.chapterCount}} Chapters</p>
+                        <p class="p7">{{new.courseContent.totalChapters}} Chapters</p>
                     </mat-card-content>
                 </mat-card>
             </div>

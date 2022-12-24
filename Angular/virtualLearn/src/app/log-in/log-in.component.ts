@@ -1,8 +1,7 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {LogInService} from 'src/app/services/login.service'
+import { LogInService } from 'src/app/services/login.service'
 
 @Component({
   selector: 'app-log-in',
@@ -12,7 +11,7 @@ import {LogInService} from 'src/app/services/login.service'
 export class LogInComponent implements OnInit {
 
 
-  inputForm!:FormGroup;
+  inputForm!: FormGroup;
 
   constructor(private service: LogInService, private fb: FormBuilder, private router: Router) { }
 
@@ -25,46 +24,45 @@ export class LogInComponent implements OnInit {
 
   }
 
-  onEnter(event: any,password:any){
-    if(event.keyCode == 13){
+  onEnter(event: any, password: any) {
+    if (event.keyCode == 13) {
       this.onSubmit();
     }
   }
 
-  onSubmit(){
+  onSubmit() {
 
     const body = {
       'userName': this.inputForm.value.name,
       'password': this.inputForm.value.password
-    } 
-
-    if(this.inputForm.invalid){
-      alert("Please fill all the required form");
-    }else{
-
-    
-    this.service.logIn(body).subscribe({
-          
-    next:(data) => {
-      const token = JSON.parse(data);
-      console.log(token);
-      alert(token.message);
-
-      if(token.access_token){
-      sessionStorage.setItem('token', token.access_token)
-      }
-    },
-    error:(e) =>{
-      alert(e.message)
-    },
-    complete:() => {
-      if(sessionStorage.getItem('token') ){
-     this.router.navigate(['home'])
-
-      }
     }
-     
-    }) 
-  }
+
+    if (this.inputForm.invalid) {
+      alert("Please fill all the required form");
+    } else {
+
+
+      this.service.logIn(body).subscribe({
+
+        next: (data) => {
+          const token = JSON.parse(data);
+          console.log(token);
+          alert(token.message);
+
+          if (token.access_token) {
+            sessionStorage.setItem('token', token.access_token)
+          }
+        },
+        error: (e) => {
+          alert(e.message)
+        },
+        complete: () => {
+          if (sessionStorage.getItem('token')) {
+            this.router.navigate(['home'])
+          }
+        }
+
+      })
+    }
   }
 }

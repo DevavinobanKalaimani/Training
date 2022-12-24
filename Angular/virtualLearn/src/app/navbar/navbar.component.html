@@ -12,20 +12,28 @@
 
 
             <mat-icon><i class="fa fa-search search-icon pointer" *ngIf="!dropdown"></i></mat-icon>
-            <input id="ID" placeholder="Search" type="text" (click)="onClick()" name="search" />
 
+            <form [formGroup]="inputForm">
+                <input id="input" placeholder="Search" type="text" (click)="onClick()" formControlName="search"
+                     value="{{value}}" (keydown)="onEnter($event)" />
+            </form>
 
-            <div class="focus" *ngIf="dropdown">
+            <div class="focus" *ngIf="dropdown" (click)="bySearch()">
                 <mat-icon><i class="fa fa-search search-focused pointer"></i></mat-icon>
             </div>
 
         </div>
 
-        <div class="options">
+        <div class="options" *ngIf="!dropdown">
             <mat-icon class="icon1 pointer">notifications_none</mat-icon>
             <i class="fa fa-gear pointer"></i>
+            <mat-icon (click)="logOut()" style="color: white; font-size:26px" class="pointer">power_settings_new
+            </mat-icon>
             <img src="assets/InShot_20220322_141718579.jpg" />
 
+        </div>
+        <div class="close" *ngIf="dropdown">
+            <mat-icon (click)="close()">close</mat-icon>
         </div>
     </div>
 </mat-toolbar>
@@ -37,18 +45,18 @@
             <p class="p1">Top Search</p>
 
             <div class="search-result">
-                <div class="top-search pointer" *ngFor="let search of searches">
+                <div class="top-search pointer" *ngFor="let search of searches" (click)="appendValue(search)">
                     {{search | titlecase}}
                 </div>
             </div>
         </div>
 
-        <div class="suggestion-list" *ngIf= !topSearch>
+        <div class="suggestion-list" *ngIf=searchList>
 
             <div class="suggestion" *ngFor="let list of lists">
-    
-                <img src="{{list?.courseImage}}" >
-    
+
+                <img src="{{list?.courseImage}}">
+
                 <div class="suggestion-content">
                     <p class="p11">{{list?.courseTitle}}</p>
                     <p class="p12">{{list?.courseContent?.totalChapters}} Chapter</p>
@@ -57,17 +65,17 @@
             </div>
         </div>
 
-        <!-- <div class="noFound">
+        <div class="noFound" *ngIf=notFound>
             <p class="P">No matching course</p>
             <p class="p">Try a different search or browse categories</p>
-        </div> -->
+        </div>
 
-        <div class="categories" *ngIf="topSearch">
+        <div class="categories" *ngIf="category">
             <p class="p2">Search from Categories</p>
             <div class="chips">
-                <mat-chip-list aria-label="category selection" *ngFor="let category of categories">
-                    <mat-chip (click)="byCategory(category)">
-                        <img matChipAvatar src="{{category.categoryPhoto}}" alt="" />
+                <mat-chip-list aria-label="category selection" *ngFor="let category of categories" >
+                    <mat-chip (click)="appendValue(category)"  (click)="clickOnCategory(category)">
+                        <img matChipAvatar [src]="image" alt="" />
                         {{category}}
                     </mat-chip>
                 </mat-chip-list>

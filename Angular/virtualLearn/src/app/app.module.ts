@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthserviceInterceptor } from './auth.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { OverviewComponent } from './overview/overview.component';
+import { LogoutComponent } from './logout/logout.component';
+import { MatDialogModule } from '@angular/material/dialog';
  
 
 
@@ -23,6 +25,7 @@ import { OverviewComponent } from './overview/overview.component';
     HomeComponent,
     NavbarComponent,
     OverviewComponent,
+    LogoutComponent,
    
   ],
   imports: [
@@ -32,6 +35,7 @@ import { OverviewComponent } from './overview/overview.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule
   ],
   providers: [
     {

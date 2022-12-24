@@ -30,49 +30,13 @@ export class HomeComponent implements OnInit {
   headCourse: any;
   name: any;
 
- video: any = document.getElementsByClassName("video")
-  
+
 
 
   constructor(private service: HomeService, private router: Router) { }
 
   ngOnInit(): void {
-
    
-
-
-    // this.service.getAll().subscribe(data => {
-    //   this.allCourses = JSON.parse(data);
-    //   console.log(this.allCourses);
-    // })
-
-
-    // this.service.getNewest().subscribe(data => {
-    //   this.newCourse = JSON.parse(data);
-    //   console.log(this.newCourse);
-    // })
-
-    // this.service.getTopCourse().subscribe(data => {
-    //   this.topCourse = JSON.parse(data);
-    //   console.log(this.topCourse);
-
-    //   if (this.topCourse[2]) {
-    //     this.businessCourse = this.topCourse[2].popularCourseInEachCategoryList
-    //     console.log(this.businessCourse);
-
-    //   }
-
-    //   if (this.topCourse[0]) {
-    //     this.designCourse = this.topCourse[0].popularCourseInEachCategoryList
-    //     console.log(this.designCourse);
-
-    //   }
-    // })
-
-    // this.service.getHeaderCourse().subscribe(data => {
-    //   this.headCourse = JSON.parse(data);
-    //   console.log(this.headCourse);
-    // })
 
     this.service.getName().subscribe(data => {
       this.name = JSON.parse(data);
@@ -93,8 +57,7 @@ export class HomeComponent implements OnInit {
       this.ongoing = JSON.parse(data);
       console.log(this.ongoing);
     })
-
-
+ this.allClick();
 
   }
 
@@ -107,6 +70,8 @@ export class HomeComponent implements OnInit {
     this.popular = false;
     this.newest = false;
     this.toggle(1);
+    
+    this.getAllCourses((document.getElementById('btn1')as HTMLInputElement).value);
 
   }
   popularClick() {
@@ -115,6 +80,7 @@ export class HomeComponent implements OnInit {
     this.newest = false;
     this.toggle(2);
 
+    this.getAllCourses((document.getElementById('btn2')as HTMLInputElement).value);
 
   }
   newestClick() {
@@ -123,6 +89,7 @@ export class HomeComponent implements OnInit {
     this.newest = true;
     this.toggle(3);
 
+    this.getAllCourses((document.getElementById('btn3')as HTMLInputElement).value);
   }
 
 
@@ -167,6 +134,17 @@ export class HomeComponent implements OnInit {
   this.router.navigate(['overview'])
   console.log(courseId);
   
+ }
+
+ getAllCourses(choice: any){
+  const body = {
+    'choice': choice,
+    'view': ''
+  }
+  this.service.getCourses(body).subscribe(data => {
+    this.allCourses = data;
+    console.log(this.allCourses);
+  })
  }
 
 }

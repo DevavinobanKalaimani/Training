@@ -1,6 +1,7 @@
 mat-toolbar {
     height: 80px;
     background-color: #092963;
+
 }
 
 
@@ -44,7 +45,6 @@ mat-toolbar {
     width: 35%;
     height: 45px;
     border-radius: 50px;
-
     display: flex;
     align-items: center;
 }
@@ -85,6 +85,8 @@ input[type=text]:focus {
     background: #244F9C;
     display: flex;
     justify-content: center;
+    position: relative;
+   left: 145px;
 
 }
 
@@ -94,11 +96,12 @@ input[type=text]:focus {
     top: 6px;
 }
 
-.options {
+.options, .close {
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 150px;
+    width: 200px;
 }
 
 .icon1 {
@@ -124,6 +127,7 @@ input[type=text]:focus {
     width: 100%;
     background-color: #092963;
     padding-bottom: 70px;
+
 }
 
 .dropdown-content {
@@ -142,13 +146,14 @@ input[type=text]:focus {
 
 .noFound {
     position: relative;
-    top: 20px;
+    top: 40px;
     width: 100%;
     height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 40px;
 }
 
 .p {

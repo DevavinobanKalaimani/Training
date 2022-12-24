@@ -24,19 +24,9 @@ getOngoingCourse(){
     return this.http.get(environment.url + '/ongoingCourses', { responseType: 'text'})
 }
 
-// getAll(){
-//     return this.http.get(environment.url + '/choiceYourCourse', { responseType: 'text'})
-
-// }
-
-// getPopular(){
-//     return this.http.get(environment.url + '/user/home/course/popular', { responseType: 'text'})
-
-// }
-// getNewest(){
-//     return this.http.get(environment.url + '/user/home/course/newest', { responseType: 'text'})
-
-// }
+getCourses(body: any){
+    return this.http.post(environment.url + '/choiceYourCourse', body)
+}
 
 // getTopCourse(){
 //     return this.http.get(environment.url + '/user/home/course/category', { responseType: 'text'})
