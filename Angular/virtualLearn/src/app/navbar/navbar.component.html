@@ -15,11 +15,12 @@
 
             <form [formGroup]="inputForm">
                 <input id="input" placeholder="Search" type="text" (click)="onClick()" formControlName="search"
-                     value="{{value}}" (keydown)="onEnter($event)" />
+                    value="{{value}}" (keydown)="onEnter($event)" />
             </form>
-
-            <div class="focus" *ngIf="dropdown" (click)="bySearch()">
-                <mat-icon><i class="fa fa-search search-focused pointer"></i></mat-icon>
+            <div class="end" *ngIf="dropdown">
+                <div class="focus"  (click)="bySearch()">
+                    <mat-icon><i class="fa fa-search search-focused pointer"></i></mat-icon>
+                </div>
             </div>
 
         </div>
@@ -73,9 +74,9 @@
         <div class="categories" *ngIf="category">
             <p class="p2">Search from Categories</p>
             <div class="chips">
-                <mat-chip-list aria-label="category selection" *ngFor="let category of categories" >
-                    <mat-chip (click)="appendValue(category)"  (click)="clickOnCategory(category)">
-                        <img matChipAvatar [src]="image" alt="" />
+                <mat-chip-list aria-label="category selection" *ngFor="let category of categories; let i = index">
+                    <mat-chip (click)="appendValue(category)" (click)="clickOnCategory(category)">
+                        <img matChipAvatar [src]="image[i]" alt="" />
                         {{category}}
                     </mat-chip>
                 </mat-chip-list>

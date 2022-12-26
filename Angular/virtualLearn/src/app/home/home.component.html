@@ -55,9 +55,9 @@
 
 
             <div class="chips">
-                <mat-chip-list aria-label="category selection" *ngFor="let category of categories">
+                <mat-chip-list aria-label="category selection" *ngFor="let category of categories; let i = index">
                     <mat-chip>
-                        <img matChipAvatar src="" alt="" />
+                        <img matChipAvatar [src]="image[i]" alt="" />
                         {{category}}
                     </mat-chip>
                 </mat-chip-list>

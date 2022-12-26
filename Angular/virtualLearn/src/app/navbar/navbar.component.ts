@@ -4,7 +4,6 @@ import { SearchService } from '../services/search.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LogoutComponent } from '../logout/logout.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -32,14 +31,14 @@ export class NavbarComponent implements OnInit {
   image: any = [
     'assets/images/Business.png',
     'assets/images/Design.png',
-    'assets/images/Health & Fitness.png',
+    'assets/images/Health & Fitness.jpg',
     'assets/images/IT & Software.png',
     'assets/images/Marketing.png',
     'assets/images/Music.png',
     'assets/images/Photography.png',
     'assets/images/Teaching.png',
     'assets/images/Testing.png',
-    'assets/images/Web Development.png',
+    'assets/images/Web Development .png',
   ]
 
 
@@ -82,6 +81,7 @@ export class NavbarComponent implements OnInit {
       this.topSearch = true;
       this.category = true;
       this.searchList = false;
+      this.notFound = false;
     }
   }
   appendValue(element: any) {

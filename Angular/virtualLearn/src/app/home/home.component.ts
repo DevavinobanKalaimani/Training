@@ -30,7 +30,18 @@ export class HomeComponent implements OnInit {
   headCourse: any;
   name: any;
 
-
+  image: any = [
+    'assets/images/Business.png',
+    'assets/images/Design.png',
+    'assets/images/Health & Fitness.jpg',
+    'assets/images/IT & Software.png',
+    'assets/images/Marketing.png',
+    'assets/images/Music.png',
+    'assets/images/Photography.png',
+    'assets/images/Teaching.png',
+    'assets/images/Testing.png',
+    'assets/images/Web Development .png',
+  ]
 
 
   constructor(private service: HomeService, private router: Router) { }

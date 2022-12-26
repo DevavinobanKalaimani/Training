@@ -5,16 +5,15 @@
         <div class="header">
             <p *ngIf="overView" class="p1"><span>MyCourse&nbsp;>&nbsp;</span>Ongoing</p>
             <p *ngIf="!overView" class="p1">
-                <span>MyCourse&nbsp;>&nbsp;Ongoing&nbsp;>&nbsp;</span>{{details?.courseName}} </p>
+                <span>MyCourse&nbsp;>&nbsp;Ongoing&nbsp;>&nbsp;</span>{{details?.courseName}}
+            </p>
         </div>
-
         <div class="overview">
 
             <div class="container-left">
-                <div class="video-overview">
-                    <video class="video" controls>
-                        <source src="{{details?.courseOverview.overViewId.previewThisCourse.videoLink}}"
-                            type="video/mp4">
+                <div class="video-overview" >
+                    <video class="video" controls>       
+                        <source [src]="videoSource"  type="video/mp4">
                     </video>
 
                     <p class="p0">Preview the course</p>
@@ -66,7 +65,7 @@
                                 <div class="div">
                                     <img src="assets/MicrosoftTeams-image (3).png">
                                     <div class="include-para">
-                                        <p class="p7"> {{details?.courseDuration}} total hours video</p>
+                                        <p class="p7"> {{hour}} total hours video</p>
                                     </div>
                                 </div>
                                 <div class="div">
@@ -78,7 +77,8 @@
                                 <div class="div">
                                     <img src="assets/MicrosoftTeams-image (1).png">
                                     <div class="include-para">
-                                        <p class="p7"> {{details?.testCount}} Module Test</p>
+                                        <p class="p7"> {{chapters?.listOfChapters.courseContent.totalTests}} Module Test
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="div">
@@ -157,57 +157,52 @@
 
                     <div class="Chapters" *ngIf="overView">
                         <p class="p12">Course Content</p>
-                        <p class="p13">7 Chapter | 46 lessons | 6 Assignment Test | 3.5h
-                            total length</p>
+                        <p class="p13">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
+                            {{chapters?.listOfChapters.courseContent.totalLessons}} lessons |
+                            {{chapters?.listOfChapters.courseContent.totalTests}} Assignment Test |
+                            {{hour}}h total length</p>
 
                         <!-- <mat-icon>play_circle_outline</mat-icon> -->
 
                         <div class="chapter-overview">
-                            <div class="chapter1">
-                                <p class="p14">Chapter1 - Introduction to the course</p>
-                                <mat-icon class="add-remove">add</mat-icon>
-                                <!-- <mat-icon class="add-remove">remove</mat-icon> -->
 
-                            </div>
 
                             <div class="group">
-                                <div class="chapter1">
-                                    <p class="p14">Chapter1 - Introduction to the course</p>
-                                    <mat-icon class="add-remove">add</mat-icon>
+                                <div class="chapter1"
+                                    *ngFor="let chapterList of chapters?.listOfChapters?.totalChapters[0].chapters; let i = index">
+
+                                    <div class="chapterTitle">
+                                        <p class="p14">Chapter {{chapterList.chapterNumber}} -
+                                            {{chapterList.chapterTitle}}</p>
+
+                                        <mat-icon *ngIf="array[i]" class="add-remove"
+                                            (click)="openDropdown(i)">add</mat-icon>
+
+                                        <mat-icon *ngIf=" !array[i]" class="add-remove"
+                                            (click)="openDropdown(i)">remove</mat-icon>
+                                    </div>
+
+                                    <div class="popup" *ngIf="!array[i]">
+                                        <div class="arrange">
+                                            <div class="popup-content" *ngFor="let lessonList of chapterList.lessons">
+                                                <div class="progessBar">
+                                                    <img src="assets/Virtuallearn_Web (2)/Grey Dot.svg">
+                                                </div>
+
+                                                <p class="number">{{lessonList.serialNumberOfLesson}}</p>
+                                                <div class="lesson-details">
+                                                    <p class="lessonP">{{lessonList.title}}</p>
+                                                    <p class="lesson-duration">{{lessonList.duration}} mins</p>
+                                                </div>
+                                                <mat-icon class="pause" (click)="lessonVideo(lessonList.url)">play_circle_outline</mat-icon>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- have to create 1 whole div for progress -->
-                                <div class="popup">
-                                    <div class="popup-content">
-                                        <p class="number">22</p>
-                                        <div class="lesson-details">
-                                            <p class="lessonP">Importing vfsdfdsafDSSketch Files</p>
-                                            <p class="lesson-duration">01.38 mins</p>
-                                        </div>
-                                        <mat-icon class="pause">play_circle_outline</mat-icon>
-                                        <!-- <mat-icon class="play">play_circle_outline</mat-icon> -->
-                                    </div>
-                                </div>
-                            </div>
 
-
-
-
-                            <div class="chapter1">
-                                <p class="p14">Chapter1 - Introduction to the course</p>
-                                <mat-icon class="add-remove">remove</mat-icon>
-                            </div>
-                            <div class="chapter1">
-                                <p class="p14">Chapter1 - Introduction to the course</p>
-                                <mat-icon class="add-remove">add</mat-icon>
-                            </div>
-                            <div class="chapter1">
-                                <p class="p14">Chapter1 - Introduction to the course</p>
-                                <mat-icon class="add-remove">add</mat-icon>
-                            </div>
-                            <div class="chapter1">
-                                <p class="p14">Chapter1 - Introduction to the course</p>
-                                <mat-icon class="add-remove">add</mat-icon>
                             </div>
 
 
