@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="container-content">
+        <div class="test-head">
+            <p class="p1">Module Test 2</p>
+            <mat-icon routerLink="/overview">close</mat-icon>
+        </div>
+
+        <div class="test-subHead">
+            <p class="p2">Question {{i+1}} of {{modulequestions?.totalQuestions}}</p>
+
+            <div class="test-time">
+                <i class="fa fa-clock-o"></i>
+                <p class="p3">{{modulequestions?.totalTimeAlloted}} secs remaining</p>
+            </div>
+        </div>
+
+        <div class="test-body">
+            <div>
+                <p class="p4">{{modulequestions?.questions[i]}}</p>
+
+                <div class="test-ans" *ngFor="let option of modulequestions?.options[i]">
+                    <input id="ans" value="correct" name="answers" type="radio">
+                    <label for="ans">{{option}}</label>
+                </div>
+            </div>
+
+            <div class="test-button">
+                <div class="test-submit">
+                    <p class="p5">Chapter 3 </p>
+                    <p class="p6">Setting up a new project</p>
+                </div>
+                <div class="test-navigate">
+                    <i *ngIf="leftArrow" class="fas fa-arrow-left"(click)=DecreaseI()></i>
+
+                    <i *ngIf="arrowRight" class="fas fa-arrow-right" (click)="increaseI()"></i>
+                    <div *ngIf="button" class="submit"> Submit </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

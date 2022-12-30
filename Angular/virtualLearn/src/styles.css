@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+
 html,
 body {
     height: 100%;
@@ -15,5 +16,22 @@ body {
 .pointer{
     cursor: pointer;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+vg-play-pause.play:before{
+    content: '\f144';
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: white;
+}
+vg-play-pause.pause:before{
+    content: '\f28b';
+    font-family: FontAwesome;
+    font-size: 30px;
+}
+
+.vg-icon-fullscreen:before {
+    font-family: FontAwesome;
+    content: "\f10c";
+}
+
+
