@@ -73,26 +73,10 @@ export class NavbarComponent implements OnInit {
 
 
   onClick() {
-    // if (this.dropdown == false) {
-    //   this.dropdown = true;
-    // }
+    if (this.dropdown == false) {
+      this.dropdown = true;
+    }
 
-    (document.getElementById("dropdown")as HTMLInputElement).onmouseover = function()
-    {
-    setTimeout(function(){mouseOver()},600)
-    };
-    (document.getElementById("dropdown")as HTMLInputElement).onmouseleave = function()
-    {
-    mouseOut()
-    };
-    
-    
-    function mouseOver(){
-   ( document.getElementById('input')as HTMLInputElement).focus();
-    }
-    function mouseOut(){
-      ( document.getElementById('input')as HTMLInputElement).blur();
-    }
   }
 
   

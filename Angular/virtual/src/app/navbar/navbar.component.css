@@ -148,21 +148,16 @@ input[type=text]:focus {
     background-color: #092963;
     padding-bottom: 70px;
 
-    -webkit-transition: width 0.4s ease-in-out;
-    box-sizing: border-box;
-    /* 
-    transform: translate(-200%); 
+    
+    /* transform: translate(-200%); 
     transition: transform 0.5s ease; */
 
 }
 
-/* input[type=text]:focus{
+/* input[type=text]:focus .dropdown{
     transform: translate(0);
 } */
-#input {
-    -webkit-transition: max-width 0.6s ease-in-out;
-    transition: max-width 0.6s ease-in-out;
-}
+
 
 .dropdown-content {
     height: auto;
