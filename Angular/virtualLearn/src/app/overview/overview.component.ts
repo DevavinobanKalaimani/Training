@@ -2,7 +2,7 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OverViewService } from '../services/overview.service';
-import * as $ from "jquery";
+// import * as $ from "jquery";
 
 @Component({
   selector: 'app-overview',
@@ -55,7 +55,7 @@ export class OverviewComponent implements OnInit {
     this.courseTitle = sessionStorage.getItem('courseName');
     this.getVideoProgress();
 
-    this.service.getVideoData().subscribe(data => {
+    this.service.getVideoData().subscribe((data:any) => {
       console.log(data);
     })
 
@@ -64,7 +64,7 @@ export class OverviewComponent implements OnInit {
 
   getVideoProgress() {
 
-    this.service.getProgress().subscribe(data => {
+    this.service.getProgress().subscribe((data:any) => {
       this.videoStatus = data;
       for(let i=1;i<this.videoStatus.ongoingSerialNumber;i++){
         this.indexes.push(i);
@@ -125,13 +125,13 @@ export class OverviewComponent implements OnInit {
   }
 
   getOverView() {
-    this.service.getOverview().subscribe(data => {
+    this.service.getOverview().subscribe((data:any) => {
       this.details = data;
       // console.log(this.details);  
     })
   }
   getChapter() {
-    this.service.getChapters().subscribe(data => {
+    this.service.getChapters().subscribe((data:any) => {
       this.chapters = data;
       // console.log(this.chapters);
       this.hour = (this.chapters.listOfChapters.courseContent.totalDuration / 60).toFixed(1);
@@ -286,7 +286,7 @@ export class OverviewComponent implements OnInit {
       if (flag == 0) {
         this.srcURL = this.image[2];
         this.icon = true;
-        $("#popUp").load(location.href+" #popUp>*",""); 
+        // $("#popUp").load(location.href+" #popUp>*",""); 
       }
       else if (flag == 3) {
         this.srcURL = this.image[1];

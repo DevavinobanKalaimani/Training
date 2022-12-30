@@ -8,7 +8,6 @@ import {MatCardModule} from '@angular/material/card'
 import { FormsModule } from '@angular/forms';
 
 
-
 const material=[
   CommonModule,
  MatInputModule,

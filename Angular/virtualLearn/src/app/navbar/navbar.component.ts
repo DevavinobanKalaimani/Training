@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
 import { SearchService } from '../services/search.service';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog } from '@angular/material/dialog';
 import { LogoutComponent } from '../logout/logout.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private service: HomeService,
     private searchService: SearchService,
-    private dialog: MatDialog,
+    // private dialog: MatDialog,
     private fb: FormBuilder,
     private router: Router
   ) { }
@@ -201,9 +201,9 @@ export class NavbarComponent implements OnInit {
     
    }
 
-  logOut() {
-    this.dialog.open(LogoutComponent, { panelClass: 'custom-dialog-container' });
-  }
+  // logOut() {
+  //   this.dialog.open(LogoutComponent, { panelClass: 'custom-dialog-container' });
+  // }
 
 
 }

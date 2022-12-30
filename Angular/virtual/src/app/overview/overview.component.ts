@@ -1,8 +1,8 @@
 
-import { Component, Injectable, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { OverViewService } from '../services/overview.service';
-
+// import * as $ from "jquery";
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -23,7 +23,7 @@ export class OverviewComponent implements OnInit {
   noEnroll = false;
   BTN: any = false;
   courseTitle: any;
-  osn:any;
+  osn: any;
   image: any = [
     'assets/Virtuallearn_Web (1)/Green Tick.svg',
     'assets/Virtuallearn_Web (3)/Group Dot.svg',
@@ -43,10 +43,20 @@ export class OverviewComponent implements OnInit {
   lessonLength: any;
   videoStatus: any;
   icon: any = true;
-  
+  someSubscription: any;
 
-  constructor(private service: OverViewService, private router: Router) { }
+  constructor(private service: OverViewService, private router: Router) {
 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.someSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.router.navigated = false;        
+      }
+    });
+  }
+ 
   ngOnInit(): void {
 
     this.getOverView();
@@ -61,14 +71,25 @@ export class OverviewComponent implements OnInit {
     this.getProgress();
   }
 
+  ngOnDestroy() {
+    if (this.someSubscription) {
+      this.someSubscription.unsubscribe();
+      console.log('hi');
+      
+    }
+  }
+
+
   getVideoProgress() {
 
     this.service.getProgress().subscribe(data => {
       this.videoStatus = data;
-      for(let i=1;i<this.videoStatus.ongoingSerialNumber;i++){
+      for (let i = 1; i < this.videoStatus.ongoingSerialNumber; i++) {
         this.indexes.push(i);
       }
       this.osn = this.videoStatus.ongoingSerialNumber
+      console.log(this.osn);
+      
       console.log(this.videoStatus);
       sessionStorage.setItem('videoArrayLength', this.videoStatus.allVideoStatus.length);
       sessionStorage.setItem('onGoingSerialNumber', JSON.stringify(this.videoStatus.ongoingSerialNumber - 1) as any)
@@ -133,7 +154,7 @@ export class OverviewComponent implements OnInit {
     this.service.getChapters().subscribe(data => {
       this.chapters = data;
       // console.log(this.chapters);
-      this.hour = (this.chapters.listOfChapters.courseContent.totalDuration / 60).toFixed(1);
+      this.hour = (this.chapters.listOfChapters.courseContent.totalDuration / 3600).toFixed(2);
 
 
       this.length = this.chapters.listOfChapters.totalChapters[0].chapters.length;
@@ -154,7 +175,7 @@ export class OverviewComponent implements OnInit {
     sessionStorage.setItem('serialNumber', serialNumber);
     // sessionStorage.setItem('currentURL',item)
     // console.log();
-    
+
 
     if (this.chapters.isEnrolled != null && this.details?.isEnrolled != null) {
       this.currentIndex = index;
@@ -203,7 +224,7 @@ export class OverviewComponent implements OnInit {
       if (this.userChapter?.message === 'Video Paused') {
         sessionStorage.setItem('videoPausePlayStatus', this.userChapter.message)
         this.srcURL = this.image[1];
-      
+
       }
     });
 
@@ -250,16 +271,16 @@ export class OverviewComponent implements OnInit {
     if (sessionStorage.getItem('videoArrayLength') as any == 0 &&
       sessionStorage.getItem('onGoingSerialNumber') as any >= (sessionStorage.getItem('serialNumber') as any) &&
       sessionStorage.getItem('videStatus') == 'false' &&
-      sessionStorage.getItem('flag')as any == 2) {
+      sessionStorage.getItem('flag') as any == 2) {
 
-       this.srcURL = this.image[0] 
-       
-       
+      this.srcURL = this.image[0]
+
+
     }
     else if (sessionStorage.getItem('videoArrayLength') as any >= 1 || sessionStorage.getItem('videStatus') == 'true') {
       this.srcURL = this.image[1]
     }
-    else if (sessionStorage.getItem('videoArrayLength') as any == 0 &&  sessionStorage.getItem('flag')as any == 0) {
+    else if (sessionStorage.getItem('videoArrayLength') as any == 0 && sessionStorage.getItem('flag') as any == 0) {
       this.srcURL = this.image[2]
     }
   }
@@ -276,29 +297,24 @@ export class OverviewComponent implements OnInit {
 
   check(index: any) {
 
-
-      let flag: any = 0;
-      for (let i of this.indexes) {
-        if (index == i) flag = 2;
-        if( index == this.osn) flag = 3;
-      }
-      if (flag == 0) {
-        this.srcURL = this.image[2];
-        this.icon = true;
-      }
-      else if (flag == 3) {
-        this.srcURL = this.image[1];
-        this.icon = false;
-    
-
-      }
-      else if (flag == 2) {
-        this.srcURL = this.image[0]
-        sessionStorage.setItem('flag', flag);
-        this.icon = false;
-        this.getVideoProgress();
-
-      }
+    let flag: any = 0;
+    for (let i of this.indexes) {
+      if (index == i) flag = 2;
+      if (index === this.osn) flag = 1;     
+      
+    }
+    if (flag == 0) {
+      this.srcURL = this.image[2];
+      this.icon = true;
+    }
+    else if (flag == 2) {
+      this.srcURL = this.image[0];
+      this.icon = false;
+    }
+    else if (flag == 1) {
+      this.srcURL = this.image[1];
+      this.icon = false;
+    }
   }
 
 }

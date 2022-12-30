@@ -13,7 +13,7 @@ import { AuthserviceInterceptor } from './auth.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { OverviewComponent } from './overview/overview.component';
 import { LogoutComponent } from './logout/logout.component';
-import { MatDialogModule } from '@angular/material/dialog';
+// import { MatDialogModule } from '@angular/material/dialog';
 import { EmbedVideo } from 'ngx-embed-video';
 import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
@@ -22,6 +22,7 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { SeeAllComponent } from './see-all/see-all.component';
 import { ModuleTestComponent } from './module-test/module-test.component';
 import { AllOngoingComponent } from './all-ongoing/all-ongoing.component';
+
  
 
 
@@ -46,13 +47,12 @@ import { AllOngoingComponent } from './all-ongoing/all-ongoing.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule,
+    // MatDialogModule,
     EmbedVideo.forRoot(),
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
-    
+    VgBufferingModule,
     
   ],
   providers: [

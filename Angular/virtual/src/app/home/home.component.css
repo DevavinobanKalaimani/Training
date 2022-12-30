@@ -67,7 +67,7 @@
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3.1rem;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -152,8 +152,9 @@
     width: 30.6rem;
     flex-grow: 1; */
     height: 17.5rem;
+    /* height: 100%; */
     width: 100%;
-    position: relative;
+    /* position: relative; */
 
 }
 
@@ -209,7 +210,7 @@
     font-size: 22px;
     line-height: 30px;
     color: #fbf9f9;
-   width: 350px;
+   width: auto;
     /* border: 2px solid white; */
 }
 

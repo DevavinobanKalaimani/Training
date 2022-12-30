@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,18 +9,20 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private router: Router, private dialog: MatDialog) { }
+  constructor(private router: Router,
+    //  private dialog: MatDialog
+     ) { }
 
   ngOnInit(): void {
   }
 
   logOut(){
       sessionStorage.removeItem('token');
-      this.dialog.closeAll();
+      // this.dialog.closeAll();
      this.router.navigate(["login"])
   }
 
   no(){
-    this.dialog.closeAll();
+    // this.dialog.closeAll();
   }
 }

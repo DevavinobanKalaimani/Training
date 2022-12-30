@@ -40,7 +40,7 @@
                             <vg-volume></vg-volume>
                             <!-- <vg-fullscreen></vg-fullscreen> -->
                         </vg-controls>
-                        <video [vgMedia]="$any(media)" #media [src]="activeVideo" type="video/mp4" id="singleVideo"
+                        <video class="video" [vgMedia]="$any(media)" #media [src]="activeVideo" type="video/mp4" id="singleVideo"
                             preload="auto" crossorigin (ended)="videoEnd(currentLessonIndex)">
                             <!-- <source   type="video/mp4"> -->
                             <track kind="subtitles" label="English"

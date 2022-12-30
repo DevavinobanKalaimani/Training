@@ -29,7 +29,7 @@
         <div class="options" *ngIf="!dropdown">
             <mat-icon class="icon1 pointer">notifications_none</mat-icon>
             <i class="fa fa-gear pointer"></i>
-            <mat-icon (click)="logOut()" style="color: white; font-size:26px" class="pointer">power_settings_new
+            <mat-icon  style="color: white; font-size:26px" class="pointer">power_settings_new
             </mat-icon>
             <img src="assets/InShot_20220322_141718579.jpg" />
 
@@ -75,12 +75,12 @@
         <div class="categories" *ngIf="category">
             <p class="p2">Search from Categories</p>
             <div class="chips">
-                <mat-chip-list aria-label="category selection" *ngFor="let category of categories; let i = index">
-                    <mat-chip (click)="appendValue(category)" (click)="clickOnCategory(category)">
+                <!-- <mat-chip-list aria-label="category selection"> -->
+                    <mat-chip  *ngFor="let category of categories; let i = index" (click)="appendValue(category)" (click)="clickOnCategory(category)">
                         <img matChipAvatar [src]="image[i]" alt="" />
                         {{category}}
                     </mat-chip>
-                </mat-chip-list>
+                <!-- </mat-chip-list> -->
             </div>
         </div>
 

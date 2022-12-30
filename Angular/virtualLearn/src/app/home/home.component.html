@@ -67,12 +67,12 @@
 
 
             <div class="chips">
-                <mat-chip-list  aria-label="category selection" *ngFor="let category of categories; let i = index">
-                    <mat-chip (click)="seeAllCategories(category, 'seeAll')">
+                <!-- <mat-chip-list  aria-label="category selection" > -->
+                    <mat-chip *ngFor="let category of categories; let i = index" (click)="seeAllCategories(category, 'seeAll')">
                         <img matChipAvatar [src]="image[i]" alt="" />
                         {{category}}
                     </mat-chip>
-                </mat-chip-list>
+                <!-- </mat-chip-list> -->
             </div>
         </div>
 

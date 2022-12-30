@@ -71,12 +71,12 @@
                 </div>
 
                 <hr>
-
-                <div class="synopsis" *ngIf="overView">
+                <!-- *ngIf="overView" -->
+                <div class="synopsis" >
                     {{details?.courseOverview.overViewId.previewThisCourse.description}}
                 </div>
 
-                <div class="synopsis-detail" *ngIf="overView">
+                <div class="synopsis-detail">
                     {{details?.courseOverview.overViewId.description}}
                 </div>
             </div>
@@ -213,12 +213,12 @@
                                             (click)="openDropdown(i)">remove</mat-icon>
                                     </div>
 
-                                    <div class="popup" *ngIf="!array[i]">
+                                    <div class="popup" *ngIf="!array[i]" #someSubscription>
                                       
 
                                         <div class="arrange">                                           
 
-                                            <div class="popup-content" id="popUp"
+                                            <div class="popup-content" id="popUp" 
                                                 *ngFor="let lessonList of chapterList.lessons; let x = index" (click)="show(lessonList)">
 
                                                 <div class="progessBar">
@@ -232,7 +232,7 @@
                                                 <p class="number">{{lessonList.serialNumberOfLesson}}</p>
                                                 <div class="lesson-details">
                                                     <p class="lessonP">{{lessonList.title}}</p>
-                                                    <p class="lesson-duration">{{lessonList.duration}} mins</p>
+                                                    <p class="lesson-duration">{{lessonList.duration}} secs</p>
                                                 </div>
                                                 <mat-icon class="pause" *ngIf="icon"
                                                     (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
@@ -243,7 +243,7 @@
                                                     [class.selected]="lessonList.url === activeVideo">play_circle_outline</mat-icon>
                                             </div>
 
-                                            <!-- <div class="test pointer" *ngIf="chapterList.test">
+                                            <div class="test pointer" *ngIf="chapterList.test">
                                                 <div class="progessBar">
                                                     <img [src]="srcURL">
                                                 </div>
@@ -252,7 +252,7 @@
                                                     <p>Module Test 2</p>
                                                     <p class="pp">10 mins | 25 Questions</p>
                                                 </div>
-                                            </div> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
