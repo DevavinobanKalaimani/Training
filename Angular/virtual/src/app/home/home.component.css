@@ -62,30 +62,33 @@
     gap: 3.1rem;
     height: 280px;
     overflow: hidden; */
-    height:300px;
+    height:auto;
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3.1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-y: hidden;
+    overflow-x: hidden; */
+    /* border: 2px solid red; */
 }
 .ongoing-courses {
-    height: 310px;
+    height: auto;
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3.1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
+    /* border: 2px solid red; */
+
 }
 
 .prev-next {
     /* border:2px solid red; */
-    width: 99%;
+    width: 82%;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    bottom: 180px;
+    position: absolute;
+    top: 340px;
 
     font-size: 32px;
     color: rgba(251, 248, 248, 0.479);
