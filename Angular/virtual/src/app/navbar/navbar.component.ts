@@ -5,11 +5,23 @@ import { MatDialog } from '@angular/material/dialog';
 import { LogoutComponent } from '../logout/logout.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+
+  animations: [
+
+    trigger('show', [
+      transition(':enter', [style({
+        height: '0%'
+      }),
+      animate(400)
+      ])
+    ])
+  ]
 })
 export class NavbarComponent implements OnInit {
 
@@ -25,7 +37,6 @@ export class NavbarComponent implements OnInit {
   searches: any;
   lists: any;
   value: any = '';
-
 
 
 
@@ -76,11 +87,13 @@ export class NavbarComponent implements OnInit {
     if (this.dropdown == false) {
       this.dropdown = true;
     }
+    // document.getElementById('dropdown').style['-webkit-transition-duration'] = '500s';
 
   }
 
-  
+
   close() {
+
     if (this.dropdown == true) {
       this.dropdown = false;
       this.topSearch = true;
@@ -89,6 +102,7 @@ export class NavbarComponent implements OnInit {
       this.notFound = false;
       this.inputForm.reset();
     }
+
   }
   appendValue(element: any) {
     this.value = element
@@ -193,16 +207,16 @@ export class NavbarComponent implements OnInit {
     // }
   }
 
-  getOverview(courseId: any, courseName: any){
+  getOverview(courseId: any, courseName: any) {
 
     sessionStorage.setItem('courseId', courseId);
     sessionStorage.setItem('courseName', courseName)
     this.router.navigate(['overview'])
     // console.log(courseId);
     // console.log(courseName);
-    
-    
-   }
+
+
+  }
 
   logOut() {
     this.dialog.open(LogoutComponent, { panelClass: 'custom-dialog-container' });

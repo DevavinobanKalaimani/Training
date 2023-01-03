@@ -21,28 +21,29 @@
                         <source src="{{videoSource}}"
                             type="video/mp4">
                     </video> -->
-                    <vg-player  class="video" >
-                        <!-- <vg-overlay-play></vg-overlay-play> -->
+
+                    <vg-player class="video" >
+                    
                         <vg-buffering></vg-buffering>
                         <vg-scrub-bar>
                             <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
                             <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
                         </vg-scrub-bar>
-                        <vg-controls [vgAutohide]="true" [vgAutohideTime]="0.5" >
+                        <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.0" >
                             <vg-play-pause (click)="getPauseTime()"></vg-play-pause>
                             <vg-playback-button></vg-playback-button>
                             <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
-                            <!-- <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar> -->
+                            
                             <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
                             <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
                             <vg-track-selector></vg-track-selector>
-                            <!-- <vg-mute></vg-mute> -->
+                           
                             <vg-volume></vg-volume>
-                            <!-- <vg-fullscreen></vg-fullscreen> -->
+                           
                         </vg-controls>
-                        <video [vgMedia]="$any(media)" #media [src]="activeVideo" type="video/mp4" id="singleVideo"
+                        <video  [vgMedia]="$any(media)" #media [src]="activeVideo" type="video/mp4" id="singleVideo"
                             preload="auto" crossorigin (ended)="videoEnd(currentLessonIndex)">
-                            <!-- <source   type="video/mp4"> -->
+                           
                             <track kind="subtitles" label="English"
                                 src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt" srclang="en" default>
 
@@ -55,203 +56,205 @@
                         <p class="P">{{chapters?.listOfChapters?.totalChapters[0].chapters.chapterTitle}}</p>
                         <p class="p">{{details?.courseOverview.overViewId.previewThisCourse.videoDuration}} min</p>
                     </div> -->
+
+            </div>
+
+            <div class="details">
+                <div class="video-title">
+                    <p class="p2">{{courseTitle | titlecase}}
+                    </p>
+                    <p class="p3">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
+                        {{chapters?.listOfChapters.courseContent.totalLessons}} lessons</p>
                 </div>
 
-                <div class="details">
-                    <div class="video-title">
-                        <p class="p2">{{courseTitle | titlecase}}
-                        </p>
-                        <p class="p3">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
-                            {{chapters?.listOfChapters.courseContent.totalLessons}} lessons</p>
-                    </div>
-
-                    <div class="video-category">
-                        {{details?.courseOverview.category}}
-                    </div>
-                </div>
-
-                <hr>
-                <!-- *ngIf="overView" -->
-                <div class="synopsis" >
-                    {{details?.courseOverview.overViewId.previewThisCourse.description}}
-                </div>
-
-                <div class="synopsis-detail">
-                    {{details?.courseOverview.overViewId.description}}
+                <div class="video-category">
+                    {{details?.courseOverview.category}}
                 </div>
             </div>
 
-            <div class="container-right">
-                <div class="content-right">
-                    <div class="head">
-                        <button class="button" [ngClass]="{ 'active' : isValue == 1 }" type="button"
-                            (click)="onOverview()">Overview</button>
-                        <button class="Button" [ngClass]="{ 'active' : isValue == 2 }" type="button"
-                            (click)="onChapter()">Chapters</button>
+            <hr>
+            <!-- *ngIf="overView" -->
+            <div class="synopsis">
+                {{details?.courseOverview.overViewId.previewThisCourse.description}}
+            </div>
+
+            <div class="synopsis-detail">
+                {{details?.courseOverview.overViewId.description}}
+            </div>
+        </div>
+
+        <div class="container-right">
+            <div class="content-right">
+                <div class="head">
+                    <button class="button" [ngClass]="{ 'active' : isValue == 1 }" type="button"
+                        (click)="onOverview()">Overview</button>
+                    <button class="Button" [ngClass]="{ 'active' : isValue == 2 }" type="button"
+                        (click)="onChapter()">Chapters</button>
+                </div>
+                <div class="OverView" *ngIf="overView" #overView>
+                    {{onOverview()}}
+                    <div class="course-includes">
+                        <p class="p4">Course Includes</p>
+
+
+                        <div class="include-list">
+
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (3).png">
+                                <div class="include-para">
+                                    <p class="p7"> {{hour}} total hours video</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (2).png ">
+                                <div class="include-para">
+                                    <p class="p7"> Support Files</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (1).png">
+                                <div class="include-para">
+                                    <p class="p7"> {{chapters?.listOfChapters.courseContent.totalTests}} Module Test
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (4).png">
+                                <div class="include-para">
+                                    <p class="p7"> Full lifetime access</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image.png">
+                                <div class="include-para">
+                                    <p class="p7"> Access on mobile, desktop and tv</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (5).png">
+                                <div class="include-para">
+                                    <p class="p7"> Certificate of Completion</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="OverView" *ngIf="overView" #overView>
-                        {{onOverview()}}
-                        <div class="course-includes">
-                            <p class="p4">Course Includes</p>
 
+                    <div class="learn">
 
-                            <div class="include-list">
+                        <p class="p5">What you'll learn </p>
 
-                                <div class="div">
-                                    <img src="assets/MicrosoftTeams-image (3).png">
-                                    <div class="include-para">
-                                        <p class="p7"> {{hour}} total hours video</p>
-                                    </div>
-                                </div>
-                                <div class="div">
-                                    <img src="assets/MicrosoftTeams-image (2).png ">
-                                    <div class="include-para">
-                                        <p class="p7"> Support Files</p>
-                                    </div>
-                                </div>
-                                <div class="div">
-                                    <img src="assets/MicrosoftTeams-image (1).png">
-                                    <div class="include-para">
-                                        <p class="p7"> {{chapters?.listOfChapters.courseContent.totalTests}} Module Test
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="div">
-                                    <img src="assets/MicrosoftTeams-image (4).png">
-                                    <div class="include-para">
-                                        <p class="p7"> Full lifetime access</p>
-                                    </div>
-                                </div>
-                                <div class="div">
-                                    <img src="assets/MicrosoftTeams-image.png">
-                                    <div class="include-para">
-                                        <p class="p7"> Access on mobile, desktop and tv</p>
-                                    </div>
-                                </div>
-                                <div class="div">
-                                    <img src="assets/MicrosoftTeams-image (5).png">
-                                    <div class="include-para">
-                                        <p class="p7"> Certificate of Completion</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="list">
 
-                        </div>
-
-                        <div class="learn">
-
-                            <p class="p5">What you'll learn </p>
-
-                            <div class="list">
-
-                                <div class="div"
-                                    *ngFor="let outcome of details?.courseOverview.overViewId?.whatYouWillLearn">
-                                    <img src="assets/Combined-Shape.png">
-                                    <div class="para">
-                                        <p class="p6"> {{outcome}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="requirement">
-                            <p class="p7">Requirements</p>
-
-                            <div class="div" *ngFor="let points of details?.courseOverview.overViewId?.requirements">
-                                <p class="po">.</p>
+                            <div class="div"
+                                *ngFor="let outcome of details?.courseOverview.overViewId?.whatYouWillLearn">
+                                <img src="assets/Combined-Shape.png">
                                 <div class="para">
-                                    <p class="p6"> {{points}}</p>
+                                    <p class="p6"> {{outcome}}</p>
                                 </div>
                             </div>
-
                         </div>
+                    </div>
 
+                    <div class="requirement">
+                        <p class="p7">Requirements</p>
 
-                        <div class="instructor">
-                            <p class="p8">Instructor</p>
-
-                            <div class="profile">
-                                <img src="{{details?.courseOverview.overViewId?.instructor.instructorImage}}">
-                                <div class="profile-detail">
-                                    <p class="p9">{{details?.courseOverview.overViewId?.instructor.name}}</p>
-                                    <p class="p10">{{details?.courseOverview.overViewId?.instructor.designation}}&nbsp;
-                                        | &nbsp;{{details?.courseOverview.overViewId?.instructor.url}}</p>
-                                </div>
+                        <div class="div" *ngFor="let points of details?.courseOverview.overViewId?.requirements">
+                            <p class="po">.</p>
+                            <div class="para">
+                                <p class="p6"> {{points}}</p>
                             </div>
-
-                            <div class="overviews">
-                                <p class="p11">{{details?.courseOverview.overViewId?.instructor.description}}</p>
-                            </div>
-                        </div>
-
-                        <div class="btn pointer" *ngIf="BTN">
-                            Join Course
                         </div>
 
                     </div>
 
-                    <div class="Chapters" *ngIf="chapterView" #chapterView>
-                        <p class="p12">Course Content</p>
-                        <p class="p13">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
-                            {{chapters?.listOfChapters.courseContent.totalLessons}} lessons |
-                            {{chapters?.listOfChapters.courseContent.totalTests}} Assignment Test |
-                            {{hour}}h total length</p>
 
-                        <div class="chapter-overview">
-                            <div class="group">
-                                <div class="chapter1"
-                                    *ngFor="let chapterList of chapters?.listOfChapters?.totalChapters[0].chapters; let i = index">
+                    <div class="instructor">
+                        <p class="p8">Instructor</p>
 
-                                    <div class="chapterTitle">
-                                        <p class="p14">Chapter {{chapterList.chapterNumber}} -
-                                            {{chapterList.chapterTitle}}</p>
+                        <div class="profile">
+                            <img src="{{details?.courseOverview.overViewId?.instructor.instructorImage}}">
+                            <div class="profile-detail">
+                                <p class="p9">{{details?.courseOverview.overViewId?.instructor.name}}</p>
+                                <p class="p10">{{details?.courseOverview.overViewId?.instructor.designation}}&nbsp;
+                                    | &nbsp;{{details?.courseOverview.overViewId?.instructor.url}}</p>
+                            </div>
+                        </div>
 
-                                        <mat-icon *ngIf="array[i]" class="add-remove"
-                                            (click)="openDropdown(i)">add</mat-icon>
+                        <div class="overviews">
+                            <p class="p11">{{details?.courseOverview.overViewId?.instructor.description}}</p>
+                        </div>
+                    </div>
 
-                                        <mat-icon *ngIf=" !array[i]" class="add-remove"
-                                            (click)="openDropdown(i)">remove</mat-icon>
-                                    </div>
+                    <div class="btn pointer" *ngIf="BTN">
+                        Join Course
+                    </div>
 
-                                    <div class="popup" *ngIf="!array[i]" #someSubscription>
-                                      
+                </div>
 
-                                        <div class="arrange">                                           
+                <div class="Chapters" *ngIf="chapterView" #chapterView>
+                    <p class="p12">Course Content</p>
+                    <p class="p13">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
+                        {{chapters?.listOfChapters.courseContent.totalLessons}} lessons |
+                        {{chapters?.listOfChapters.courseContent.totalTests}} Assignment Test |
+                        {{hour}}h total length</p>
 
-                                            <div class="popup-content" id="popUp" 
-                                                *ngFor="let lessonList of chapterList.lessons; let x = index" (click)="show(lessonList)">
+                    <div class="chapter-overview">
+                        <div class="group">
+                            <div class="chapter1"
+                                *ngFor="let chapterList of chapters?.listOfChapters?.totalChapters[0].chapters; let i = index">
 
-                                                <div class="progessBar">
-                                                    {{check(lessonList.serialNumberOfLesson)}}
-                                                    
-                                                    <img aria-hidden="false" class="image" id="{{lessonList.serialNumberOfLesson}}" [src]="srcURL" >
-                                                </div>
+                                <div class="chapterTitle">
+                                    <p class="p14">Chapter {{chapterList.chapterNumber}} -
+                                        {{chapterList.chapterTitle}}</p>
 
-                                                <div class="line"></div>
+                                    <mat-icon *ngIf="array[i]" class="add-remove"
+                                        (click)="openDropdown(i)">add</mat-icon>
 
-                                                <p class="number">{{lessonList.serialNumberOfLesson}}</p>
-                                                <div class="lesson-details">
-                                                    <p class="lessonP">{{lessonList.title}}</p>
-                                                    <p class="lesson-duration">{{lessonList.duration}} secs</p>
-                                                </div>
-                                                <mat-icon class="pause" *ngIf="icon"
-                                                    (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
-                                                    [class.selected]="lessonList.url === activeVideo">play_circle_outline</mat-icon>
+                                    <mat-icon *ngIf=" !array[i]" class="add-remove"
+                                        (click)="openDropdown(i)">remove</mat-icon>
+                                </div>
 
-                                                    <mat-icon class="pause" style="color: rgba(255, 0, 0, 0.548)" *ngIf="!icon"
-                                                    (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
-                                                    [class.selected]="lessonList.url === activeVideo">play_circle_outline</mat-icon>
+                                <div class="popup" *ngIf="!array[i]">
+
+
+                                    <div class="arrange">
+
+                                        <div class="popup-content" id="popUp"
+                                            *ngFor="let lessonList of chapterList.lessons; let x = index"
+                                            (click)="show(lessonList)">
+
+                                            <div class="progessBar">
+                                                {{check(lessonList.serialNumberOfLesson)}}
+
+                                                <img aria-hidden="false" class="image"
+                                                    id="{{lessonList.serialNumberOfLesson}}" [src]="srcURL">
                                             </div>
 
-                                            <div class="test pointer" *ngIf="chapterList.test">
-                                                <div class="progessBar">
-                                                    <img [src]="srcURL">
-                                                </div>
-                                                <img src="assets/Shape.png" >
-                                                <div class="test-text" (click)="goToTest()">
-                                                    <p>Module Test 2</p>
-                                                    <p class="pp">10 mins | 25 Questions</p>
-                                                </div>
+                                            <div class="line"></div>
+
+                                            <p class="number">{{lessonList.serialNumberOfLesson}}</p>
+                                            <div class="lesson-details">
+                                                <p class="lessonP">{{lessonList.title}}</p>
+                                                <p class="lesson-duration">{{lessonList.duration}} secs</p>
+                                            </div>
+                                            <mat-icon class="pause" *ngIf="icon"
+                                                (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
+                                                [class.selected]="lessonList.url === activeVideo">play_circle_outline</mat-icon>
+
+                                            <mat-icon class="pause" style="color: rgba(255, 0, 0, 0.548)" *ngIf="!icon"
+                                                (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
+                                                [class.selected]="lessonList.url === activeVideo">play_circle_outline</mat-icon>
+                                        </div>
+
+                                        <div class="test pointer" *ngIf="chapterList.test">
+                                            <div class="progessBar">
+                                                <img [src]="srcURL">
+                                            </div>
+                                            <img src="assets/Shape.png">
+                                            <div class="test-text" (click)="goToTest()">
+                                                <p>Module Test 2</p>
+                                                <p class="pp">10 mins | 25 Questions</p>
                                             </div>
                                         </div>
                                     </div>
@@ -259,16 +262,17 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="noEnroll" *ngIf="noEnroll">
-                        <img src="assets/lock.jpg" />
-                        <p class="noP">Enroll to Develop your Knowledge on <br> <span>{{details?.courseOverview.category
-                                |
-                                uppercase}}</span></p>
-                    </div>
-
                 </div>
+
+                <div class="noEnroll" *ngIf="noEnroll">
+                    <img src="assets/lock.jpg" />
+                    <p class="noP">Enroll to Develop your Knowledge on <br> <span>{{details?.courseOverview.category
+                            |
+                            uppercase}}</span></p>
+                </div>
+
             </div>
         </div>
     </div>
+</div>
 </div>

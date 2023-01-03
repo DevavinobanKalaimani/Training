@@ -32,7 +32,7 @@
                     <p class="p6">Setting up a new project</p>
                 </div>
                 <div class="test-navigate">
-                    <i *ngIf="leftArrow" class="fas fa-arrow-left"(click)=DecreaseI()></i>
+                    <i *ngIf="leftArrow" [ngClass]="{'hide' : i == 0}" class="fas fa-arrow-left"(click)=DecreaseI()></i>
 
                     <i *ngIf="arrowRight" class="fas fa-arrow-right" (click)="increaseI()"></i>
                     <div *ngIf="button" class="submit"> Submit </div>

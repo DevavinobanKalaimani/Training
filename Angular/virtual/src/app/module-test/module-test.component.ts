@@ -13,7 +13,7 @@ export class ModuleTestComponent implements OnInit {
   i: any = 0;
   arrowRight = true;
   button = false;
-  leftArrow = false;
+  leftArrow = true;
 
   constructor(private test: TestService) { }
 
@@ -48,13 +48,15 @@ export class ModuleTestComponent implements OnInit {
 
   DecreaseI() {
 
-    if (this.i == 4 || this.i == 3 || this.i == 2 || this.i == 1) {
+    if (this.i <= 4) {
       this.leftArrow = true;
       this.i = --this.i;
+      console.log(this.i);
+
       this.button = false;
       this.arrowRight = true;
     } else {
-      this.leftArrow = false;
+      // this.leftArrow = false;
     }
   }
 }

@@ -38,10 +38,10 @@
             <mat-icon (click)="close()">close</mat-icon>
         </div>
     </div>
+
 </mat-toolbar>
 
-<div id="dropdown" class="dropdown" *ngIf="dropdown">
-
+<div  class="dropdown" *ngIf="dropdown" @show>
     <div class="dropdown-content">
         <div class="search-content" *ngIf="topSearch">
             <p class="p1">Top Search</p>

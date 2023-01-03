@@ -1,6 +1,7 @@
 mat-toolbar {
     height: 80px;
     background-color: #092963;
+    z-index: 200
 }
 
 
@@ -12,6 +13,8 @@ mat-toolbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 100
+
 }
 
 .img1 {
@@ -147,16 +150,11 @@ input[type=text]:focus {
     width: 100%;
     background-color: #092963;
     padding-bottom: 70px;
-
-    
-    /* transform: translate(-200%); 
-    transition: transform 0.5s ease; */
+    position: relative;
+    overflow: hidden;
+   
 
 }
-
-/* input[type=text]:focus .dropdown{
-    transform: translate(0);
-} */
 
 
 .dropdown-content {
@@ -411,7 +409,7 @@ input[type=text]:focus {
 
 @media(max-width: 700px) {
     .dropdown-content {
-        width: 100%;
+        width: 90%;
         position: relative;
         right: 100px;
     }

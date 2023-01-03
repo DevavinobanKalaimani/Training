@@ -22,6 +22,7 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { SeeAllComponent } from './see-all/see-all.component';
 import { ModuleTestComponent } from './module-test/module-test.component';
 import { AllOngoingComponent } from './all-ongoing/all-ongoing.component';
+import { DialogPauseComponent } from './dialog-pause/dialog-pause.component';
  
 
 
@@ -37,6 +38,7 @@ import { AllOngoingComponent } from './all-ongoing/all-ongoing.component';
     SeeAllComponent,
     ModuleTestComponent,
     AllOngoingComponent,
+    DialogPauseComponent,
    
   ],
   imports: [

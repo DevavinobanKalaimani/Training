@@ -80,7 +80,10 @@
     font-size: 22px;
     line-height: 30px;
     color: #fbf9f9;
-   width: 310px;
+   width: auto;
+   white-space: nowrap;
+   overflow: hidden !important;
+   text-overflow: ellipsis;
     /* border: 2px solid white; */
 }
 
@@ -88,7 +91,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: 10px;
+    line-height: 20px;
     color: #FFFFFF;
 }
 

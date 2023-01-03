@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { DialogPauseComponent } from '../dialog-pause/dialog-pause.component';
 import { OverViewService } from '../services/overview.service';
-// import * as $ from "jquery";
+// import {VgAPI} from '@videogular/ngx-videogular/core';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -43,19 +45,9 @@ export class OverviewComponent implements OnInit {
   lessonLength: any;
   videoStatus: any;
   icon: any = true;
-  someSubscription: any;
 
-  constructor(private service: OverViewService, private router: Router) {
 
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
-    this.someSubscription = this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.router.navigated = false;        
-      }
-    });
-  }
+  constructor(private service: OverViewService, private router: Router, private dialog: MatDialog) { }
  
   ngOnInit(): void {
 
@@ -65,19 +57,13 @@ export class OverviewComponent implements OnInit {
     this.getVideoProgress();
 
     this.service.getVideoData().subscribe(data => {
-      console.log(data);
+      // console.log(data);
+     
     })
 
     this.getProgress();
   }
 
-  ngOnDestroy() {
-    if (this.someSubscription) {
-      this.someSubscription.unsubscribe();
-      console.log('hi');
-      
-    }
-  }
 
 
   getVideoProgress() {
@@ -88,7 +74,7 @@ export class OverviewComponent implements OnInit {
         this.indexes.push(i);
       }
       this.osn = this.videoStatus.ongoingSerialNumber
-      console.log(this.osn);
+      // console.log(this.osn);
       
       console.log(this.videoStatus);
       sessionStorage.setItem('videoArrayLength', this.videoStatus.allVideoStatus.length);
@@ -197,14 +183,25 @@ export class OverviewComponent implements OnInit {
       this.activeVideo = this.videoSource
       alert('Process not allowed')
     }
+
+    if(serialNumber == this.videoStatus.allVideoStatus.serialNumber || serialNumber == this.videoStatus.ongoingVideo.lessonNo){
+      this.dialog.open(DialogPauseComponent, {panelClass: 'custom'});
+      
+    }else{
+      this.currentIndex = index;
+      this.activeVideo = item;
+    }
+
+  
   }
 
   getPauseTime() {
     var myVideo: any = document.getElementById('singleVideo');
     this.pauseTime = myVideo.currentTime;
-
+    
     if (myVideo.paused) {
       this.videoPause(this.pauseTime);
+      sessionStorage.setItem('pauseTime', this.pauseTime);
     }
   }
 
@@ -225,6 +222,7 @@ export class OverviewComponent implements OnInit {
         sessionStorage.setItem('videoPausePlayStatus', this.userChapter.message)
         this.srcURL = this.image[1];
 
+        
       }
     });
 
@@ -299,23 +297,28 @@ export class OverviewComponent implements OnInit {
 
     let flag: any = 0;
     for (let i of this.indexes) {
+      if (index == this.osn) flag = 1;     
       if (index == i) flag = 2;
-      if (index === this.osn) flag = 1;     
       
     }
     if (flag == 0) {
       this.srcURL = this.image[2];
       this.icon = true;
     }
-    else if (flag == 2) {
-      this.srcURL = this.image[0];
+    else if (flag == 1 && sessionStorage.getItem('videoPausePlayStatus') == 'Lesson completed') {
+      this.srcURL = this.image[1];
       this.icon = false;
     }
-    else if (flag == 1) {
-      this.srcURL = this.image[1];
+    else if (flag == 2 && sessionStorage.getItem('videoPausePlayStatus') == 'Lesson completed') {
+      this.srcURL = this.image[0];
       this.icon = false;
     }
   }
 
+ 
 }
+
+
+
+
 
